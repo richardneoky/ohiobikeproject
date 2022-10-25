@@ -1,0 +1,1802 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<div id="map"></div>
+<meta charset="utf-8">
+<title>Display a map on a webpage</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css" rel="stylesheet">
+<link href="./biketrailmap.css" rel="stylesheet">
+
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js"></script>
+  
+ 
+  
+  <!--Turn Markers On And Off/Design Custom Buttons-->
+  
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+</style>
+<body>
+
+<div class="button">
+  
+  <a class="active" href="#"><i class="fa fa-map"></i></a> 
+  <a href="#"><i class="fa fa-map-signs"></i></a> <!--Trailheads-->
+  <a href="#"><i class="fa fa-bicycle"></i></a> <!--Mile Markers-->
+  <a href="#"><i class="fa fa-road"></i></a> <!--Bike SHop/Repair-->
+  <a href="#"><i class="fa fa-exclamation-triangle"></i></a> <!--Route Closures/Alerts-->
+  <a href="#"><i class="fa fa-fire"></i></a> <!--Camping-->
+  <a href="#"><i class="fa fa-bed"></i></a> <!--Hotels-->
+  <a href="#"><i class="fa fa-beer"></i></a> <!--Beer/Breweries/Dives-->
+  <a href="#"><i class="fa fa-spoon"></i></a> <!--Food/General Stores/Restaurants-->
+  <a href="#"><i class="fa fa-eye"></i></a>  <!--Sight Seeing/Historical/Nature-->
+</div>
+ 
+  <!--button functions in JS -->
+ 
+
+  
+  
+<!--logo-->
+<img class="logo" src="https://lh3.googleusercontent.com/salaALZAlUz5VN9mj585IgJ3SVtuR0sca6LZuGhw4blPLAVaG1KmSg9lvOs1MD9m7Wa5erlYWsILYj6OH7zYgdzWHP56GIVJ6pPkK8O6Wfm7DszWYshzWnSTpRMJPICZbRz0Zz0P-Q=w2400"/>
+  <style>
+  </style>
+</body>
+</html> 
+  <!--Nav Bar End--> 
+  
+   
+    
+<style>
+
+</style>
+</head>
+<body>
+ 
+ 
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoicmlubWFuODciLCJhIjoiY2s5ZDRrOXNmMDN6djNmcDd0eHVhcXNnMSJ9.lSA6fQZIptHf4g5lmD6SMA';
+  
+const map = new mapboxgl.Map({
+container: 'map', // container ID
+style: 'mapbox://styles/rinman87/cl6gyhfmn001j15oergm1k37x', // style URL
+center: [-83.09675, 39.94902], // starting position [lng, lat]
+zoom: 7, // starting zoom
+projection: 'globe' // display the map as a 3D globe
+});
+ 
+  map.addSource('tileset_data', {
+    "url": "rinman87.8z8wdd05",
+    "type": "vector"
+});
+
+map.on('style.load', () => {
+map.setFog({}); // Set the default atmosphere style
+});
+  </script>
+  
+</body>
+</html>
+
+
+<!--mapbox marker-->
+
+<script>
+   //Trailheads
+
+  var popup = new mapboxgl.Popup().setHTML(
+  `<h3>Ohio to Erie Trail</h3><p>Souther Terminus</p>` 
+);
+  
+    var marker = new mapboxgl.Marker({
+      color: "#A18C25",
+  addClass: "fa fa-map-signs",
+      addClass: "button"
+     })
+  .setLngLat([-84.50835, 39.09619])
+    .setPopup(popup)
+  .addTo(map);  
+
+
+
+  //Xenia Station
+  var popup = new mapboxgl.Popup().setHTML(
+  `<h3>Xenia Station</h3><p>Central Hub</p>` 
+);
+    var marker = new mapboxgl.Marker({
+      color: "#A18C25", 
+    })
+  .setLngLat([-83.93114, 39.68031])
+    .setPopup(popup)
+  .addTo(map);
+  
+  //Spring Valley Trailhead
+  
+   var popup = new mapboxgl.Popup().setHTML(
+  `<h3>Spring Valley Trailhead</h3><p></p>` 
+);
+    var marker = new mapboxgl.Marker({
+      color: "#A18C25", 
+    })
+   
+  .setLngLat([-84.00982, 39.60592])
+    .setPopup(popup)
+  .addTo(map);
+  
+  //Corwin Trailhead
+  
+  var popup = new mapboxgl.Popup().setHTML(
+  `<h3>Corwin Trailhead</h3><p></p>` 
+);
+    var marker = new mapboxgl.Marker({
+      color: "#A18C25", 
+    })
+  .setLngLat([-84.07958, 39.52474])
+    .setPopup(popup)
+  .addTo(map);
+  
+  //Oregonia Trailhead
+  
+  var popup = new mapboxgl.Popup().setHTML(
+  `<h3>Oregonia Trailhead</h3><p></p>` 
+);
+    var marker = new mapboxgl.Marker({
+      color: "#A18C25", 
+    })
+  .setLngLat([ -84.09766, 39.452])
+    .setPopup(popup)
+  .addTo(map);
+  
+  /*Morrow Trailhead */
+  
+    var popup = new mapboxgl.Popup().setHTML(
+  `<h3>Morrow Trailhead</h3><p></p>` 
+);
+    var marker = new mapboxgl.Marker({
+      color: "#A18C25", 
+    })
+  .setLngLat([ -84.13464, 39.35472])
+    .setPopup(popup)
+  .addTo(map);
+  
+  /*South Lebanon Trailhead*/
+  
+      var popup = new mapboxgl.Popup().setHTML(
+  `<h3>South Lebanon Trailhead</h3><p></p>` 
+);
+    var marker = new mapboxgl.Marker({
+      color: "#A18C25", 
+    })
+  .setLngLat([ -84.21723, 39.3662])
+    .setPopup(popup)
+  .addTo(map);
+  
+  /*Milford Trailhead*/
+  
+      var popup = new mapboxgl.Popup().setHTML(
+  `<h3>Milford Trailhead</h3><p></p>` 
+);
+    var marker = new mapboxgl.Marker({
+      color: "#A18C25", 
+    })
+  .setLngLat([ -84.29953,39.17161])
+    .setPopup(popup)
+  .addTo(map);
+  
+  /* Avoca Park Trailhead*/
+  
+   
+      var popup = new mapboxgl.Popup().setHTML(
+  `<h3>Avoca Park Trailhead</h3><p></p>` 
+);
+    var marker = new mapboxgl.Marker({
+      color: "#A18C25", 
+    })
+  .setLngLat([ -84.34205, 39.13931])
+    .setPopup(popup)
+  .addTo(map); 
+  
+  /*Wilmer Trailhead- Lunken AIRPORT*/
+  
+      var popup = new mapboxgl.Popup().setHTML(
+  `<h3>Wilmer Trailhead</h3><p>Lunken Airport</p>` 
+);
+    var marker = new mapboxgl.Marker({
+      color: "#A18C25", 
+    })
+  .setLngLat([ -84.4301, 39.10436])
+    .setPopup(popup)
+  .addTo(map); 
+  
+  /*South Charleston Trailhead*/
+  
+     var popup = new mapboxgl.Popup().setHTML(
+  `<h3>South Charleston Trailhead</h3><p></p>` 
+);
+    var marker = new mapboxgl.Marker({
+      color: "#A18C25", 
+    })
+  .setLngLat([ -83.63795, 39.82131])
+    .setPopup(popup)
+  .addTo(map); 
+  
+  /*London Trailhead*/
+  
+      var popup = new mapboxgl.Popup().setHTML(
+  `<h3>London Trailhead</h3><p></p>` 
+);
+    var marker = new mapboxgl.Marker({
+      color: "#A18C25", 
+    })
+  .setLngLat([ -83.46085, 39.879])
+    .setPopup(popup)
+  .addTo(map); 
+  
+  /*Battelle Darby Creek Park Trailhead*/
+  
+   var popup = new mapboxgl.Popup().setHTML(
+  `<h3>Battelle Darby Creek Park Trailhead</h3><p></p>` 
+);
+    var marker = new mapboxgl.Marker({
+      color: "#A18C25", 
+    })
+  .setLngLat([ -83.21356, 39.89386])
+    .setPopup(popup)
+  .addTo(map); 
+  
+  /*Wilson Road Park Trailhead*/
+  
+   var popup = new mapboxgl.Popup().setHTML(
+  `<h3>Wilson Road Park Trailhead</h3><p></p>` 
+);
+    var marker = new mapboxgl.Marker({
+      color: "#A18C25", 
+    })
+  .setLngLat([ -83.09675, 39.94902])
+    .setPopup(popup)
+  .addTo(map); 
+  
+  /*Hayden Park Trailhead*/
+  
+   var popup = new mapboxgl.Popup().setHTML(
+  `<h3>Hayden Park Trailhead</h3><p></p>` 
+);
+    var marker = new mapboxgl.Marker({
+      color: "#A18C25", 
+    })
+  .setLngLat([ -82.93956, 39.98721])
+    .setPopup(popup)
+  .addTo(map); 
+  
+  /*Westerville Depot*/
+  
+    var popup = new mapboxgl.Popup().setHTML(
+  `<h3>Westerville Depot</h3><p></p>` 
+);
+    var marker = new mapboxgl.Marker({
+      color: "#A18C25", 
+    })
+  .setLngLat([ -82.92686, 40.12307])
+    .setPopup(popup)
+  .addTo(map); 
+  
+  /* Galena Trailhead*/
+  
+   var popup = new mapboxgl.Popup().setHTML(
+  `<h3>Galena Trailhead</h3><p></p>` 
+);
+    var marker = new mapboxgl.Marker({
+      color: "#A18C25", 
+    })
+  .setLngLat([ -82.88149, 40.21977])
+    .setPopup(popup)
+  .addTo(map); 
+  
+  /*Centerburg Trailhead*/
+  
+    var popup = new mapboxgl.Popup().setHTML(
+  `<h3>Centerburg Trailhead</h3><p>Visit the geographic center of Ohio located at this trailhead.</p>` 
+);
+    var marker = new mapboxgl.Marker({
+      color: "#A18C25", 
+    })
+  .setLngLat([ -82.6922, 40.3099])
+    .setPopup(popup)
+  .addTo(map); 
+  
+  /* Mount Vernon Station*/
+  
+      var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Mount Vernon Station</h3><p></p>` 
+        
+);
+    var marker = new mapboxgl.Marker({
+      color: "#A18C25", 
+    })
+  .setLngLat([ -82.48695, 40.38856])
+    .setPopup(popup)
+  .addTo(map); 
+  
+/*Gambier Trailhead*/
+  
+     var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Gambier Trailhead</h3><p></p>` 
+        
+);
+    var marker = new mapboxgl.Marker({
+      color: "#A18C25", 
+    })
+  .setLngLat([ -82.3908, 40.36917])
+    .setPopup(popup)
+  .addTo(map); 
+  
+  /*Danville Trailhead*/
+  
+  var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Danville Trailhead</h3><p></p>` 
+        
+);
+    var marker = new mapboxgl.Marker({
+      color: "#A18C25", 
+    })
+  .setLngLat([ -82.26615, 40.44365])
+    .setPopup(popup)
+  .addTo(map); 
+  
+  /*Bridge of Dreams*/
+  
+  var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Bridge of Dreams</h3><p>Mohican Valley Trail</p>` 
+        
+);
+    var marker = new mapboxgl.Marker({
+      color: "#A18C25", 
+    })
+  .setLngLat([  -82.19279, 40.4654])
+    .setPopup(popup)
+  .addTo(map); 
+  
+  /*Glenmont Trailhead*/
+  
+   var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Glenmont Trailhead</h3><p></p>` 
+        
+);
+    var marker = new mapboxgl.Marker({
+      color: "#A18C25", 
+    })
+  .setLngLat([  -82.09778, 40.51816])
+    .setPopup(popup)
+  .addTo(map);  
+  
+  /*Killbuck Trailhead*/
+  
+     var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Killbuck Trailhead</h3><p></p>` 
+        
+);
+    var marker = new mapboxgl.Marker({
+      color: "#A18C25", 
+    })
+  .setLngLat([  -81.98139, 40.50406])
+    .setPopup(popup)
+  .addTo(map); 
+  
+  /*Hipp Station - Millersburg*/
+  
+    var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Hipp Station - Millersburg</h3><p></p>` 
+        
+);
+    var marker = new mapboxgl.Marker({
+      color: "#A18C25", 
+    })
+  .setLngLat([  -81.9212, 40.55368])
+    .setPopup(popup)
+  .addTo(map); 
+  
+  /*Fredericksburg Trailhead*/
+  
+     var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Fredericksburg Trailhead</h3><p></p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#A18C25", 
+    })
+  .setLngLat([  -81.87244, 40.67532])
+    .setPopup(popup)
+  .addTo(map); 
+  
+  /*Dalton Trailhead*/
+  
+       var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Dalton Trailhead</h3><p></p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#A18C25", 
+    })
+  .setLngLat([  -81.69024, 40.79793])
+    .setPopup(popup)
+  .addTo(map); 
+  
+  /*Lake Ave. Trailhead*/
+  
+       var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Lake Ave. Trailhead</h3><p></p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#A18C25", 
+    })
+  .setLngLat([  -81.52842, 40.81154])
+    .setPopup(popup)
+  .addTo(map); 
+  
+  /*Clinton Trailhead*/
+  
+         var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Clinton Trailhead</h3><p>Ohio & Erie Canal Towpath Trail</p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#A18C25", 
+    })
+  .setLngLat([  -81.52842, 40.81154])
+    .setPopup(popup)
+  .addTo(map); 
+  
+  /*Akron Northside Station - CVSR*/
+  
+          var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Akron Northside Station - CVSR</h3><p>Cuyahoga Valley Scenic Railroad Station</p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#A18C25", 
+    })
+  .setLngLat([  -81.51565, 41.08951])
+    .setPopup(popup)
+  .addTo(map); 
+  
+  /*Lock 29 Trailhead - Peninsula*/
+  
+           var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Lock 29 Trailhead - Peninsula</h3><p>Cuyahoga Valley Scenic Railroad</p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#A18C25", 
+    })
+  .setLngLat([  -81.55032, 41.2432])
+    .setPopup(popup)
+  .addTo(map); 
+  
+  /*Lock 39 Trailhead - Rockside Station -CVSR*/
+  
+  
+           var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Lock 39 Trailhead - Rockside Station -CVSR</h3><p>Cuyahoga Valley Scenic Railroad</p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#A18C25", 
+    })
+  .setLngLat([  -81.62887, 41.39333])
+    .setPopup(popup)
+  .addTo(map); 
+  
+  /*Beech Street Trailhead*/
+  
+         var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Beech Street Trailhead</h3><p>Cuyahoga Valley Scenic Railroad</p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#A18C25", 
+    })
+  .setLngLat([  -81.51857, 41.08788])
+    .setPopup(popup)
+  .addTo(map); 
+  
+  /*Loveland Trailhead*/
+  
+          var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Loveland Trailhead</h3><p></p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#A18C25", 
+    })
+  .setLngLat([  -84.25778, 39.26813])
+    .setPopup(popup)
+  .addTo(map); 
+  
+  /*Cedarville Trailhead*/
+  
+        var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Cedarville Trailhead</h3><p></p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#A18C25", 
+    })
+  .setLngLat([  -83.80511, 39.74015])
+    .setPopup(popup)
+  .addTo(map); 
+  
+  /*Foster Trailhead*/
+  
+       var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Foster Trailhead</h3><p></p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#A18C25", 
+    })
+  .setLngLat([  -84.25122, 39.32232])
+    .setPopup(popup)
+  .addTo(map); 
+  
+  /*Boston Trailhead*/
+  
+     var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Boston Trailhead</h3><p>Boston Store Visitor Center</p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#A18C25", 
+    })
+  .setLngLat([  -81.55706, 41.26302])
+    .setPopup(popup)
+  .addTo(map); 
+  
+  /*Botzum Trailhead*/
+  
+   var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Botzum Trailhead</h3><p></p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#A18C25", 
+    })
+  .setLngLat([   -81.57367, 41.15818])
+    .setPopup(popup)
+  .addTo(map); 
+  
+  /*Station Road Bridge Trailhead*/
+  
+  var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Station Road Bridge Trailhead</h3><p></p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#A18C25", 
+    })
+  .setLngLat([ -81.58762, 41.31843])
+    .setPopup(popup)
+  .addTo(map); 
+  
+/*E Galbraith Rd Trailhead*/
+  
+  var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>E Galbraith Rd Trailhead</h3><p></p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#A18C25", 
+    })
+  .setLngLat([ -84.29311, 39.19016])
+    .setPopup(popup)
+  .addTo(map); 
+  
+  /*Harvard Ave Trailhead*/
+  
+   var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Harvard Ave Trailhead</h3><p></p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#A18C25", 
+    })
+  .setLngLat([ -81.68221, 41.44714])
+    .setPopup(popup)
+  .addTo(map); 
+  
+  /*Clark Ave Trailhead*/
+  
+  var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Clark Ave Trailhead</h3><p></p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#A18C25", 
+    })
+  .setLngLat([ -81.68631, 41.4705])
+    .setPopup(popup)
+  .addTo(map); 
+  
+  /*Sunbury Trailhead*/
+  
+   var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Sunbury Trailhead</h3><p></p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#A18C25", 
+    })
+  .setLngLat([ -82.85956, 40.23891,])
+    .setPopup(popup)
+  .addTo(map);
+  /*Trailhead Marker End*/
+  
+  
+  
+  /*Camp Marker Begin*/
+  
+  /*Heritage Farms Campground*/
+  
+    var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Heritage Farms Campground</h3><p>Heritage Farms Campground -- 1/2 mile off trail
+5060 Riverview Rd’. Peninsula, OH
+Coordinates: (41.2380, -81.5555)
+http://heritagefarms.com/
+(330) 657-2330
+Amenities: portable restroom</p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#257508", 
+    })
+  .setLngLat([ -81.55549, 41.24024,])
+    .setPopup(popup)
+  .addTo(map);
+  
+ /*Summit Metro Park Big Bend Trailhead Camping*/
+  
+   var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Summit Metro Park Big Bend Trailhead Camping</h3><p>Summit Metro Park Big Bend Trailhead – On trail
+1337 Merriman Road, Akron, OH
+Coordinates (41.1275, -81.5400)
+www.summitmetroparks.org/camping.aspx
+(330) 867-5511
+Amenities: Primitive</p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#257508", 
+  })
+  .setLngLat([  -81.54, 41.1275,])
+    .setPopup(popup)
+  .addTo(map);
+
+  /*Summit Metro Park Franklin Trailhead*/
+   var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Summit Metro Park Franklin Trailhead Camping</h3><p>Summit Metro Park Franklin Trailhead – On trail
+South of Franklin trailhead
+Coordinates: (40.9435, -81.6195)
+www.summitmetroparks.org/camping.aspx
+(330) 867-5511
+Amenities: Primitive</p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#257508", 
+ 
+  })
+  .setLngLat([  -81.6195, 40.9435])
+    .setPopup(popup)
+  .addTo(map);
+  
+  
+ /*Hillside Park of Clinton*/
+  
+   var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Hillside Park of Clinton Camping</h3><p>Hillside Park of Clinton – 1.0 miles off trail
+2534 W. Comet Road, Clinton, OH
+Coordinates: (40.9264, -81.6195)
+http://hillsideparkcampground.com
+(330) 882-5678
+Amenities: Primitive or water & electric</p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#257508", 
+ 
+  })
+  .setLngLat([  -81.6195, 40.9264])
+    .setPopup(popup)
+  .addTo(map);
+  
+ /*Canal Fulton Canoe Livery and Campground*/
+  
+     var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Canal Fulton Canoe Livery and Campground</h3><p>Canal Fulton Canoe Livery and Campground – On trail
+219 W. Cherry Street (Rt. 93), Clinton, OH
+Coordinates: (40.8884, -81.5996)
+https://www.cfcanoe.com
+(330) 854-4008
+Amenities: Water, Electric, Restrooms, Showers</p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#257508", 
+ 
+  })
+  .setLngLat([  -81.59959, 40.88839])
+    .setPopup(popup)
+  .addTo(map);
+  
+ /*Clay’s Park Resort*/
+  
+       var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Clay’s Park Resort</h3><p>Clay’s Park Resort – 1.4 miles off trail
+13190 Patterson Street NW, North Lawrence, OH
+Coordinates: (40.8579, -81.5939)
+www.clayspark.com
+(937) 562-6440
+Amenities: Full service</p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#257508", 
+ 
+  })
+  .setLngLat([   -81.5939, 40.8579])
+    .setPopup(popup)
+  .addTo(map);
+  
+  /*Rivers Edge Campground*/
+  
+         var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Rivers Edge Campground</h3><p>Rivers Edge Campground -- On trail
+Bridgeport Quarry Trailhead, Massillon, OH
+Coordinates: (40.8316, -81.525)
+https://www.starkparks.com/camping/Bridgeport Quarry Trailhead
+(330) 353-2377
+Amenities: Primitive</p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#257508", 
+ 
+  })
+  .setLngLat([   -81.52499, 40.8316])
+    .setPopup(popup)
+  .addTo(map);
+  
+  /*Turkey Hollow Campground*/
+  
+    var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Turkey Hollow Campground</h3><p>Turkey Hollow Campground – 1/2 mile off trail
+7838 Township Road 102, Millersburg, OH
+Coordinates: (40.5146, -81.9066)
+https://turkeyhollowcamping.com/
+(330) 231-6935
+Amenities: Tent camping Only</p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#257508", 
+ 
+  })
+  .setLngLat([   -81.9066, 40.5146])
+    .setPopup(popup)
+  .addTo(map);
+  
+  /*Kokosing Valley Camp and Canoe*/
+  
+   var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Kokosing Valley Camp and Canoe</h3><p>Kokosing Valley Camp and Canoe – 2.6 miles off trail
+25860 Coshocton Rd, Howard, OH
+Coordinates: (40.4020, -82.2835)
+www.kokosingvalley.com
+(740) 599-7056.
+Amenities: Full service</p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#257508", 
+ 
+  })
+  .setLngLat([   -82.2835, 40.402])
+    .setPopup(popup)
+  .addTo(map);
+  
+  
+  
+  
+  
+  
+ /*Rustic Knolls Campgrounds*/
+
+    var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Rustic Knolls Campgrounds</h3><p>Rustic Knolls Campgrounds – 1.6 miles from trail
+8664 Keys Rd, Mt Vernon, OH
+Coordinates: (40.3676, -82.5594)
+http://rusticknollscampground.com
+(740) 397-9318
+Amenities: Full service</p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#257508", 
+ 
+  })
+  .setLngLat([-82.5594, 40.3676,])
+    .setPopup(popup)
+  .addTo(map);
+  
+  
+/*Madison County Fairgrounds*/
+  
+   var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Madison County Fairgrounds</h3><p>Madison County Fairgrounds – 0.8 miles off trail
+205 Elm St, London, OH
+Coordinates: (39.8958, -83.4479)
+www.madisoncountyfairoh.com/camping
+(740) 852-1654
+Amenities: Primitive</p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#257508", 
+ 
+  })
+  .setLngLat([ -83.44789, 39.8958])
+    .setPopup(popup)
+  .addTo(map);
+  
+  
+  /*Prairie Grass Trailhead*/
+  
+   var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Prairie Grass Trailhead</h3><p>Prairie Grass Trailhead – On trail
+Prairie Grass Trailhead, London, OH
+Coordinates: (39.8790, -83.4597)
+https://fmcpt.com/london-trailside-camping/
+Amenities: Tent platforms, restroom, water, rustic shower</p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#257508", 
+ 
+  })
+  .setLngLat([ -83.4597, 39.879])
+    .setPopup(popup)
+  .addTo(map);
+  
+ /*Greene County Parks and Trail*/
+  
+  var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Greene County Parks and Trail</h3><p>Greene County Parks and Trail – 3 miles of trail
+1369 Old Springfield Pike, Xenia, OH
+Coordinates: (39.7226, -83.9354)
+https://www.gcparkstrails.com
+(937) 562-6440
+Amenities: Primitive</p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#257508", 
+ 
+  })
+  .setLngLat([ -83.9354, 39.7226])
+    .setPopup(popup)
+  .addTo(map);
+  
+/*Greene County Fairgrounds*/
+  
+   var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Greene County Fairgrounds</h3><p>Greene County Fairgrounds – 1.7 miles off trail
+120 Fairground Rd, Xenia, OH
+Coordinates: (39.7002, -83.9421)
+www.greenecountyfairgrounds.com
+(937) 372-8621 ext 12
+Amenities: Primitive</p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#257508", 
+ 
+  })
+  .setLngLat([ -83.9421, 39.7002])
+    .setPopup(popup)
+  .addTo(map);
+  
+  /*Greene County Constitution Park*/
+  
+  
+   var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Greene County Constitution Park</h3><p>Greene County Constitution Park – 1/4 mile off trail
+1871 OH-725, Spring Valley, OH
+Coordinates: (39.6063, -84.0132)
+https://www.gcparkstrails.com
+937 562-6440
+Amenities: Primitive, latrine</p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#257508", 
+ 
+  })
+  .setLngLat([ -84.0132, 39.60629])
+    .setPopup(popup)
+  .addTo(map);
+  
+ /*Todd’s Fork Adventures*/
+  
+   var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Todd’s Fork Adventures</h3><p>Todd’s Fork Adventures –1/4 mile off trail
+154 Hopkins St., Morrow, OH
+Coordinates: (39.3527, -84.1285)
+https://www.hipcamp.com/ohio/fred-glenn-s-land/todd-s-fork-adventures
+(513) 604-9265
+Call Fred to arrange complimentary camping for bicyclists
+Amenities: Primitive, latrine</p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#257508", 
+ 
+  })
+  .setLngLat([ -84.1285, 39.3527])
+    .setPopup(popup)
+  .addTo(map);
+  
+ /*Morgan’s Riverside Campground and Cabins*/
+  
+  var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Morgan’s Riverside Campground and Cabins</h3><p>Morgan’s Riverside Campground and Cabins – 0.1 mile of trail
+6262 Gilmour Rd, Morrow, OH
+Coordinates: (39.3794, -84.0933)
+https://www.morganscanoe.com/riverside/
+(513) 899-2166
+Amenities: Full service
+</p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#257508", 
+ 
+  })
+  .setLngLat([ -84.0933, 39.37939])
+    .setPopup(popup)
+  .addTo(map);
+  
+  /*Lake Isabella Park*/
+  
+  var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Lake Isabella Park</h3><p>Lake Isabella Park – 1.1 miles off trail
+10174 Loveland Madeira Rd, Loveland, OH
+Coordinates: (39.2377, -84.3031)
+www.greatparks.org/parks/lake-isabella
+(513) 791-1663
+Amenities: Primitive</p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#257508", 
+ 
+  })
+  .setLngLat([ -84.3031, 39.23769])
+    .setPopup(popup)
+  .addTo(map);
+  
+  /*Jim Terrell Park*/
+  
+  
+  var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Jim Terrell Park</h3><p>Jim Terrell Park – 0.2 miles off trail
+130 Longworth St, Milford, OH
+Coordinates: (39.1702, -84.2988)
+http://www.milfordohio.org/departments/public_works_department/parks_and_recreation/jim_terrell_park.php
+(513) 831-4192
+Amenities: Primitive</p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#257508", 
+ 
+  })
+  .setLngLat([ -84.2988, 39.1702])
+    .setPopup(popup)
+  .addTo(map);
+  
+ /*Riverside Park*/
+  
+  var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Riverside Park</h3><p>Riverside Park – 1/2 mile off trail
+425 Victor Stier Dr., Milford, OH
+Coordinates: (39.1763, -84.2955)
+http://www.milfordohio.org/document_center/ParkCampingPermit.pdf
+(513) 831-4192
+Amenities: Primitive</p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#257508", 
+ 
+  })
+  .setLngLat([ -84.2955, 39.1763])
+    .setPopup(popup)
+  .addTo(map);
+  
+ /*Bridge of Dreams -- CLOSED*/
+  
+   var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Bridge of Dreams -- CLOSED</h3><p>CLOSED INDEFINITELY DUE TO STORM DAMAGE                                                                                            Mohican Valley Trail - Bridge of Dreams;             15791 Main St, Gann, OH; On trail;                        Coordinates: (40.4654, -82.1932)
+http://knoxcountyparks.org/trails/bike-trails/mohican-valley-bike-trail/;                        Phone: (740) 392-7275;                                                 Amenities: Primitive, Latrine 
+</p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#257508", 
+ 
+  })
+  .setLngLat([ -82.19348, 40.46545])
+    .setPopup(popup)
+  .addTo(map);
+  
+  
+  /*London Primitive Trailside Camp Area*/
+  
+   var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>London Primitive Trailside Camp Area</h3><p>Prairie Grass Trail, London, OH 43140
+  
+  https://fmcpt.com/london-trailside-camping/
+  
+  Primitive Camping
+</p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#257508", 
+ 
+  })
+  .setLngLat([ -83.46001, 39.87898])
+    .setPopup(popup)
+  .addTo(map);
+  
+  
+  
+  
+  
+  
+/*Campsite MArker End*/
+  
+  /*Hotel Marker Begin*/
+  
+  /*The Cleveland Hostel*/
+  
+  var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>The Cleveland Hostel</h3><p>The Cleveland Hostel
+2090 West 25th St
+Cleveland, OH 44113
+216-394-0616
+https://www.theclevelandhostel.com
+</p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#D6D58E"
+
+  })
+  .setLngLat([ -81.70271, 41.48302])
+    .setPopup(popup)
+  .addTo(map);
+  
+ /*Massillon AirBnB*/
+  
+  var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Massillon AirBnB</h3><p>Massillon AirBnB
+Massillon, OH 44648
+http://bit.ly/2M4TmJC
+</p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#D6D58E"
+
+  })
+  .setLngLat([ -81.54443, 40.78417])
+    .setPopup(popup)
+  .addTo(map);
+  
+  /*Berrodin Bed & Breakfast*/
+  
+  var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Berrodin Bed & Breakfast</h3><p>Berrodin Bed & Breakfast
+814 Bloomfield Ave
+Akron, OH 44302
+330-775-7405
+https://berrodinbb.com
+</p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#D6D58E"
+
+  })
+  .setLngLat([ -81.54545, 41.09366])
+    .setPopup(popup)
+  .addTo(map);
+  
+ /*Hotel Millersburg*/
+  
+    var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Hotel Millersburg</h3><p>Hotel Millersburg
+35 W Jackson St
+Millersburg, OH 44654
+330-674-1457
+https://hotelmillersburg.com
+</p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#D6D58E"
+
+  })
+  .setLngLat([ -81.91786, 40.55411])
+    .setPopup(popup)
+  .addTo(map);
+  
+ /*Hearthstone Inn & Suites*/
+  
+      var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Hearthstone Inn & Suites</h3><p>Hearthstone Inn & Suites
+10 S. Main St
+Cedarville, OH 45314
+937-766-3000
+https://www.hearthstoneinn.com/
+
+</p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#D6D58E"
+
+  })
+  .setLngLat([ -83.80512, 39.73936])
+    .setPopup(popup)
+  .addTo(map);
+  
+ /*Hampton Inn Cleveland-Downtown*/
+  
+   var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Hampton Inn Cleveland-Downtown</h3><p>Hampton Inn Cleveland-Downtown
+1460 East 9th Street
+Cleveland, OH 44114
+216-261-1748 - Heather.Johnson@Hilton.com
+https://www.hilton.com/en/book/reservation/deeplink/?ctyhocn=CLEDTHX&corporateCode=0003331480
+
+</p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#D6D58E"
+
+  })
+  .setLngLat([ -81.68906, 41.50255])
+    .setPopup(popup)
+  .addTo(map);
+  
+ /*Tandem Trail - Airbnb*/
+  var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Tandem Trail - Airbnb</h3><p>Tandem Trail - Airbnb 
+407 Market Street West
+Canal Fulton, OH 44614
+https://airbnb.com/h/century-home-in-canal-fulton
+Mention that you 
+   found us on OTET Friends of the Trail page in your inquiry for an OTET discount.
+
+</p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#D6D58E"
+
+  })
+  .setLngLat([ -81.60223, 40.88941])
+    .setPopup(popup)
+  .addTo(map);
+  
+ /*Hotel End*/
+  
+  /*Food Begin*/
+  
+   var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Everlasting Cup</h3><p>Everlasting Cup
+510 S Main St
+Mount Vernon, OH 43050
+740-326-1617
+https://www.everlastingcup.com/
+
+</p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#DBF227"
+
+  })
+  .setLngLat([  -82.48555, 40.38755])
+    .setPopup(popup)
+  .addTo(map);
+  
+/*Lem’s Pizza*/
+  
+  var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Lems Pizza</h3><p>Lems Pizza
+110 N Mill St
+Fredericksburg, OH 44627
+330-695-7111
+http://www.lemspizza.com/
+
+</p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#DBF227"
+
+  })
+  .setLngLat([  -81.87064, 40.67664])
+    .setPopup(popup)
+  .addTo(map);
+  
+ /*nowside*/
+  
+  var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Snowside</h3><p>Snowside
+129 W Front St
+Killbuck, OH 44637
+330-276-7669
+
+</p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#DBF227"
+
+  })
+  .setLngLat([  -81.98457, 40.49522])
+    .setPopup(popup)
+  .addTo(map);
+  
+ /*Third Way Café*/
+  
+  var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Third Way Café</h3><p>Third Way Café
+3058 W Broad St
+Columbus, OH 43204
+513-449-0082
+https://www.thirdwaycafe.org
+
+</p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#DBF227"
+
+  })
+  .setLngLat([  -83.08204, 39.95472])
+    .setPopup(popup)
+  .addTo(map);
+  
+  /*Phat Daddy’s Pizza*/
+  
+   var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Phat Daddys Pizza</h3><p>Phat Daddys Pizza
+15 E 1st St
+London, OH 43140
+740-852-3339
+https://phatdaddyslondon.com
+
+</p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#DBF227"
+
+  })
+  .setLngLat([  -83.4464, 39.88535])
+    .setPopup(popup)
+  .addTo(map);
+  
+ /*Whit’s Frozen Custard*/
+  
+  var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Whits Frozen Custard</h3><p>Whits Frozen Custard
+500 S Main St
+Mount Vernon, OH 43050
+740-326-1328
+http://www.whitscustard.com/</p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#DBF227"
+
+  })
+  .setLngLat([ -82.48567, 40.38823])
+    .setPopup(popup)
+  .addTo(map);
+  
+  /*London Coffee Peddler*/
+  
+  var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>London Coffee Peddler</h3><p>London Coffee Peddler
+127 S Main St
+London, OH 43140
+740-506-4643
+https://www.facebook.com/Mikescoffeebikes/</p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#DBF227"
+
+  })
+  .setLngLat([ -83.44603, 39.88377])
+    .setPopup(popup)
+  .addTo(map);
+  
+/*The Village Cup*/
+  
+  var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>The Village Cup</h3><p>The Village Cup
+17 SOUTH Chillicothe St
+South Charleston, OH 45368
+937-844-8569
+https://www.villagecupsc.com/</p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#DBF227"
+
+  })
+  .setLngLat([ -83.63504, 39.82499])
+    .setPopup(popup)
+  .addTo(map);
+  
+ /*Roebling Point Books & Coffee*/
+  
+    var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Roebling Point Books & Coffee</h3><p>Roebling Point Books & Coffee
+306 Greenup Street
+Covington, KY 41011
+(859) 292-1560
+www.roeblingpointbooks.com</p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#DBF227"
+
+  })
+  .setLngLat([ -84.50793, 39.08869])
+    .setPopup(popup)
+  .addTo(map);
+  
+  /*Fodd and Coffee End*/
+  
+  /*Beer, Brewery, Dive, Bar, Begin*/
+  
+  /*Devil Wind Brewing*/
+  
+      var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Devil Wind Brewing</h3><p>Devil Wind Brewing
+130 S Detroit St
+Xenia, OH 45385
+937-919-6417
+http://www.devilwindbrewing.com/</p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#D96941"
+
+  })
+  .setLngLat([ -83.92962, 39.68279])
+    .setPopup(popup)
+  .addTo(map);
+  
+  /*Fifty West Brewing*/
+  
+    var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Fifty West Brewing</h3><p>Fifty West Cycling Co.
+7669 Wooster Pike
+Cincinnati, OH 45227
+513-731-9111
+https://fiftywestbrew.com/</p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#D96941"
+
+  })
+  .setLngLat([ -84.35287, 39.13823])
+    .setPopup(popup)
+  .addTo(map);
+  
+  /*Narrow Path Brewing Co.*/
+  
+     var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Narrow Path Brewing Co.</h3><p>Narrow Path Brewing Co.
+106 N Karl Brown Way, Loveland, OH 45140
+(513) 291-5503
+http://www.narrowpathbrewing.com/</p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#D96941"
+
+  })
+  .setLngLat([ -84.25883, 39.26858])
+    .setPopup(popup)
+  .addTo(map);
+  
+   /*Litte Miami Brewing Company*/
+  
+    var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Litte Miami Brewing Company</h3><p>Litte Miami Brewing Company
+208 Mill St, Milford, OH 45150
+513-713-1121
+https://www.littlemiamibrewing.com/</p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#D96941"
+
+  })
+  .setLngLat([ -84.29729, 39.17207])
+    .setPopup(popup)
+  .addTo(map);
+  
+   /*Cartridge Brewing Company*/
+  
+   var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Cartridge Brewing Company</h3><p>1411 Grandin Rd, Maineville, OH 45039
+  http://www.cartridgebrewing.com/
+  +15136973434
+  </p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#D96941"
+
+  })
+  .setLngLat([ -84.24131, 39.35101])
+    .setPopup(popup)
+  .addTo(map);
+  
+  
+     /*Cartridge Brewing Company*/
+  
+   var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Cartridge Brewing Company</h3><p>1411 Grandin Rd, Maineville, OH 45039
+  http://www.cartridgebrewing.com/
+  +15136973434
+  </p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#D96941"
+
+  })
+  .setLngLat([ -84.24131, 39.35101])
+    .setPopup(popup)
+  .addTo(map);
+  
+  
+/*R. Shea Brewing - Canal Place Downtown*/
+  
+   var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>R. Shea Brewing - Canal Place Downtown</h3><p>540 S Main St Suite 214, Akron, OH 44311
+https://www.rsheabrewing.com/homepage/Canal-Place-Location-Akron.html?loc=cp
+Distance from Trail: 0.3 miles
+Food:  full menu
+Directions: Exit the trail into the Canal Place parking lots (5-6 options).  From here cross or follow Falor St. heading south into another set of Canal Place lots.  There is parking here for both Missing Falls Brewery and the second location for R. Shea Brewing.
+Parking: tons.
+Bike Racks:  Nope.
+Nearby Accommodations: The Courtyard by Marriott Akron Downtown is 2.1 miles away to the north by trail.  Also visit Dirty River Bikes!
+  </p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#D96941"
+
+  })
+  .setLngLat([ -81.52931, 41.07414])
+    .setPopup(popup)
+  .addTo(map);
+  
+  /*R. Shea Brewing  - Merriman Valley*/
+  
+   var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>R. Shea Brewing  - Merriman Valley</h3><p>1662 Merriman Rd, Akron, OH 44313
+https://www.rsheabrewing.com/homepage/Merriman-Valley-Location-Akron.html?loc=mv
+Distance from Trail: 300+ft, but across a busy street.
+Food:  large sandwich menu
+Directions: Perhaps the safest way to cross Merriman Rd and Portage Path is to use the traffic lights and crosswalks at the intersection of those roads, near the railroad tracks.
+Parking: somewhat limited, but there are options across the street.  Visit Blimp City Bikes!
+Bike Racks: yes - large, traditional rack out front.
+Nearby Accommodations: none.</p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#D96941"
+
+  })
+  .setLngLat([ -81.55094, 41.13907])
+    .setPopup(popup)
+  .addTo(map);
+  
+ /*Lock 15 Brewing Company*/
+  
+   var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Lock 15 Brewing Company</h3><p>21 West North Street Suite TL 1, 21 W North St, Akron, OH 44304
+https://www.lock15brewing.com/
+Distance from Trail: ~500 ft. 
+Food:  full menu
+Directions: There is a short path leading from the Mustill Store (historic structure) on the trail, the brewery parking lot.
+Parking: lots are near entrance.  There is also a trailhead lot on West North St. next door.
+Bike Racks: Outdoor patio fencing.
+Nearby Accommodations: The Courtyard by Marriott Akron Downtown is a few blocks away.  Also visit Dirty River Bikes!</p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#D96941"
+
+  })
+  .setLngLat([ -81.51721, 41.09158])
+    .setPopup(popup)
+  .addTo(map); 
+  
+  /*Missing Falls Brewery*/
+  
+   var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Missing Falls Brewery</h3><p>540 S Main St suite 112, Akron, OH 44311 (Canal Place)
+https://www.missingfalls.com/
+Distance from Trail: 0.3 miles
+Food:  sandwich menu
+Directions: Exit the trail into the Canal Place parking lots (5-6 options).  From here cross or follow Falor St. heading south into another set of Canal Place lots.  There is parking here for both Missing Falls Brewery and the second location for R. Shea Brewing.
+Parking: tons.
+Bike Racks:  Nope.  I have seen folks bring bikes inside.
+Nearby Accommodations: The Courtyard by Marriott Akron Downtown is 2.1 miles away to the north by trail.  Also visit Dirty River Bikes!</p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#D96941"
+
+  })
+  .setLngLat([ -81.52680, 41.07072])
+    .setPopup(popup)
+  .addTo(map); 
+  
+  
+ /*Magic City Brewing Company*/
+  
+   var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Magic City Brewing Company</h3><p>2727 Manchester Rd, Akron, OH 44319
+http://www.magiccitybrewingcompany.com/
+Distance from Trail: 0.1 miles
+Food: “Cult Kitchen” operates inside the brewery.  Tacos, sliders, flatbreads, etc.
+Directions: From the Manchester Rd. Towpath Trailhead parking lot, you will need to carefully ride north on the shoulder of Manchester Rd. for about 200 ft.  You can avoid crossing the street by using a rough path on the east side of Manchester Rd (go under the road to access it from the trailhead).  Turn right onto Nesbitt Ave, which is an access road leading to the brewery parking lot.
+Parking: plenty.
+Bike Racks: Nope.  Fencing around patio.
+Nearby Accommodations: none.</p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#D96941"
+
+  })
+  .setLngLat([ -81.54854, 41.02480])
+    .setPopup(popup)
+  .addTo(map); 
+   
+  
+  /*Paradigm Shift Brewing*/
+  
+   var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Paradigm Shift Brewing</h3><p>128 North Ave NE, Massillon, OH 44646
+(330)880-0008 (website unsafe when checked 3/27/22)
+Distance from Trail: 0.5 miles on city streets. 
+Food:  a review reports flatbreads, salads, sandwiches & wraps
+Directions: As you are heading south on the towpath, bear left and go up the ramp to Lincoln Way (172). Turn left on the sidewalk, then turn left on Tommy Henrich Dr NW.  Immediately turn right on Federal Ave NW.  Turn left onto Conrad Pl NE, then turn right onto North Ave NE.  The brewery is in an old house on the left.
+Parking: almost none.
+Bike Racks: None.  There is a designated outdoor area.
+Nearby Accommodations: Hampton Inn Massillon, about 0.4 miles from Brewery.</p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#D96941"
+
+  })
+  .setLngLat([ -81.52197, 40.79904])
+    .setPopup(popup)
+  .addTo(map); 
+  
+  
+  /*Lockport Brewery*/
+  
+   var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Lockport Brewery</h3><p>110748 Wilkshire Blvd NE, Bolivar, OH 44612
+https://www.lockportbeer.com/
+Distance from Trail: 0.7 miles
+Food:  full menu.
+Directions: from Park Avenue SE (trail is on sidewalk), turn onto Rt 212 heading SE.  Once you cross the river, jump onto the parallel bike lane.  It bears right and continues along Wilkshire Blvd NE.  Turn right at Edgebrook Rd NE and cross Wilkshire Blvd to enter the brewery parking lot.
+Parking: plenty
+Bike Racks: Nope.  Fencing around deck area at rear (accessible from lot).
+Nearby Accommodations: Sleep Inn (on Rt.212, 0.2 miles from the brewery, back toward the trail).</p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#D96941"
+
+  })
+  .setLngLat([ -81.44405, 40.63871])
+    .setPopup(popup)
+  .addTo(map); 
+  
+  
+  
+  /*Land-Grant Brewing Company */
+  
+   var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Land-Grant Brewing Company</h3><p>
+  Address: 424 W Town St, Columbus, OH 43215
+  
+  Menu: landgrantbrewing.com
+  
+  
+  Phone: (614) 427-3946
+  </p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#D96941"
+
+  })
+  .setLngLat([ -83.01142, 39.95784])
+    .setPopup(popup)
+  .addTo(map); 
+  
+  
+  /*Columbus Brewing Company */
+  
+   var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Columbus Brewing Company</h3><p>
+  2555 Harrison Rd, Columbus, OH 43204
+  
+ https://www.columbusbrewing.com/
+  
+  
+  +1614-224-3626
+  </p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#D96941"
+
+  })
+  .setLngLat([ -83.06927, 39.96758])
+    .setPopup(popup)
+  .addTo(map); 
+  
+  /*Brewery End*/
+  
+  /*Bike Shop Begin*/
+  
+  
+  /*Ernie’s Bicycle Shop */
+  
+   var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Ernies Bicycle Shop</h3><p>
+  Ernies Bicycle Shop
+135 Lake Avenue NW
+Massillon, OH 44647
+330-832-5111
+https://erniesbikeshop.com
+  </p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#F0941F"
+
+  })
+  .setLngLat([ -81.52903, 40.81179])
+    .setPopup(popup)
+  .addTo(map); 
+  
+  
+  /*Trek Bicycle Westerville */
+  
+   var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Trek Bicycle Westerville</h3><p>
+  Trek Bicycle Westerville
+5985 Maxtown Rd
+Westerville, OH 43082
+614-901-8735
+https://www.trekbikes.com/us/en_US/retail/westerville_northgate/
+  </p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#F0941F"
+
+  })
+  .setLngLat([ -82.91895, 40.14879])
+    .setPopup(popup)
+  .addTo(map); 
+  
+  /*Bishop’s Bicycles */
+  
+   var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Bishops Bicycles</h3><p>
+  Bishops Bicycles
+313 Main St
+Milford, OH 45150
+513-831-2521
+https://www.bishopsbicycles.net/
+  </p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#F0941F"
+
+  })
+  .setLngLat([ -84.29516, 39.1755])
+    .setPopup(popup)
+  .addTo(map); 
+  
+  
+   /*RRT Roads Rivers and Trails */
+  
+   var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>RRT Roads Rivers and Trails</h3><p>
+  RRT Roads Rivers and Trails
+118 Main St
+Milford, OH 45150
+513-248-7787
+https://roadsriversandtrails.com/
+  </p>` 
+        
+);
+  var marker = new mapboxgl.Marker({
+      color: "#F0941F"
+
+  })
+  .setLngLat([ -84.29588, 39.17362])
+    .setPopup(popup)
+  .addTo(map);
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</script>
+
+<!--Zoom Controls-->
+<script>
+// Add zoom and rotation controls to the map.
+map.addControl(new mapboxgl.NavigationControl());
+</script>
+
+
+
+
+
+ 
