@@ -25,15 +25,15 @@
 <div class="button">
   
   <a class="active" href="#"><i class="fa fa-map"></i></a> 
-  <a href="#"><i class="fa fa-map-signs"></i></a> <!--Trailheads-->
-  <a href="#"><i class="fa fa-bicycle"></i></a> <!--Mile Markers-->
-  <a href="#"><i class="fa fa-road"></i></a> <!--Bike SHop/Repair-->
-  <a href="#"><i class="fa fa-exclamation-triangle"></i></a> <!--Route Closures/Alerts-->
-  <a href="#"><i class="fa fa-fire"></i></a> <!--Camping-->
-  <a href="#"><i class="fa fa-bed"></i></a> <!--Hotels-->
-  <a href="#"><i class="fa fa-beer"></i></a> <!--Beer/Breweries/Dives-->
-  <a href="#"><i class="fa fa-spoon"></i></a> <!--Food/General Stores/Restaurants-->
-  <a href="#"><i class="fa fa-eye"></i></a>  <!--Sight Seeing/Historical/Nature-->
+  <a href="#" onclick="toggle('signs')"><i class="fa fa-map-signs"></i></a> <!--Trailheads-->
+  <a href="#"  onclick="toggle('miles')"><i class="fa fa-bicycle"></i></a> <!--Mile Markers-->
+  <a href="#"  onclick="toggle('repairs')"><i class="fa fa-road"></i></a> <!--Bike SHop/Repair-->
+  <a href="#" onclick="toggle('closures')"><i class="fa fa-exclamation-triangle"></i></a> <!--Route Closures/Alerts-->
+  <a href="#"  onclick="toggle('camping')"><i class="fa fa-fire"></i></a> <!--Camping-->
+  <a href="#"  onclick="toggle('hotels')"><i class="fa fa-bed"></i></a> <!--Hotels-->
+  <a href="#" onclick="toggle('beer')" ><i class="fa fa-beer"></i></a> <!--Beer/Breweries/Dives-->
+  <a href="#" onclick="toggle('food')" ><i class="fa fa-spoon"></i></a> <!--Food/General Stores/Restaurants-->
+  <a href="#" onclick="toggle('sights')"><i class="fa fa-eye"></i></a>  <!--Sight Seeing/Historical/Nature-->
 </div>
  <!--Nav Bar End--> 
   <!--button functions in JS -->
@@ -87,39 +87,47 @@ map.setFog({}); // Set the default atmosphere style
 <!--mapbox marker-->
 
 <script>
-   //Trailheads Souther Terminus Roebling Bridge
+ let el
+ 
+   /*Trailheads*/
 
   var popup = new mapboxgl.Popup().setHTML(
   `<h3>Ohio to Erie Trail</h3><p>Souther Terminus</p>` 
 );
+
+ el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/0Hv-wlyqroeVuOwljUSr1cHw2ZdjIEQXTsc5RigKHykDIxLlCdjeErJ4Zy3MMEHMc7-SbfhoHICsbbXpM14QC7Byapy1AJBOJQEthW5aAkbDmwPfYwRR-b6SgQB29ySVi3FoJtoJ7Q=w2400)';
+ el.style.width = '60px';
+  el.style.height = '45px';
+  el.style.backgroundSize = '100%';
   
-    var marker = new mapboxgl.Marker({
-      color: "#A18C25",
-  addClass: "fa fa-map-signs",
-      addClass: "button"
-     })
+
+
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([-84.50835, 39.09619])
     .setPopup(popup)
-  .addTo(map);  
+  .addTo(map);
+  
+  
+  
 
-
-
-  //Xenia Station
-  var popup = new mapboxgl.Popup().setHTML(
+  /*Xenia Station*/
+ var popup = new mapboxgl.Popup().setHTML(
   `<h3>Xenia Station</h3><p>Central Hub</p>` 
 );
   
-  let customMarker = document.createElement('div')
-  customMarker.classname = "signs"
-  customMarker.style.backgroundImage = 'url(https://lh3.googleusercontent.com/VTmbDoFvYZjLfg1E_BbuDBG6psn7balbwDnJjz2s7Ye_-yIEmBYoplS21BirRquSf7_SfcbRnkTgHEE5-GmdufmK6gNJvwI5dJ1NH9bYt236NUECLLt5Fqmqe_43Zt4NT_MDHKyvsw=w2400)';
-  customMarker.style.width = '60px';
-  customMarker.style.height = '45px';
-  customMarker.style.backgroundSize = '100%';
-  
-  new mapboxgl.Marker(customMarker)
+ el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/VTmbDoFvYZjLfg1E_BbuDBG6psn7balbwDnJjz2s7Ye_-yIEmBYoplS21BirRquSf7_SfcbRnkTgHEE5-GmdufmK6gNJvwI5dJ1NH9bYt236NUECLLt5Fqmqe_43Zt4NT_MDHKyvsw=w2400)';
+  el.style.width = '60px';
+  el.style.height = '45px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([-83.93114, 39.68031])
     .setPopup(popup)
   .addTo(map);
+
   
   // var marker = new mapboxgl.Marker({
      // color: "#A18C25", 
@@ -133,9 +141,13 @@ map.setFog({}); // Set the default atmosphere style
    var popup = new mapboxgl.Popup().setHTML(
   `<h3>Spring Valley Trailhead</h3><p></p>` 
 );
-    var marker = new mapboxgl.Marker({
-      color: "#A18C25", 
-    })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
+ el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
    
   .setLngLat([-84.00982, 39.60592])
     .setPopup(popup)
@@ -146,9 +158,13 @@ map.setFog({}); // Set the default atmosphere style
   var popup = new mapboxgl.Popup().setHTML(
   `<h3>Corwin Trailhead</h3><p></p>` 
 );
-    var marker = new mapboxgl.Marker({
-      color: "#A18C25", 
-    })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([-84.07958, 39.52474])
     .setPopup(popup)
   .addTo(map);
@@ -158,9 +174,13 @@ map.setFog({}); // Set the default atmosphere style
   var popup = new mapboxgl.Popup().setHTML(
   `<h3>Oregonia Trailhead</h3><p></p>` 
 );
-    var marker = new mapboxgl.Marker({
-      color: "#A18C25", 
-    })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -84.09766, 39.452])
     .setPopup(popup)
   .addTo(map);
@@ -170,9 +190,13 @@ map.setFog({}); // Set the default atmosphere style
     var popup = new mapboxgl.Popup().setHTML(
   `<h3>Morrow Trailhead</h3><p></p>` 
 );
-    var marker = new mapboxgl.Marker({
-      color: "#A18C25", 
-    })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -84.13464, 39.35472])
     .setPopup(popup)
   .addTo(map);
@@ -182,9 +206,13 @@ map.setFog({}); // Set the default atmosphere style
       var popup = new mapboxgl.Popup().setHTML(
   `<h3>South Lebanon Trailhead</h3><p></p>` 
 );
-    var marker = new mapboxgl.Marker({
-      color: "#A18C25", 
-    })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -84.21723, 39.3662])
     .setPopup(popup)
   .addTo(map);
@@ -194,9 +222,13 @@ map.setFog({}); // Set the default atmosphere style
       var popup = new mapboxgl.Popup().setHTML(
   `<h3>Milford Trailhead</h3><p></p>` 
 );
-    var marker = new mapboxgl.Marker({
-      color: "#A18C25", 
-    })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -84.29953,39.17161])
     .setPopup(popup)
   .addTo(map);
@@ -207,9 +239,13 @@ map.setFog({}); // Set the default atmosphere style
       var popup = new mapboxgl.Popup().setHTML(
   `<h3>Avoca Park Trailhead</h3><p></p>` 
 );
-    var marker = new mapboxgl.Marker({
-      color: "#A18C25", 
-    })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -84.34205, 39.13931])
     .setPopup(popup)
   .addTo(map); 
@@ -219,9 +255,13 @@ map.setFog({}); // Set the default atmosphere style
       var popup = new mapboxgl.Popup().setHTML(
   `<h3>Wilmer Trailhead</h3><p>Lunken Airport</p>` 
 );
-    var marker = new mapboxgl.Marker({
-      color: "#A18C25", 
-    })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -84.4301, 39.10436])
     .setPopup(popup)
   .addTo(map); 
@@ -231,9 +271,13 @@ map.setFog({}); // Set the default atmosphere style
      var popup = new mapboxgl.Popup().setHTML(
   `<h3>South Charleston Trailhead</h3><p></p>` 
 );
-    var marker = new mapboxgl.Marker({
-      color: "#A18C25", 
-    })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -83.63795, 39.82131])
     .setPopup(popup)
   .addTo(map); 
@@ -243,9 +287,13 @@ map.setFog({}); // Set the default atmosphere style
       var popup = new mapboxgl.Popup().setHTML(
   `<h3>London Trailhead</h3><p></p>` 
 );
-    var marker = new mapboxgl.Marker({
-      color: "#A18C25", 
-    })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -83.46085, 39.879])
     .setPopup(popup)
   .addTo(map); 
@@ -255,9 +303,13 @@ map.setFog({}); // Set the default atmosphere style
    var popup = new mapboxgl.Popup().setHTML(
   `<h3>Battelle Darby Creek Park Trailhead</h3><p></p>` 
 );
-    var marker = new mapboxgl.Marker({
-      color: "#A18C25", 
-    })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -83.21356, 39.89386])
     .setPopup(popup)
   .addTo(map); 
@@ -267,9 +319,13 @@ map.setFog({}); // Set the default atmosphere style
    var popup = new mapboxgl.Popup().setHTML(
   `<h3>Wilson Road Park Trailhead</h3><p></p>` 
 );
-    var marker = new mapboxgl.Marker({
-      color: "#A18C25", 
-    })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -83.09675, 39.94902])
     .setPopup(popup)
   .addTo(map); 
@@ -279,9 +335,13 @@ map.setFog({}); // Set the default atmosphere style
    var popup = new mapboxgl.Popup().setHTML(
   `<h3>Hayden Park Trailhead</h3><p></p>` 
 );
-    var marker = new mapboxgl.Marker({
-      color: "#A18C25", 
-    })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -82.93956, 39.98721])
     .setPopup(popup)
   .addTo(map); 
@@ -291,9 +351,13 @@ map.setFog({}); // Set the default atmosphere style
     var popup = new mapboxgl.Popup().setHTML(
   `<h3>Westerville Depot</h3><p></p>` 
 );
-    var marker = new mapboxgl.Marker({
-      color: "#A18C25", 
-    })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -82.92686, 40.12307])
     .setPopup(popup)
   .addTo(map); 
@@ -303,9 +367,13 @@ map.setFog({}); // Set the default atmosphere style
    var popup = new mapboxgl.Popup().setHTML(
   `<h3>Galena Trailhead</h3><p></p>` 
 );
-    var marker = new mapboxgl.Marker({
-      color: "#A18C25", 
-    })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -82.88149, 40.21977])
     .setPopup(popup)
   .addTo(map); 
@@ -315,9 +383,13 @@ map.setFog({}); // Set the default atmosphere style
     var popup = new mapboxgl.Popup().setHTML(
   `<h3>Centerburg Trailhead</h3><p>Visit the geographic center of Ohio located at this trailhead.</p>` 
 );
-    var marker = new mapboxgl.Marker({
-      color: "#A18C25", 
-    })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -82.6922, 40.3099])
     .setPopup(popup)
   .addTo(map); 
@@ -328,9 +400,13 @@ map.setFog({}); // Set the default atmosphere style
   `<h3>Mount Vernon Station</h3><p></p>` 
         
 );
-    var marker = new mapboxgl.Marker({
-      color: "#A18C25", 
-    })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -82.48695, 40.38856])
     .setPopup(popup)
   .addTo(map); 
@@ -341,9 +417,13 @@ map.setFog({}); // Set the default atmosphere style
   `<h3>Gambier Trailhead</h3><p></p>` 
         
 );
-    var marker = new mapboxgl.Marker({
-      color: "#A18C25", 
-    })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -82.3908, 40.36917])
     .setPopup(popup)
   .addTo(map); 
@@ -354,9 +434,13 @@ map.setFog({}); // Set the default atmosphere style
   `<h3>Danville Trailhead</h3><p></p>` 
         
 );
-    var marker = new mapboxgl.Marker({
-      color: "#A18C25", 
-    })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -82.26615, 40.44365])
     .setPopup(popup)
   .addTo(map); 
@@ -367,9 +451,13 @@ map.setFog({}); // Set the default atmosphere style
   `<h3>Bridge of Dreams</h3><p>Mohican Valley Trail</p>` 
         
 );
-    var marker = new mapboxgl.Marker({
-      color: "#A18C25", 
-    })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([  -82.19279, 40.4654])
     .setPopup(popup)
   .addTo(map); 
@@ -380,9 +468,13 @@ map.setFog({}); // Set the default atmosphere style
   `<h3>Glenmont Trailhead</h3><p></p>` 
         
 );
-    var marker = new mapboxgl.Marker({
-      color: "#A18C25", 
-    })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([  -82.09778, 40.51816])
     .setPopup(popup)
   .addTo(map);  
@@ -393,9 +485,13 @@ map.setFog({}); // Set the default atmosphere style
   `<h3>Killbuck Trailhead</h3><p></p>` 
         
 );
-    var marker = new mapboxgl.Marker({
-      color: "#A18C25", 
-    })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([  -81.98139, 40.50406])
     .setPopup(popup)
   .addTo(map); 
@@ -406,9 +502,13 @@ map.setFog({}); // Set the default atmosphere style
   `<h3>Hipp Station - Millersburg</h3><p></p>` 
         
 );
-    var marker = new mapboxgl.Marker({
-      color: "#A18C25", 
-    })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([  -81.9212, 40.55368])
     .setPopup(popup)
   .addTo(map); 
@@ -419,9 +519,13 @@ map.setFog({}); // Set the default atmosphere style
   `<h3>Fredericksburg Trailhead</h3><p></p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#A18C25", 
-    })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([  -81.87244, 40.67532])
     .setPopup(popup)
   .addTo(map); 
@@ -432,9 +536,13 @@ map.setFog({}); // Set the default atmosphere style
   `<h3>Dalton Trailhead</h3><p></p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#A18C25", 
-    })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([  -81.69024, 40.79793])
     .setPopup(popup)
   .addTo(map); 
@@ -445,9 +553,13 @@ map.setFog({}); // Set the default atmosphere style
   `<h3>Lake Ave. Trailhead</h3><p></p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#A18C25", 
-    })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([  -81.52842, 40.81154])
     .setPopup(popup)
   .addTo(map); 
@@ -458,9 +570,13 @@ map.setFog({}); // Set the default atmosphere style
   `<h3>Clinton Trailhead</h3><p>Ohio & Erie Canal Towpath Trail</p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#A18C25", 
-    })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([  -81.52842, 40.81154])
     .setPopup(popup)
   .addTo(map); 
@@ -471,9 +587,13 @@ map.setFog({}); // Set the default atmosphere style
   `<h3>Akron Northside Station - CVSR</h3><p>Cuyahoga Valley Scenic Railroad Station</p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#A18C25", 
-    })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/idpmvio5rHV0Bx9uFb1yq3CHhAy_mIqdx4h8SVw15RDY-_rOS3FPDoz83z2EKICeNrrdYGsyLO2sZpcU8bmu0zh_ssbeGh0KmFAfdh8etu2U-UmUOeiVZrqFVeeZI19NWoHSYsomAw=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([  -81.51565, 41.08951])
     .setPopup(popup)
   .addTo(map); 
@@ -484,9 +604,13 @@ map.setFog({}); // Set the default atmosphere style
   `<h3>Lock 29 Trailhead - Peninsula</h3><p>Cuyahoga Valley Scenic Railroad</p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#A18C25", 
-    })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([  -81.55032, 41.2432])
     .setPopup(popup)
   .addTo(map); 
@@ -498,9 +622,13 @@ map.setFog({}); // Set the default atmosphere style
   `<h3>Lock 39 Trailhead - Rockside Station -CVSR</h3><p>Cuyahoga Valley Scenic Railroad</p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#A18C25", 
-    })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/idpmvio5rHV0Bx9uFb1yq3CHhAy_mIqdx4h8SVw15RDY-_rOS3FPDoz83z2EKICeNrrdYGsyLO2sZpcU8bmu0zh_ssbeGh0KmFAfdh8etu2U-UmUOeiVZrqFVeeZI19NWoHSYsomAw=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([  -81.62887, 41.39333])
     .setPopup(popup)
   .addTo(map); 
@@ -511,9 +639,13 @@ map.setFog({}); // Set the default atmosphere style
   `<h3>Beech Street Trailhead</h3><p>Cuyahoga Valley Scenic Railroad</p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#A18C25", 
-    })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([  -81.51857, 41.08788])
     .setPopup(popup)
   .addTo(map); 
@@ -524,9 +656,13 @@ map.setFog({}); // Set the default atmosphere style
   `<h3>Loveland Trailhead</h3><p></p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#A18C25", 
-    })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([  -84.25778, 39.26813])
     .setPopup(popup)
   .addTo(map); 
@@ -537,9 +673,13 @@ map.setFog({}); // Set the default atmosphere style
   `<h3>Cedarville Trailhead</h3><p></p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#A18C25", 
-    })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([  -83.80511, 39.74015])
     .setPopup(popup)
   .addTo(map); 
@@ -550,9 +690,13 @@ map.setFog({}); // Set the default atmosphere style
   `<h3>Foster Trailhead</h3><p></p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#A18C25", 
-    })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([  -84.25122, 39.32232])
     .setPopup(popup)
   .addTo(map); 
@@ -563,9 +707,13 @@ map.setFog({}); // Set the default atmosphere style
   `<h3>Boston Trailhead</h3><p>Boston Store Visitor Center</p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#A18C25", 
-    })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([  -81.55706, 41.26302])
     .setPopup(popup)
   .addTo(map); 
@@ -576,9 +724,13 @@ map.setFog({}); // Set the default atmosphere style
   `<h3>Botzum Trailhead</h3><p></p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#A18C25", 
-    })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([   -81.57367, 41.15818])
     .setPopup(popup)
   .addTo(map); 
@@ -589,9 +741,13 @@ map.setFog({}); // Set the default atmosphere style
   `<h3>Station Road Bridge Trailhead</h3><p></p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#A18C25", 
-    })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -81.58762, 41.31843])
     .setPopup(popup)
   .addTo(map); 
@@ -602,9 +758,13 @@ map.setFog({}); // Set the default atmosphere style
   `<h3>E Galbraith Rd Trailhead</h3><p></p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#A18C25", 
-    })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -84.29311, 39.19016])
     .setPopup(popup)
   .addTo(map); 
@@ -615,9 +775,13 @@ map.setFog({}); // Set the default atmosphere style
   `<h3>Harvard Ave Trailhead</h3><p></p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#A18C25", 
-    })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -81.68221, 41.44714])
     .setPopup(popup)
   .addTo(map); 
@@ -628,9 +792,13 @@ map.setFog({}); // Set the default atmosphere style
   `<h3>Clark Ave Trailhead</h3><p></p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#A18C25", 
-    })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
+ el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -81.68631, 41.4705])
     .setPopup(popup)
   .addTo(map); 
@@ -641,9 +809,13 @@ map.setFog({}); // Set the default atmosphere style
   `<h3>Sunbury Trailhead</h3><p></p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#A18C25", 
-    })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -82.85956, 40.23891,])
     .setPopup(popup)
   .addTo(map);
@@ -664,9 +836,13 @@ http://heritagefarms.com/
 Amenities: portable restroom</p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#257508", 
-    })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/nIYIrzdXmh2oTna4J8Tk1NGhxzF3mdWlBmrte1tvIC-THoKXm2_B5N9Xtlt2qnfEhcmYqWVvHsMSJyRw318iv4TV4s-H1sbGToPfF6rRQdUQ8miiHsW0h6DWVrL6sYAXOtLAgO6t9w=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -81.55549, 41.24024,])
     .setPopup(popup)
   .addTo(map);
@@ -682,9 +858,13 @@ www.summitmetroparks.org/camping.aspx
 Amenities: Primitive</p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#257508", 
-  })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/nIYIrzdXmh2oTna4J8Tk1NGhxzF3mdWlBmrte1tvIC-THoKXm2_B5N9Xtlt2qnfEhcmYqWVvHsMSJyRw318iv4TV4s-H1sbGToPfF6rRQdUQ8miiHsW0h6DWVrL6sYAXOtLAgO6t9w=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([  -81.54, 41.1275,])
     .setPopup(popup)
   .addTo(map);
@@ -699,10 +879,13 @@ www.summitmetroparks.org/camping.aspx
 Amenities: Primitive</p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#257508", 
- 
-  })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/nIYIrzdXmh2oTna4J8Tk1NGhxzF3mdWlBmrte1tvIC-THoKXm2_B5N9Xtlt2qnfEhcmYqWVvHsMSJyRw318iv4TV4s-H1sbGToPfF6rRQdUQ8miiHsW0h6DWVrL6sYAXOtLAgO6t9w=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([  -81.6195, 40.9435])
     .setPopup(popup)
   .addTo(map);
@@ -719,10 +902,13 @@ http://hillsideparkcampground.com
 Amenities: Primitive or water & electric</p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#257508", 
- 
-  })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/nIYIrzdXmh2oTna4J8Tk1NGhxzF3mdWlBmrte1tvIC-THoKXm2_B5N9Xtlt2qnfEhcmYqWVvHsMSJyRw318iv4TV4s-H1sbGToPfF6rRQdUQ8miiHsW0h6DWVrL6sYAXOtLAgO6t9w=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([  -81.6195, 40.9264])
     .setPopup(popup)
   .addTo(map);
@@ -738,10 +924,13 @@ https://www.cfcanoe.com
 Amenities: Water, Electric, Restrooms, Showers</p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#257508", 
- 
-  })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/nIYIrzdXmh2oTna4J8Tk1NGhxzF3mdWlBmrte1tvIC-THoKXm2_B5N9Xtlt2qnfEhcmYqWVvHsMSJyRw318iv4TV4s-H1sbGToPfF6rRQdUQ8miiHsW0h6DWVrL6sYAXOtLAgO6t9w=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([  -81.59959, 40.88839])
     .setPopup(popup)
   .addTo(map);
@@ -757,10 +946,13 @@ www.clayspark.com
 Amenities: Full service</p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#257508", 
- 
-  })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/nIYIrzdXmh2oTna4J8Tk1NGhxzF3mdWlBmrte1tvIC-THoKXm2_B5N9Xtlt2qnfEhcmYqWVvHsMSJyRw318iv4TV4s-H1sbGToPfF6rRQdUQ8miiHsW0h6DWVrL6sYAXOtLAgO6t9w=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([   -81.5939, 40.8579])
     .setPopup(popup)
   .addTo(map);
@@ -776,10 +968,13 @@ https://www.starkparks.com/camping/Bridgeport Quarry Trailhead
 Amenities: Primitive</p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#257508", 
- 
-  })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/nIYIrzdXmh2oTna4J8Tk1NGhxzF3mdWlBmrte1tvIC-THoKXm2_B5N9Xtlt2qnfEhcmYqWVvHsMSJyRw318iv4TV4s-H1sbGToPfF6rRQdUQ8miiHsW0h6DWVrL6sYAXOtLAgO6t9w=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([   -81.52499, 40.8316])
     .setPopup(popup)
   .addTo(map);
@@ -795,10 +990,13 @@ https://turkeyhollowcamping.com/
 Amenities: Tent camping Only</p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#257508", 
- 
-  })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/nIYIrzdXmh2oTna4J8Tk1NGhxzF3mdWlBmrte1tvIC-THoKXm2_B5N9Xtlt2qnfEhcmYqWVvHsMSJyRw318iv4TV4s-H1sbGToPfF6rRQdUQ8miiHsW0h6DWVrL6sYAXOtLAgO6t9w=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([   -81.9066, 40.5146])
     .setPopup(popup)
   .addTo(map);
@@ -814,10 +1012,13 @@ www.kokosingvalley.com
 Amenities: Full service</p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#257508", 
- 
-  })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/nIYIrzdXmh2oTna4J8Tk1NGhxzF3mdWlBmrte1tvIC-THoKXm2_B5N9Xtlt2qnfEhcmYqWVvHsMSJyRw318iv4TV4s-H1sbGToPfF6rRQdUQ8miiHsW0h6DWVrL6sYAXOtLAgO6t9w=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([   -82.2835, 40.402])
     .setPopup(popup)
   .addTo(map);
@@ -838,10 +1039,13 @@ http://rusticknollscampground.com
 Amenities: Full service</p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#257508", 
- 
-  })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/nIYIrzdXmh2oTna4J8Tk1NGhxzF3mdWlBmrte1tvIC-THoKXm2_B5N9Xtlt2qnfEhcmYqWVvHsMSJyRw318iv4TV4s-H1sbGToPfF6rRQdUQ8miiHsW0h6DWVrL6sYAXOtLAgO6t9w=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([-82.5594, 40.3676,])
     .setPopup(popup)
   .addTo(map);
@@ -858,10 +1062,13 @@ www.madisoncountyfairoh.com/camping
 Amenities: Primitive</p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#257508", 
- 
-  })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/nIYIrzdXmh2oTna4J8Tk1NGhxzF3mdWlBmrte1tvIC-THoKXm2_B5N9Xtlt2qnfEhcmYqWVvHsMSJyRw318iv4TV4s-H1sbGToPfF6rRQdUQ8miiHsW0h6DWVrL6sYAXOtLAgO6t9w=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -83.44789, 39.8958])
     .setPopup(popup)
   .addTo(map);
@@ -877,10 +1084,13 @@ https://fmcpt.com/london-trailside-camping/
 Amenities: Tent platforms, restroom, water, rustic shower</p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#257508", 
- 
-  })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/nIYIrzdXmh2oTna4J8Tk1NGhxzF3mdWlBmrte1tvIC-THoKXm2_B5N9Xtlt2qnfEhcmYqWVvHsMSJyRw318iv4TV4s-H1sbGToPfF6rRQdUQ8miiHsW0h6DWVrL6sYAXOtLAgO6t9w=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -83.4597, 39.879])
     .setPopup(popup)
   .addTo(map);
@@ -896,10 +1106,13 @@ https://www.gcparkstrails.com
 Amenities: Primitive</p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#257508", 
- 
-  })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/nIYIrzdXmh2oTna4J8Tk1NGhxzF3mdWlBmrte1tvIC-THoKXm2_B5N9Xtlt2qnfEhcmYqWVvHsMSJyRw318iv4TV4s-H1sbGToPfF6rRQdUQ8miiHsW0h6DWVrL6sYAXOtLAgO6t9w=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -83.9354, 39.7226])
     .setPopup(popup)
   .addTo(map);
@@ -915,10 +1128,13 @@ www.greenecountyfairgrounds.com
 Amenities: Primitive</p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#257508", 
- 
-  })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/nIYIrzdXmh2oTna4J8Tk1NGhxzF3mdWlBmrte1tvIC-THoKXm2_B5N9Xtlt2qnfEhcmYqWVvHsMSJyRw318iv4TV4s-H1sbGToPfF6rRQdUQ8miiHsW0h6DWVrL6sYAXOtLAgO6t9w=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -83.9421, 39.7002])
     .setPopup(popup)
   .addTo(map);
@@ -935,10 +1151,13 @@ https://www.gcparkstrails.com
 Amenities: Primitive, latrine</p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#257508", 
- 
-  })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/nIYIrzdXmh2oTna4J8Tk1NGhxzF3mdWlBmrte1tvIC-THoKXm2_B5N9Xtlt2qnfEhcmYqWVvHsMSJyRw318iv4TV4s-H1sbGToPfF6rRQdUQ8miiHsW0h6DWVrL6sYAXOtLAgO6t9w=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -84.0132, 39.60629])
     .setPopup(popup)
   .addTo(map);
@@ -955,10 +1174,13 @@ Call Fred to arrange complimentary camping for bicyclists
 Amenities: Primitive, latrine</p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#257508", 
- 
-  })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/nIYIrzdXmh2oTna4J8Tk1NGhxzF3mdWlBmrte1tvIC-THoKXm2_B5N9Xtlt2qnfEhcmYqWVvHsMSJyRw318iv4TV4s-H1sbGToPfF6rRQdUQ8miiHsW0h6DWVrL6sYAXOtLAgO6t9w=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -84.1285, 39.3527])
     .setPopup(popup)
   .addTo(map);
@@ -975,10 +1197,13 @@ Amenities: Full service
 </p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#257508", 
- 
-  })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/nIYIrzdXmh2oTna4J8Tk1NGhxzF3mdWlBmrte1tvIC-THoKXm2_B5N9Xtlt2qnfEhcmYqWVvHsMSJyRw318iv4TV4s-H1sbGToPfF6rRQdUQ8miiHsW0h6DWVrL6sYAXOtLAgO6t9w=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -84.0933, 39.37939])
     .setPopup(popup)
   .addTo(map);
@@ -994,10 +1219,13 @@ www.greatparks.org/parks/lake-isabella
 Amenities: Primitive</p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#257508", 
- 
-  })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/nIYIrzdXmh2oTna4J8Tk1NGhxzF3mdWlBmrte1tvIC-THoKXm2_B5N9Xtlt2qnfEhcmYqWVvHsMSJyRw318iv4TV4s-H1sbGToPfF6rRQdUQ8miiHsW0h6DWVrL6sYAXOtLAgO6t9w=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -84.3031, 39.23769])
     .setPopup(popup)
   .addTo(map);
@@ -1014,10 +1242,13 @@ http://www.milfordohio.org/departments/public_works_department/parks_and_recreat
 Amenities: Primitive</p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#257508", 
- 
-  })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/nIYIrzdXmh2oTna4J8Tk1NGhxzF3mdWlBmrte1tvIC-THoKXm2_B5N9Xtlt2qnfEhcmYqWVvHsMSJyRw318iv4TV4s-H1sbGToPfF6rRQdUQ8miiHsW0h6DWVrL6sYAXOtLAgO6t9w=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -84.2988, 39.1702])
     .setPopup(popup)
   .addTo(map);
@@ -1033,10 +1264,13 @@ http://www.milfordohio.org/document_center/ParkCampingPermit.pdf
 Amenities: Primitive</p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#257508", 
- 
-  })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/nIYIrzdXmh2oTna4J8Tk1NGhxzF3mdWlBmrte1tvIC-THoKXm2_B5N9Xtlt2qnfEhcmYqWVvHsMSJyRw318iv4TV4s-H1sbGToPfF6rRQdUQ8miiHsW0h6DWVrL6sYAXOtLAgO6t9w=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -84.2955, 39.1763])
     .setPopup(popup)
   .addTo(map);
@@ -1049,10 +1283,13 @@ http://knoxcountyparks.org/trails/bike-trails/mohican-valley-bike-trail/;       
 </p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#257508", 
- 
-  })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/nIYIrzdXmh2oTna4J8Tk1NGhxzF3mdWlBmrte1tvIC-THoKXm2_B5N9Xtlt2qnfEhcmYqWVvHsMSJyRw318iv4TV4s-H1sbGToPfF6rRQdUQ8miiHsW0h6DWVrL6sYAXOtLAgO6t9w=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -82.19348, 40.46545])
     .setPopup(popup)
   .addTo(map);
@@ -1069,10 +1306,13 @@ http://knoxcountyparks.org/trails/bike-trails/mohican-valley-bike-trail/;       
 </p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#257508", 
- 
-  })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/nIYIrzdXmh2oTna4J8Tk1NGhxzF3mdWlBmrte1tvIC-THoKXm2_B5N9Xtlt2qnfEhcmYqWVvHsMSJyRw318iv4TV4s-H1sbGToPfF6rRQdUQ8miiHsW0h6DWVrL6sYAXOtLAgO6t9w=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -83.46001, 39.87898])
     .setPopup(popup)
   .addTo(map);
@@ -1097,10 +1337,13 @@ https://www.theclevelandhostel.com
 </p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#D6D58E"
-
-  })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/zdKhmoVOVo9mXhO-aAvmKWU3tfxbAGHKUsUnud42O0SrwScMGoAIGWKbhyUrn9gOS6-IEsNVNoaXGv_zFMZoqoS-sWZBg5X-xUSiODOvT1PQOuQE0XZs7Dor_6qndDzDXk2jockmpQ=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -81.70271, 41.48302])
     .setPopup(popup)
   .addTo(map);
@@ -1114,10 +1357,13 @@ http://bit.ly/2M4TmJC
 </p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#D6D58E"
-
-  })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/zdKhmoVOVo9mXhO-aAvmKWU3tfxbAGHKUsUnud42O0SrwScMGoAIGWKbhyUrn9gOS6-IEsNVNoaXGv_zFMZoqoS-sWZBg5X-xUSiODOvT1PQOuQE0XZs7Dor_6qndDzDXk2jockmpQ=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -81.54443, 40.78417])
     .setPopup(popup)
   .addTo(map);
@@ -1133,10 +1379,13 @@ https://berrodinbb.com
 </p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#D6D58E"
-
-  })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/zdKhmoVOVo9mXhO-aAvmKWU3tfxbAGHKUsUnud42O0SrwScMGoAIGWKbhyUrn9gOS6-IEsNVNoaXGv_zFMZoqoS-sWZBg5X-xUSiODOvT1PQOuQE0XZs7Dor_6qndDzDXk2jockmpQ=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -81.54545, 41.09366])
     .setPopup(popup)
   .addTo(map);
@@ -1152,10 +1401,13 @@ https://hotelmillersburg.com
 </p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#D6D58E"
-
-  })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/zdKhmoVOVo9mXhO-aAvmKWU3tfxbAGHKUsUnud42O0SrwScMGoAIGWKbhyUrn9gOS6-IEsNVNoaXGv_zFMZoqoS-sWZBg5X-xUSiODOvT1PQOuQE0XZs7Dor_6qndDzDXk2jockmpQ=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -81.91786, 40.55411])
     .setPopup(popup)
   .addTo(map);
@@ -1172,10 +1424,13 @@ https://www.hearthstoneinn.com/
 </p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#D6D58E"
-
-  })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/zdKhmoVOVo9mXhO-aAvmKWU3tfxbAGHKUsUnud42O0SrwScMGoAIGWKbhyUrn9gOS6-IEsNVNoaXGv_zFMZoqoS-sWZBg5X-xUSiODOvT1PQOuQE0XZs7Dor_6qndDzDXk2jockmpQ=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -83.80512, 39.73936])
     .setPopup(popup)
   .addTo(map);
@@ -1192,10 +1447,13 @@ https://www.hilton.com/en/book/reservation/deeplink/?ctyhocn=CLEDTHX&corporateCo
 </p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#D6D58E"
-
-  })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/zdKhmoVOVo9mXhO-aAvmKWU3tfxbAGHKUsUnud42O0SrwScMGoAIGWKbhyUrn9gOS6-IEsNVNoaXGv_zFMZoqoS-sWZBg5X-xUSiODOvT1PQOuQE0XZs7Dor_6qndDzDXk2jockmpQ=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -81.68906, 41.50255])
     .setPopup(popup)
   .addTo(map);
@@ -1212,10 +1470,13 @@ Mention that you
 </p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#D6D58E"
-
-  })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/zdKhmoVOVo9mXhO-aAvmKWU3tfxbAGHKUsUnud42O0SrwScMGoAIGWKbhyUrn9gOS6-IEsNVNoaXGv_zFMZoqoS-sWZBg5X-xUSiODOvT1PQOuQE0XZs7Dor_6qndDzDXk2jockmpQ=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -81.60223, 40.88941])
     .setPopup(popup)
   .addTo(map);
@@ -1234,10 +1495,13 @@ https://www.everlastingcup.com/
 </p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#DBF227"
-
-  })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/ce-P1gGXKq8oVV0B0BE66NSyY6jJ-KLA2o4pG8RJEYJ_IG_Y0BgMS85ZdNw7q5rnXu41mPg4ly2E-p9vMjG-jQK09rbd3Blc0SlfmWQm2HMIa_BzepS86HnUxuoVfUerky3oz1qpOg=s200-p-k)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([  -82.48555, 40.38755])
     .setPopup(popup)
   .addTo(map);
@@ -1254,15 +1518,18 @@ http://www.lemspizza.com/
 </p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#DBF227"
-
-  })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/ce-P1gGXKq8oVV0B0BE66NSyY6jJ-KLA2o4pG8RJEYJ_IG_Y0BgMS85ZdNw7q5rnXu41mPg4ly2E-p9vMjG-jQK09rbd3Blc0SlfmWQm2HMIa_BzepS86HnUxuoVfUerky3oz1qpOg=s200-p-k)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([  -81.87064, 40.67664])
     .setPopup(popup)
   .addTo(map);
   
- /*nowside*/
+ /*Snowside*/
   
   var popup = new mapboxgl.Popup().setHTML( 
   `<h3>Snowside</h3><p>Snowside
@@ -1273,10 +1540,13 @@ Killbuck, OH 44637
 </p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#DBF227"
-
-  })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/ce-P1gGXKq8oVV0B0BE66NSyY6jJ-KLA2o4pG8RJEYJ_IG_Y0BgMS85ZdNw7q5rnXu41mPg4ly2E-p9vMjG-jQK09rbd3Blc0SlfmWQm2HMIa_BzepS86HnUxuoVfUerky3oz1qpOg=s200-p-k)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([  -81.98457, 40.49522])
     .setPopup(popup)
   .addTo(map);
@@ -1293,10 +1563,13 @@ https://www.thirdwaycafe.org
 </p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#DBF227"
-
-  })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/ce-P1gGXKq8oVV0B0BE66NSyY6jJ-KLA2o4pG8RJEYJ_IG_Y0BgMS85ZdNw7q5rnXu41mPg4ly2E-p9vMjG-jQK09rbd3Blc0SlfmWQm2HMIa_BzepS86HnUxuoVfUerky3oz1qpOg=s200-p-k)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([  -83.08204, 39.95472])
     .setPopup(popup)
   .addTo(map);
@@ -1313,10 +1586,13 @@ https://phatdaddyslondon.com
 </p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#DBF227"
-
-  })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/ce-P1gGXKq8oVV0B0BE66NSyY6jJ-KLA2o4pG8RJEYJ_IG_Y0BgMS85ZdNw7q5rnXu41mPg4ly2E-p9vMjG-jQK09rbd3Blc0SlfmWQm2HMIa_BzepS86HnUxuoVfUerky3oz1qpOg=s200-p-k)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([  -83.4464, 39.88535])
     .setPopup(popup)
   .addTo(map);
@@ -1331,10 +1607,13 @@ Mount Vernon, OH 43050
 http://www.whitscustard.com/</p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#DBF227"
-
-  })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/ce-P1gGXKq8oVV0B0BE66NSyY6jJ-KLA2o4pG8RJEYJ_IG_Y0BgMS85ZdNw7q5rnXu41mPg4ly2E-p9vMjG-jQK09rbd3Blc0SlfmWQm2HMIa_BzepS86HnUxuoVfUerky3oz1qpOg=s200-p-k)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -82.48567, 40.38823])
     .setPopup(popup)
   .addTo(map);
@@ -1349,10 +1628,13 @@ London, OH 43140
 https://www.facebook.com/Mikescoffeebikes/</p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#DBF227"
-
-  })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/ce-P1gGXKq8oVV0B0BE66NSyY6jJ-KLA2o4pG8RJEYJ_IG_Y0BgMS85ZdNw7q5rnXu41mPg4ly2E-p9vMjG-jQK09rbd3Blc0SlfmWQm2HMIa_BzepS86HnUxuoVfUerky3oz1qpOg=s200-p-k)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -83.44603, 39.88377])
     .setPopup(popup)
   .addTo(map);
@@ -1367,10 +1649,13 @@ South Charleston, OH 45368
 https://www.villagecupsc.com/</p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#DBF227"
-
-  })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/ce-P1gGXKq8oVV0B0BE66NSyY6jJ-KLA2o4pG8RJEYJ_IG_Y0BgMS85ZdNw7q5rnXu41mPg4ly2E-p9vMjG-jQK09rbd3Blc0SlfmWQm2HMIa_BzepS86HnUxuoVfUerky3oz1qpOg=s200-p-k)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -83.63504, 39.82499])
     .setPopup(popup)
   .addTo(map);
@@ -1385,10 +1670,13 @@ Covington, KY 41011
 www.roeblingpointbooks.com</p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#DBF227"
-
-  })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/ce-P1gGXKq8oVV0B0BE66NSyY6jJ-KLA2o4pG8RJEYJ_IG_Y0BgMS85ZdNw7q5rnXu41mPg4ly2E-p9vMjG-jQK09rbd3Blc0SlfmWQm2HMIa_BzepS86HnUxuoVfUerky3oz1qpOg=s200-p-k)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -84.50793, 39.08869])
     .setPopup(popup)
   .addTo(map);
@@ -1407,10 +1695,13 @@ Xenia, OH 45385
 http://www.devilwindbrewing.com/</p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#D96941"
-
-  })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/zJz41kF-MRlU4nIKY25cpGNvyz_x3rhM4HzOYBNMw6s512kZc34532BzbmuPfeQn0e8eQL5mBT3CicKfYGptrqvgYTP11mNc7VJuG-VTPq-5hW4u_L88I5PwJBoFwsqgaKMHRty_pQ=w2400)';
+  el.style.width = '60px';
+  el.style.height = '50px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -83.92962, 39.68279])
     .setPopup(popup)
   .addTo(map);
@@ -1425,10 +1716,13 @@ Cincinnati, OH 45227
 https://fiftywestbrew.com/</p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#D96941"
-
-  })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/zJz41kF-MRlU4nIKY25cpGNvyz_x3rhM4HzOYBNMw6s512kZc34532BzbmuPfeQn0e8eQL5mBT3CicKfYGptrqvgYTP11mNc7VJuG-VTPq-5hW4u_L88I5PwJBoFwsqgaKMHRty_pQ=w2400)';
+  el.style.width = '60px';
+  el.style.height = '50px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -84.35287, 39.13823])
     .setPopup(popup)
   .addTo(map);
@@ -1442,10 +1736,13 @@ https://fiftywestbrew.com/</p>`
 http://www.narrowpathbrewing.com/</p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#D96941"
-
-  })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/zJz41kF-MRlU4nIKY25cpGNvyz_x3rhM4HzOYBNMw6s512kZc34532BzbmuPfeQn0e8eQL5mBT3CicKfYGptrqvgYTP11mNc7VJuG-VTPq-5hW4u_L88I5PwJBoFwsqgaKMHRty_pQ=w2400)';
+  el.style.width = '60px';
+  el.style.height = '50px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -84.25883, 39.26858])
     .setPopup(popup)
   .addTo(map);
@@ -1459,10 +1756,13 @@ http://www.narrowpathbrewing.com/</p>`
 https://www.littlemiamibrewing.com/</p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#D96941"
-
-  })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/zJz41kF-MRlU4nIKY25cpGNvyz_x3rhM4HzOYBNMw6s512kZc34532BzbmuPfeQn0e8eQL5mBT3CicKfYGptrqvgYTP11mNc7VJuG-VTPq-5hW4u_L88I5PwJBoFwsqgaKMHRty_pQ=w2400)';
+  el.style.width = '60px';
+  el.style.height = '50px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -84.29729, 39.17207])
     .setPopup(popup)
   .addTo(map);
@@ -1476,31 +1776,18 @@ https://www.littlemiamibrewing.com/</p>`
   </p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#D96941"
-
-  })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/zJz41kF-MRlU4nIKY25cpGNvyz_x3rhM4HzOYBNMw6s512kZc34532BzbmuPfeQn0e8eQL5mBT3CicKfYGptrqvgYTP11mNc7VJuG-VTPq-5hW4u_L88I5PwJBoFwsqgaKMHRty_pQ=w2400)';
+  el.style.width = '60px';
+  el.style.height = '50px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -84.24131, 39.35101])
     .setPopup(popup)
   .addTo(map);
   
   
-     /*Cartridge Brewing Company*/
-  
-   var popup = new mapboxgl.Popup().setHTML( 
-  `<h3>Cartridge Brewing Company</h3><p>1411 Grandin Rd, Maineville, OH 45039
-  http://www.cartridgebrewing.com/
-  +15136973434
-  </p>` 
-        
-);
-  var marker = new mapboxgl.Marker({
-      color: "#D96941"
-
-  })
-  .setLngLat([ -84.24131, 39.35101])
-    .setPopup(popup)
-  .addTo(map);
   
   
 /*R. Shea Brewing - Canal Place Downtown*/
@@ -1517,10 +1804,13 @@ Nearby Accommodations: The Courtyard by Marriott Akron Downtown is 2.1 miles awa
   </p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#D96941"
-
-  })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/zJz41kF-MRlU4nIKY25cpGNvyz_x3rhM4HzOYBNMw6s512kZc34532BzbmuPfeQn0e8eQL5mBT3CicKfYGptrqvgYTP11mNc7VJuG-VTPq-5hW4u_L88I5PwJBoFwsqgaKMHRty_pQ=w2400)';
+  el.style.width = '60px';
+  el.style.height = '50px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -81.52931, 41.07414])
     .setPopup(popup)
   .addTo(map);
@@ -1538,10 +1828,13 @@ Bike Racks: yes - large, traditional rack out front.
 Nearby Accommodations: none.</p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#D96941"
-
-  })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/zJz41kF-MRlU4nIKY25cpGNvyz_x3rhM4HzOYBNMw6s512kZc34532BzbmuPfeQn0e8eQL5mBT3CicKfYGptrqvgYTP11mNc7VJuG-VTPq-5hW4u_L88I5PwJBoFwsqgaKMHRty_pQ=w2400)';
+  el.style.width = '60px';
+  el.style.height = '50px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -81.55094, 41.13907])
     .setPopup(popup)
   .addTo(map);
@@ -1559,10 +1852,13 @@ Bike Racks: Outdoor patio fencing.
 Nearby Accommodations: The Courtyard by Marriott Akron Downtown is a few blocks away.  Also visit Dirty River Bikes!</p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#D96941"
-
-  })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/zJz41kF-MRlU4nIKY25cpGNvyz_x3rhM4HzOYBNMw6s512kZc34532BzbmuPfeQn0e8eQL5mBT3CicKfYGptrqvgYTP11mNc7VJuG-VTPq-5hW4u_L88I5PwJBoFwsqgaKMHRty_pQ=w2400)';
+  el.style.width = '60px';
+  el.style.height = '50px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -81.51721, 41.09158])
     .setPopup(popup)
   .addTo(map); 
@@ -1580,10 +1876,13 @@ Bike Racks:  Nope.  I have seen folks bring bikes inside.
 Nearby Accommodations: The Courtyard by Marriott Akron Downtown is 2.1 miles away to the north by trail.  Also visit Dirty River Bikes!</p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#D96941"
-
-  })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/zJz41kF-MRlU4nIKY25cpGNvyz_x3rhM4HzOYBNMw6s512kZc34532BzbmuPfeQn0e8eQL5mBT3CicKfYGptrqvgYTP11mNc7VJuG-VTPq-5hW4u_L88I5PwJBoFwsqgaKMHRty_pQ=w2400)';
+  el.style.width = '60px';
+  el.style.height = '50px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -81.52680, 41.07072])
     .setPopup(popup)
   .addTo(map); 
@@ -1602,10 +1901,13 @@ Bike Racks: Nope.  Fencing around patio.
 Nearby Accommodations: none.</p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#D96941"
-
-  })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/zJz41kF-MRlU4nIKY25cpGNvyz_x3rhM4HzOYBNMw6s512kZc34532BzbmuPfeQn0e8eQL5mBT3CicKfYGptrqvgYTP11mNc7VJuG-VTPq-5hW4u_L88I5PwJBoFwsqgaKMHRty_pQ=w2400)';
+  el.style.width = '60px';
+  el.style.height = '50px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -81.54854, 41.02480])
     .setPopup(popup)
   .addTo(map); 
@@ -1624,10 +1926,13 @@ Bike Racks: None.  There is a designated outdoor area.
 Nearby Accommodations: Hampton Inn Massillon, about 0.4 miles from Brewery.</p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#D96941"
-
-  })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/zJz41kF-MRlU4nIKY25cpGNvyz_x3rhM4HzOYBNMw6s512kZc34532BzbmuPfeQn0e8eQL5mBT3CicKfYGptrqvgYTP11mNc7VJuG-VTPq-5hW4u_L88I5PwJBoFwsqgaKMHRty_pQ=w2400)';
+  el.style.width = '60px';
+  el.style.height = '50px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -81.52197, 40.79904])
     .setPopup(popup)
   .addTo(map); 
@@ -1646,10 +1951,13 @@ Bike Racks: Nope.  Fencing around deck area at rear (accessible from lot).
 Nearby Accommodations: Sleep Inn (on Rt.212, 0.2 miles from the brewery, back toward the trail).</p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#D96941"
-
-  })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/zJz41kF-MRlU4nIKY25cpGNvyz_x3rhM4HzOYBNMw6s512kZc34532BzbmuPfeQn0e8eQL5mBT3CicKfYGptrqvgYTP11mNc7VJuG-VTPq-5hW4u_L88I5PwJBoFwsqgaKMHRty_pQ=w2400)';
+  el.style.width = '60px';
+  el.style.height = '50px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -81.44405, 40.63871])
     .setPopup(popup)
   .addTo(map); 
@@ -1669,10 +1977,13 @@ Nearby Accommodations: Sleep Inn (on Rt.212, 0.2 miles from the brewery, back to
   </p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#D96941"
-
-  })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/zJz41kF-MRlU4nIKY25cpGNvyz_x3rhM4HzOYBNMw6s512kZc34532BzbmuPfeQn0e8eQL5mBT3CicKfYGptrqvgYTP11mNc7VJuG-VTPq-5hW4u_L88I5PwJBoFwsqgaKMHRty_pQ=w2400)';
+  el.style.width = '60px';
+  el.style.height = '50px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -83.01142, 39.95784])
     .setPopup(popup)
   .addTo(map); 
@@ -1691,10 +2002,13 @@ Nearby Accommodations: Sleep Inn (on Rt.212, 0.2 miles from the brewery, back to
   </p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#D96941"
-
-  })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/zJz41kF-MRlU4nIKY25cpGNvyz_x3rhM4HzOYBNMw6s512kZc34532BzbmuPfeQn0e8eQL5mBT3CicKfYGptrqvgYTP11mNc7VJuG-VTPq-5hW4u_L88I5PwJBoFwsqgaKMHRty_pQ=w2400)';
+  el.style.width = '60px';
+  el.style.height = '50px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -83.06927, 39.96758])
     .setPopup(popup)
   .addTo(map); 
@@ -1716,10 +2030,13 @@ https://erniesbikeshop.com
   </p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#F0941F"
-
-  })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/VRs_RNYOrXe64tHbRvT97ie_c2tJsRS2aI1gCiyJRqK-1o6WrxIfP50z4xCaTJoeGEICpbR00wSris6fHSgN_YjU25wUiS4wCuDYvu55pd5bp7KhC7TevcOdEXX2__lSkZh09BFtNg=w2400)';
+  el.style.width = '60px';
+  el.style.height = '50px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -81.52903, 40.81179])
     .setPopup(popup)
   .addTo(map); 
@@ -1737,10 +2054,13 @@ https://www.trekbikes.com/us/en_US/retail/westerville_northgate/
   </p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#F0941F"
-
-  })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/VRs_RNYOrXe64tHbRvT97ie_c2tJsRS2aI1gCiyJRqK-1o6WrxIfP50z4xCaTJoeGEICpbR00wSris6fHSgN_YjU25wUiS4wCuDYvu55pd5bp7KhC7TevcOdEXX2__lSkZh09BFtNg=w2400)';
+  el.style.width = '60px';
+  el.style.height = '50px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -82.91895, 40.14879])
     .setPopup(popup)
   .addTo(map); 
@@ -1757,10 +2077,13 @@ https://www.bishopsbicycles.net/
   </p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#F0941F"
-
-  })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/VRs_RNYOrXe64tHbRvT97ie_c2tJsRS2aI1gCiyJRqK-1o6WrxIfP50z4xCaTJoeGEICpbR00wSris6fHSgN_YjU25wUiS4wCuDYvu55pd5bp7KhC7TevcOdEXX2__lSkZh09BFtNg=w2400)';
+  el.style.width = '60px';
+  el.style.height = '50px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -84.29516, 39.1755])
     .setPopup(popup)
   .addTo(map); 
@@ -1778,16 +2101,23 @@ https://roadsriversandtrails.com/
   </p>` 
         
 );
-  var marker = new mapboxgl.Marker({
-      color: "#F0941F"
-
-  })
+el = document.createElement('div')
+  el.classname = "signs"
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/VRs_RNYOrXe64tHbRvT97ie_c2tJsRS2aI1gCiyJRqK-1o6WrxIfP50z4xCaTJoeGEICpbR00wSris6fHSgN_YjU25wUiS4wCuDYvu55pd5bp7KhC7TevcOdEXX2__lSkZh09BFtNg=w2400)';
+  el.style.width = '60px';
+  el.style.height = '50px';
+  el.style.backgroundSize = '100%';
+  var marker = new mapboxgl.Marker(el)
   .setLngLat([ -84.29588, 39.17362])
     .setPopup(popup)
   .addTo(map);
   
   
-  
+  /* Sights*/
+
+  /*closures*/
+
+  /*mile markers*/
   
   
   
