@@ -18,9 +18,9 @@
   <!--Turn Markers On And Off/Design Custom Buttons-->
   
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-</style>
-<body>
+</head>
+
+
 
 <div class="button">
   
@@ -35,7 +35,7 @@
   <a href="#"><i class="fa fa-spoon"></i></a> <!--Food/General Stores/Restaurants-->
   <a href="#"><i class="fa fa-eye"></i></a>  <!--Sight Seeing/Historical/Nature-->
 </div>
- 
+ <!--Nav Bar End--> 
   <!--button functions in JS -->
  
 
@@ -43,19 +43,15 @@
   
 <!--logo-->
 <img class="logo" src="https://lh3.googleusercontent.com/salaALZAlUz5VN9mj585IgJ3SVtuR0sca6LZuGhw4blPLAVaG1KmSg9lvOs1MD9m7Wa5erlYWsILYj6OH7zYgdzWHP56GIVJ6pPkK8O6Wfm7DszWYshzWnSTpRMJPICZbRz0Zz0P-Q=w2400"/>
-  <style>
-  </style>
-</body>
-</html> 
-  <!--Nav Bar End--> 
+  </html>
+
+  
   
    
     
-<style>
 
-</style>
-</head>
-<body>
+
+
  
  
 <script>
@@ -75,9 +71,14 @@ projection: 'globe' // display the map as a 3D globe
 });
 
 map.on('style.load', () => {
+map.addSource('tileset_data',{
+  "url": "rinman87.8z8wdd05",
+  "type": "vector"
+});
 map.setFog({}); // Set the default atmosphere style
 });
-  </script>
+
+</script>
   
 </body>
 </html>
@@ -86,7 +87,7 @@ map.setFog({}); // Set the default atmosphere style
 <!--mapbox marker-->
 
 <script>
-   //Trailheads
+   //Trailheads Souther Terminus Roebling Bridge
 
   var popup = new mapboxgl.Popup().setHTML(
   `<h3>Ohio to Erie Trail</h3><p>Souther Terminus</p>` 
@@ -107,12 +108,25 @@ map.setFog({}); // Set the default atmosphere style
   var popup = new mapboxgl.Popup().setHTML(
   `<h3>Xenia Station</h3><p>Central Hub</p>` 
 );
-    var marker = new mapboxgl.Marker({
-      color: "#A18C25", 
-    })
+  
+  let customMarker = document.createElement('div')
+  customMarker.classname = "signs"
+  customMarker.style.backgroundImage = 'url(https://lh3.googleusercontent.com/VTmbDoFvYZjLfg1E_BbuDBG6psn7balbwDnJjz2s7Ye_-yIEmBYoplS21BirRquSf7_SfcbRnkTgHEE5-GmdufmK6gNJvwI5dJ1NH9bYt236NUECLLt5Fqmqe_43Zt4NT_MDHKyvsw=w2400)';
+  customMarker.style.width = '60px';
+  customMarker.style.height = '45px';
+  customMarker.style.backgroundSize = '100%';
+  
+  new mapboxgl.Marker(customMarker)
   .setLngLat([-83.93114, 39.68031])
     .setPopup(popup)
   .addTo(map);
+  
+  // var marker = new mapboxgl.Marker({
+     // color: "#A18C25", 
+   // })
+ // .setLngLat([-83.93114, 39.68031])
+   // .setPopup(popup)
+  //.addTo(map);
   
   //Spring Valley Trailhead
   
