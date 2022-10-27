@@ -10,7 +10,7 @@
 <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
 <link href="https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css" rel="stylesheet">
 <link href="./biketrailmap.css" rel="stylesheet">
-
+<script src="./biketrailmap.js"></script>
 <script src="https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js"></script>
   
  
@@ -25,7 +25,7 @@
 <div class="button">
   
   <a class="active" href="#"><i class="fa fa-map"></i></a> 
-  <a href="#" onclick="toggle('signs')"><i class="fa fa-map-signs"></i></a> <!--Trailheads-->
+  <a href="#" onclick="toggle('signs')"><i class="fa fa-map-signs"></i></a>  <!--Trailheads-->
   <a href="#"  onclick="toggle('miles')"><i class="fa fa-bicycle"></i></a> <!--Mile Markers-->
   <a href="#"  onclick="toggle('repairs')"><i class="fa fa-road"></i></a> <!--Bike SHop/Repair-->
   <a href="#" onclick="toggle('closures')"><i class="fa fa-exclamation-triangle"></i></a> <!--Route Closures/Alerts-->
@@ -34,16 +34,17 @@
   <a href="#" onclick="toggle('beer')" ><i class="fa fa-beer"></i></a> <!--Beer/Breweries/Dives-->
   <a href="#" onclick="toggle('food')" ><i class="fa fa-spoon"></i></a> <!--Food/General Stores/Restaurants-->
   <a href="#" onclick="toggle('sights')"><i class="fa fa-eye"></i></a>  <!--Sight Seeing/Historical/Nature-->
-</div>
+</div> 
+
  <!--Nav Bar End--> 
   <!--button functions in JS -->
  
 
-  
+ 
   
 <!--logo-->
 <img class="logo" src="https://lh3.googleusercontent.com/salaALZAlUz5VN9mj585IgJ3SVtuR0sca6LZuGhw4blPLAVaG1KmSg9lvOs1MD9m7Wa5erlYWsILYj6OH7zYgdzWHP56GIVJ6pPkK8O6Wfm7DszWYshzWnSTpRMJPICZbRz0Zz0P-Q=w2400"/>
-  </html>
+  
 
   
   
@@ -65,10 +66,7 @@ zoom: 7, // starting zoom
 projection: 'globe' // display the map as a 3D globe
 });
  
-  map.addSource('tileset_data', {
-    "url": "rinman87.8z8wdd05",
-    "type": "vector"
-});
+  
 
 map.on('style.load', () => {
 map.addSource('tileset_data',{
@@ -78,15 +76,13 @@ map.addSource('tileset_data',{
 map.setFog({}); // Set the default atmosphere style
 });
 
-</script>
+
   
-</body>
-</html>
 
 
-<!--mapbox marker-->
+//mapbox marker
 
-<script>
+
  let el
  
    /*Trailheads*/
@@ -95,8 +91,8 @@ map.setFog({}); // Set the default atmosphere style
   `<h3>Ohio to Erie Trail</h3><p>Souther Terminus</p>` 
 );
 
- el = document.createElement('div')
-  el.classname = "signs"
+ el = document.createElement('div');
+  el.className = "signs";
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/0Hv-wlyqroeVuOwljUSr1cHw2ZdjIEQXTsc5RigKHykDIxLlCdjeErJ4Zy3MMEHMc7-SbfhoHICsbbXpM14QC7Byapy1AJBOJQEthW5aAkbDmwPfYwRR-b6SgQB29ySVi3FoJtoJ7Q=w2400)';
  el.style.width = '60px';
   el.style.height = '45px';
@@ -117,15 +113,15 @@ map.setFog({}); // Set the default atmosphere style
   `<h3>Xenia Station</h3><p>Central Hub</p>` 
 );
   
- el = document.createElement('div')
-  el.classname = "signs"
+ el = document.createElement('div');
+  el.className = "signs";
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/VTmbDoFvYZjLfg1E_BbuDBG6psn7balbwDnJjz2s7Ye_-yIEmBYoplS21BirRquSf7_SfcbRnkTgHEE5-GmdufmK6gNJvwI5dJ1NH9bYt236NUECLLt5Fqmqe_43Zt4NT_MDHKyvsw=w2400)';
   el.style.width = '60px';
   el.style.height = '45px';
   el.style.backgroundSize = '100%';
-  var marker = new mapboxgl.Marker(el)
-  .setLngLat([-83.93114, 39.68031])
-    .setPopup(popup)
+  var marker = new mapboxgl.Marker(el);
+  .setLngLat([-83.93114, 39.68031]);
+    .setPopup(popup);
   .addTo(map);
 
   
@@ -142,7 +138,7 @@ map.setFog({}); // Set the default atmosphere style
   `<h3>Spring Valley Trailhead</h3><p></p>` 
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = "signs"
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
  el.style.width = '50px';
   el.style.height = '40px';
@@ -159,7 +155,7 @@ el = document.createElement('div')
   `<h3>Corwin Trailhead</h3><p></p>` 
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = "signs"
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
@@ -175,7 +171,7 @@ el = document.createElement('div')
   `<h3>Oregonia Trailhead</h3><p></p>` 
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = "signs"
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
@@ -191,7 +187,7 @@ el = document.createElement('div')
   `<h3>Morrow Trailhead</h3><p></p>` 
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = "signs"
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
@@ -207,7 +203,7 @@ el = document.createElement('div')
   `<h3>South Lebanon Trailhead</h3><p></p>` 
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = "signs"
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
@@ -223,7 +219,7 @@ el = document.createElement('div')
   `<h3>Milford Trailhead</h3><p></p>` 
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = "signs"
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
@@ -240,7 +236,7 @@ el = document.createElement('div')
   `<h3>Avoca Park Trailhead</h3><p></p>` 
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = "signs"
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
@@ -256,7 +252,7 @@ el = document.createElement('div')
   `<h3>Wilmer Trailhead</h3><p>Lunken Airport</p>` 
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = "signs"
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
@@ -272,7 +268,7 @@ el = document.createElement('div')
   `<h3>South Charleston Trailhead</h3><p></p>` 
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = "signs"
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
@@ -288,7 +284,7 @@ el = document.createElement('div')
   `<h3>London Trailhead</h3><p></p>` 
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = "signs"
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
@@ -304,7 +300,7 @@ el = document.createElement('div')
   `<h3>Battelle Darby Creek Park Trailhead</h3><p></p>` 
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = "signs"
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
@@ -320,7 +316,7 @@ el = document.createElement('div')
   `<h3>Wilson Road Park Trailhead</h3><p></p>` 
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = "signs"
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
@@ -336,7 +332,7 @@ el = document.createElement('div')
   `<h3>Hayden Park Trailhead</h3><p></p>` 
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = "signs"
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
@@ -352,7 +348,7 @@ el = document.createElement('div')
   `<h3>Westerville Depot</h3><p></p>` 
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = "signs"
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
@@ -368,7 +364,7 @@ el = document.createElement('div')
   `<h3>Galena Trailhead</h3><p></p>` 
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = "signs"
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
@@ -384,7 +380,7 @@ el = document.createElement('div')
   `<h3>Centerburg Trailhead</h3><p>Visit the geographic center of Ohio located at this trailhead.</p>` 
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = "signs"
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
@@ -401,7 +397,7 @@ el = document.createElement('div')
         
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = "signs"
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
@@ -418,7 +414,7 @@ el = document.createElement('div')
         
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = "signs"
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
@@ -435,7 +431,7 @@ el = document.createElement('div')
         
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = "signs"
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
@@ -452,7 +448,7 @@ el = document.createElement('div')
         
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = "signs"
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
@@ -469,7 +465,7 @@ el = document.createElement('div')
         
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = "signs"
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
@@ -486,7 +482,7 @@ el = document.createElement('div')
         
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = "signs"
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
@@ -503,7 +499,7 @@ el = document.createElement('div')
         
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = "signs"
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
@@ -520,7 +516,7 @@ el = document.createElement('div')
         
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = "signs"
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
@@ -537,7 +533,7 @@ el = document.createElement('div')
         
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = "signs"
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
@@ -554,7 +550,7 @@ el = document.createElement('div')
         
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = "signs"
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
@@ -571,7 +567,7 @@ el = document.createElement('div')
         
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = "signs"
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
@@ -588,7 +584,7 @@ el = document.createElement('div')
         
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = "signs"
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/idpmvio5rHV0Bx9uFb1yq3CHhAy_mIqdx4h8SVw15RDY-_rOS3FPDoz83z2EKICeNrrdYGsyLO2sZpcU8bmu0zh_ssbeGh0KmFAfdh8etu2U-UmUOeiVZrqFVeeZI19NWoHSYsomAw=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
@@ -605,7 +601,7 @@ el = document.createElement('div')
         
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = "signs"
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
@@ -623,7 +619,7 @@ el = document.createElement('div')
         
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = "signs"
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/idpmvio5rHV0Bx9uFb1yq3CHhAy_mIqdx4h8SVw15RDY-_rOS3FPDoz83z2EKICeNrrdYGsyLO2sZpcU8bmu0zh_ssbeGh0KmFAfdh8etu2U-UmUOeiVZrqFVeeZI19NWoHSYsomAw=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
@@ -640,7 +636,7 @@ el = document.createElement('div')
         
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = "signs"
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
@@ -657,7 +653,7 @@ el = document.createElement('div')
         
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = "signs"
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
@@ -674,7 +670,7 @@ el = document.createElement('div')
         
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = "signs"
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
@@ -691,7 +687,7 @@ el = document.createElement('div')
         
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = "signs"
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
@@ -708,7 +704,7 @@ el = document.createElement('div')
         
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = "signs"
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
@@ -725,7 +721,7 @@ el = document.createElement('div')
         
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = "signs"
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
@@ -742,7 +738,7 @@ el = document.createElement('div')
         
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = "signs"
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
@@ -759,7 +755,7 @@ el = document.createElement('div')
         
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = "signs"
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
@@ -776,7 +772,7 @@ el = document.createElement('div')
         
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = "signs"
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
@@ -793,7 +789,7 @@ el = document.createElement('div')
         
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = "signs"
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
  el.style.width = '50px';
   el.style.height = '40px';
@@ -810,7 +806,7 @@ el = document.createElement('div')
         
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = "signs"
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/KhZDR3yRmltBZBLFrPIoG1oshPzyNvN0jTVUBCLifeViUgHmSdU7piN90MucYmK1gvRQ9TXo6jEP1Dm6lpSxyg-rxxprYKb5Ddqy5mbzW3M5f-deMteCJixj4KIgv-bRSPOOyk-VyA=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
@@ -836,15 +832,15 @@ http://heritagefarms.com/
 Amenities: portable restroom</p>` 
         
 );
-el = document.createElement('div')
-  el.classname = "signs"
+el = document.createElement('div');
+  el.className = 'camping';
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/nIYIrzdXmh2oTna4J8Tk1NGhxzF3mdWlBmrte1tvIC-THoKXm2_B5N9Xtlt2qnfEhcmYqWVvHsMSJyRw318iv4TV4s-H1sbGToPfF6rRQdUQ8miiHsW0h6DWVrL6sYAXOtLAgO6t9w=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
-  var marker = new mapboxgl.Marker(el)
-  .setLngLat([ -81.55549, 41.24024,])
-    .setPopup(popup)
+  var marker = new mapboxgl.Marker(el);
+  .setLngLat([ -81.55549, 41.24024,]);
+    .setPopup(popup);
   .addTo(map);
   
  /*Summit Metro Park Big Bend Trailhead Camping*/
@@ -858,15 +854,15 @@ www.summitmetroparks.org/camping.aspx
 Amenities: Primitive</p>` 
         
 );
-el = document.createElement('div')
-  el.classname = "signs"
+el = document.createElement('div');
+  el.className = 'camping';
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/nIYIrzdXmh2oTna4J8Tk1NGhxzF3mdWlBmrte1tvIC-THoKXm2_B5N9Xtlt2qnfEhcmYqWVvHsMSJyRw318iv4TV4s-H1sbGToPfF6rRQdUQ8miiHsW0h6DWVrL6sYAXOtLAgO6t9w=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
-  var marker = new mapboxgl.Marker(el)
-  .setLngLat([  -81.54, 41.1275,])
-    .setPopup(popup)
+  var marker = new mapboxgl.Marker(el);
+  .setLngLat([  -81.54, 41.1275,]);
+    .setPopup(popup);
   .addTo(map);
 
   /*Summit Metro Park Franklin Trailhead*/
@@ -879,15 +875,15 @@ www.summitmetroparks.org/camping.aspx
 Amenities: Primitive</p>` 
         
 );
-el = document.createElement('div')
-  el.classname = "signs"
+el = document.createElement('div');
+  el.className = 'camping';
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/nIYIrzdXmh2oTna4J8Tk1NGhxzF3mdWlBmrte1tvIC-THoKXm2_B5N9Xtlt2qnfEhcmYqWVvHsMSJyRw318iv4TV4s-H1sbGToPfF6rRQdUQ8miiHsW0h6DWVrL6sYAXOtLAgO6t9w=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
-  var marker = new mapboxgl.Marker(el)
-  .setLngLat([  -81.6195, 40.9435])
-    .setPopup(popup)
+  var marker = new mapboxgl.Marker(el);
+  .setLngLat([  -81.6195, 40.9435]);
+    .setPopup(popup);
   .addTo(map);
   
   
@@ -902,15 +898,15 @@ http://hillsideparkcampground.com
 Amenities: Primitive or water & electric</p>` 
         
 );
-el = document.createElement('div')
-  el.classname = "signs"
+el = document.createElement('div');
+  el.className = 'camping';
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/nIYIrzdXmh2oTna4J8Tk1NGhxzF3mdWlBmrte1tvIC-THoKXm2_B5N9Xtlt2qnfEhcmYqWVvHsMSJyRw318iv4TV4s-H1sbGToPfF6rRQdUQ8miiHsW0h6DWVrL6sYAXOtLAgO6t9w=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
-  var marker = new mapboxgl.Marker(el)
-  .setLngLat([  -81.6195, 40.9264])
-    .setPopup(popup)
+  var marker = new mapboxgl.Marker(el);
+  .setLngLat([  -81.6195, 40.9264]);
+    .setPopup(popup);
   .addTo(map);
   
  /*Canal Fulton Canoe Livery and Campground*/
@@ -924,15 +920,15 @@ https://www.cfcanoe.com
 Amenities: Water, Electric, Restrooms, Showers</p>` 
         
 );
-el = document.createElement('div')
-  el.classname = "signs"
+el = document.createElement('div');
+  el.className = 'camping';
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/nIYIrzdXmh2oTna4J8Tk1NGhxzF3mdWlBmrte1tvIC-THoKXm2_B5N9Xtlt2qnfEhcmYqWVvHsMSJyRw318iv4TV4s-H1sbGToPfF6rRQdUQ8miiHsW0h6DWVrL6sYAXOtLAgO6t9w=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
-  var marker = new mapboxgl.Marker(el)
-  .setLngLat([  -81.59959, 40.88839])
-    .setPopup(popup)
+  var marker = new mapboxgl.Marker(el);
+  .setLngLat([  -81.59959, 40.88839]);
+    .setPopup(popup);
   .addTo(map);
   
  /*Clay’s Park Resort*/
@@ -946,15 +942,15 @@ www.clayspark.com
 Amenities: Full service</p>` 
         
 );
-el = document.createElement('div')
-  el.classname = "signs"
+el = document.createElement('div');
+  el.className = 'camping'
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/nIYIrzdXmh2oTna4J8Tk1NGhxzF3mdWlBmrte1tvIC-THoKXm2_B5N9Xtlt2qnfEhcmYqWVvHsMSJyRw318iv4TV4s-H1sbGToPfF6rRQdUQ8miiHsW0h6DWVrL6sYAXOtLAgO6t9w=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
-  var marker = new mapboxgl.Marker(el)
-  .setLngLat([   -81.5939, 40.8579])
-    .setPopup(popup)
+  var marker = new mapboxgl.Marker(el);
+  .setLngLat([   -81.5939, 40.8579]);
+    .setPopup(popup);
   .addTo(map);
   
   /*Rivers Edge Campground*/
@@ -968,15 +964,15 @@ https://www.starkparks.com/camping/Bridgeport Quarry Trailhead
 Amenities: Primitive</p>` 
         
 );
-el = document.createElement('div')
-  el.classname = "signs"
+el = document.createElement('div');
+  el.className = 'camping';
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/nIYIrzdXmh2oTna4J8Tk1NGhxzF3mdWlBmrte1tvIC-THoKXm2_B5N9Xtlt2qnfEhcmYqWVvHsMSJyRw318iv4TV4s-H1sbGToPfF6rRQdUQ8miiHsW0h6DWVrL6sYAXOtLAgO6t9w=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
-  var marker = new mapboxgl.Marker(el)
-  .setLngLat([   -81.52499, 40.8316])
-    .setPopup(popup)
+  var marker = new mapboxgl.Marker(el);
+  .setLngLat([   -81.52499, 40.8316]);
+    .setPopup(popup);
   .addTo(map);
   
   /*Turkey Hollow Campground*/
@@ -991,14 +987,14 @@ Amenities: Tent camping Only</p>`
         
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = 'camping';
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/nIYIrzdXmh2oTna4J8Tk1NGhxzF3mdWlBmrte1tvIC-THoKXm2_B5N9Xtlt2qnfEhcmYqWVvHsMSJyRw318iv4TV4s-H1sbGToPfF6rRQdUQ8miiHsW0h6DWVrL6sYAXOtLAgO6t9w=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
-  var marker = new mapboxgl.Marker(el)
-  .setLngLat([   -81.9066, 40.5146])
-    .setPopup(popup)
+  var marker = new mapboxgl.Marker(el);
+  .setLngLat([   -81.9066, 40.5146]);
+    .setPopup(popup);
   .addTo(map);
   
   /*Kokosing Valley Camp and Canoe*/
@@ -1012,15 +1008,15 @@ www.kokosingvalley.com
 Amenities: Full service</p>` 
         
 );
-el = document.createElement('div')
-  el.classname = "signs"
+el = document.createElement('div');
+  el.className = 'camping';
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/nIYIrzdXmh2oTna4J8Tk1NGhxzF3mdWlBmrte1tvIC-THoKXm2_B5N9Xtlt2qnfEhcmYqWVvHsMSJyRw318iv4TV4s-H1sbGToPfF6rRQdUQ8miiHsW0h6DWVrL6sYAXOtLAgO6t9w=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
-  var marker = new mapboxgl.Marker(el)
-  .setLngLat([   -82.2835, 40.402])
-    .setPopup(popup)
+  var marker = new mapboxgl.Marker(el);
+  .setLngLat([   -82.2835, 40.402]);
+    .setPopup(popup);
   .addTo(map);
   
   
@@ -1039,15 +1035,15 @@ http://rusticknollscampground.com
 Amenities: Full service</p>` 
         
 );
-el = document.createElement('div')
-  el.classname = "signs"
+el = document.createElement('div');
+  el.className = 'camping';
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/nIYIrzdXmh2oTna4J8Tk1NGhxzF3mdWlBmrte1tvIC-THoKXm2_B5N9Xtlt2qnfEhcmYqWVvHsMSJyRw318iv4TV4s-H1sbGToPfF6rRQdUQ8miiHsW0h6DWVrL6sYAXOtLAgO6t9w=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
-  var marker = new mapboxgl.Marker(el)
-  .setLngLat([-82.5594, 40.3676,])
-    .setPopup(popup)
+  var marker = new mapboxgl.Marker(el);
+  .setLngLat([-82.5594, 40.3676,]);
+    .setPopup(popup);
   .addTo(map);
   
   
@@ -1062,15 +1058,15 @@ www.madisoncountyfairoh.com/camping
 Amenities: Primitive</p>` 
         
 );
-el = document.createElement('div')
-  el.classname = "signs"
+el = document.createElement('div');
+  el.className = 'camping';
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/nIYIrzdXmh2oTna4J8Tk1NGhxzF3mdWlBmrte1tvIC-THoKXm2_B5N9Xtlt2qnfEhcmYqWVvHsMSJyRw318iv4TV4s-H1sbGToPfF6rRQdUQ8miiHsW0h6DWVrL6sYAXOtLAgO6t9w=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
-  var marker = new mapboxgl.Marker(el)
-  .setLngLat([ -83.44789, 39.8958])
-    .setPopup(popup)
+  var marker = new mapboxgl.Marker(el);
+  .setLngLat([ -83.44789, 39.8958]);
+    .setPopup(popup);
   .addTo(map);
   
   
@@ -1084,15 +1080,15 @@ https://fmcpt.com/london-trailside-camping/
 Amenities: Tent platforms, restroom, water, rustic shower</p>` 
         
 );
-el = document.createElement('div')
-  el.classname = "signs"
+el = document.createElement('div');
+  el.className = 'camping';
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/nIYIrzdXmh2oTna4J8Tk1NGhxzF3mdWlBmrte1tvIC-THoKXm2_B5N9Xtlt2qnfEhcmYqWVvHsMSJyRw318iv4TV4s-H1sbGToPfF6rRQdUQ8miiHsW0h6DWVrL6sYAXOtLAgO6t9w=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
-  var marker = new mapboxgl.Marker(el)
-  .setLngLat([ -83.4597, 39.879])
-    .setPopup(popup)
+  var marker = new mapboxgl.Marker(el);
+  .setLngLat([ -83.4597, 39.879]);
+    .setPopup(popup);
   .addTo(map);
   
  /*Greene County Parks and Trail*/
@@ -1106,15 +1102,15 @@ https://www.gcparkstrails.com
 Amenities: Primitive</p>` 
         
 );
-el = document.createElement('div')
-  el.classname = "signs"
+el = document.createElement('div');
+  el.className = 'camping';
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/nIYIrzdXmh2oTna4J8Tk1NGhxzF3mdWlBmrte1tvIC-THoKXm2_B5N9Xtlt2qnfEhcmYqWVvHsMSJyRw318iv4TV4s-H1sbGToPfF6rRQdUQ8miiHsW0h6DWVrL6sYAXOtLAgO6t9w=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
-  var marker = new mapboxgl.Marker(el)
-  .setLngLat([ -83.9354, 39.7226])
-    .setPopup(popup)
+  var marker = new mapboxgl.Marker(el);
+  .setLngLat([ -83.9354, 39.7226]);
+    .setPopup(popup);
   .addTo(map);
   
 /*Greene County Fairgrounds*/
@@ -1128,15 +1124,15 @@ www.greenecountyfairgrounds.com
 Amenities: Primitive</p>` 
         
 );
-el = document.createElement('div')
-  el.classname = "signs"
+el = document.createElement('div');
+  el.className = 'camping';
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/nIYIrzdXmh2oTna4J8Tk1NGhxzF3mdWlBmrte1tvIC-THoKXm2_B5N9Xtlt2qnfEhcmYqWVvHsMSJyRw318iv4TV4s-H1sbGToPfF6rRQdUQ8miiHsW0h6DWVrL6sYAXOtLAgO6t9w=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
-  var marker = new mapboxgl.Marker(el)
-  .setLngLat([ -83.9421, 39.7002])
-    .setPopup(popup)
+  var marker = new mapboxgl.Marker(el);
+  .setLngLat([ -83.9421, 39.7002]);
+    .setPopup(popup);
   .addTo(map);
   
   /*Greene County Constitution Park*/
@@ -1151,15 +1147,15 @@ https://www.gcparkstrails.com
 Amenities: Primitive, latrine</p>` 
         
 );
-el = document.createElement('div')
-  el.classname = "signs"
+el = document.createElement('div');
+  el.className = 'camping';
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/nIYIrzdXmh2oTna4J8Tk1NGhxzF3mdWlBmrte1tvIC-THoKXm2_B5N9Xtlt2qnfEhcmYqWVvHsMSJyRw318iv4TV4s-H1sbGToPfF6rRQdUQ8miiHsW0h6DWVrL6sYAXOtLAgO6t9w=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
-  var marker = new mapboxgl.Marker(el)
-  .setLngLat([ -84.0132, 39.60629])
-    .setPopup(popup)
+  var marker = new mapboxgl.Marker(el);
+  .setLngLat([ -84.0132, 39.60629]);
+    .setPopup(popup);
   .addTo(map);
   
  /*Todd’s Fork Adventures*/
@@ -1174,15 +1170,15 @@ Call Fred to arrange complimentary camping for bicyclists
 Amenities: Primitive, latrine</p>` 
         
 );
-el = document.createElement('div')
-  el.classname = "signs"
+el = document.createElement('div');
+  el.className = 'camping'
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/nIYIrzdXmh2oTna4J8Tk1NGhxzF3mdWlBmrte1tvIC-THoKXm2_B5N9Xtlt2qnfEhcmYqWVvHsMSJyRw318iv4TV4s-H1sbGToPfF6rRQdUQ8miiHsW0h6DWVrL6sYAXOtLAgO6t9w=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
-  var marker = new mapboxgl.Marker(el)
-  .setLngLat([ -84.1285, 39.3527])
-    .setPopup(popup)
+  var marker = new mapboxgl.Marker(el);
+  .setLngLat([ -84.1285, 39.3527]);
+    .setPopup(popup);
   .addTo(map);
   
  /*Morgan’s Riverside Campground and Cabins*/
@@ -1197,15 +1193,15 @@ Amenities: Full service
 </p>` 
         
 );
-el = document.createElement('div')
-  el.classname = "signs"
+el = document.createElement('div');
+  el.className = 'camping'
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/nIYIrzdXmh2oTna4J8Tk1NGhxzF3mdWlBmrte1tvIC-THoKXm2_B5N9Xtlt2qnfEhcmYqWVvHsMSJyRw318iv4TV4s-H1sbGToPfF6rRQdUQ8miiHsW0h6DWVrL6sYAXOtLAgO6t9w=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
-  var marker = new mapboxgl.Marker(el)
-  .setLngLat([ -84.0933, 39.37939])
-    .setPopup(popup)
+  var marker = new mapboxgl.Marker(el);
+  .setLngLat([ -84.0933, 39.37939]);
+    .setPopup(popup);
   .addTo(map);
   
   /*Lake Isabella Park*/
@@ -1220,14 +1216,14 @@ Amenities: Primitive</p>`
         
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = 'camping';
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/nIYIrzdXmh2oTna4J8Tk1NGhxzF3mdWlBmrte1tvIC-THoKXm2_B5N9Xtlt2qnfEhcmYqWVvHsMSJyRw318iv4TV4s-H1sbGToPfF6rRQdUQ8miiHsW0h6DWVrL6sYAXOtLAgO6t9w=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
-  var marker = new mapboxgl.Marker(el)
-  .setLngLat([ -84.3031, 39.23769])
-    .setPopup(popup)
+  var marker = new mapboxgl.Marker(el);
+  .setLngLat([ -84.3031, 39.23769]);
+    .setPopup(popup);
   .addTo(map);
   
   /*Jim Terrell Park*/
@@ -1242,15 +1238,15 @@ http://www.milfordohio.org/departments/public_works_department/parks_and_recreat
 Amenities: Primitive</p>` 
         
 );
-el = document.createElement('div')
-  el.classname = "signs"
+el = document.createElement('div');
+  el.className = 'camping';
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/nIYIrzdXmh2oTna4J8Tk1NGhxzF3mdWlBmrte1tvIC-THoKXm2_B5N9Xtlt2qnfEhcmYqWVvHsMSJyRw318iv4TV4s-H1sbGToPfF6rRQdUQ8miiHsW0h6DWVrL6sYAXOtLAgO6t9w=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
-  var marker = new mapboxgl.Marker(el)
-  .setLngLat([ -84.2988, 39.1702])
-    .setPopup(popup)
+  var marker = new mapboxgl.Marker(el);
+  .setLngLat([ -84.2988, 39.1702]);
+    .setPopup(popup);
   .addTo(map);
   
  /*Riverside Park*/
@@ -1264,15 +1260,15 @@ http://www.milfordohio.org/document_center/ParkCampingPermit.pdf
 Amenities: Primitive</p>` 
         
 );
-el = document.createElement('div')
-  el.classname = "signs"
+el = document.createElement('div');
+  el.className = 'camping';
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/nIYIrzdXmh2oTna4J8Tk1NGhxzF3mdWlBmrte1tvIC-THoKXm2_B5N9Xtlt2qnfEhcmYqWVvHsMSJyRw318iv4TV4s-H1sbGToPfF6rRQdUQ8miiHsW0h6DWVrL6sYAXOtLAgO6t9w=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
-  var marker = new mapboxgl.Marker(el)
-  .setLngLat([ -84.2955, 39.1763])
-    .setPopup(popup)
+  var marker = new mapboxgl.Marker(el);
+  .setLngLat([ -84.2955, 39.1763]);
+    .setPopup(popup);
   .addTo(map);
   
  /*Bridge of Dreams -- CLOSED*/
@@ -1283,15 +1279,15 @@ http://knoxcountyparks.org/trails/bike-trails/mohican-valley-bike-trail/;       
 </p>` 
         
 );
-el = document.createElement('div')
-  el.classname = "signs"
+el = document.createElement('div');
+  el.className = 'camping';
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/nIYIrzdXmh2oTna4J8Tk1NGhxzF3mdWlBmrte1tvIC-THoKXm2_B5N9Xtlt2qnfEhcmYqWVvHsMSJyRw318iv4TV4s-H1sbGToPfF6rRQdUQ8miiHsW0h6DWVrL6sYAXOtLAgO6t9w=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
-  var marker = new mapboxgl.Marker(el)
-  .setLngLat([ -82.19348, 40.46545])
-    .setPopup(popup)
+  var marker = new mapboxgl.Marker(el);
+  .setLngLat([ -82.19348, 40.46545]);
+    .setPopup(popup);
   .addTo(map);
   
   
@@ -1306,15 +1302,15 @@ el = document.createElement('div')
 </p>` 
         
 );
-el = document.createElement('div')
-  el.classname = "signs"
+el = document.createElement('div');
+  el.className = 'camping';
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/nIYIrzdXmh2oTna4J8Tk1NGhxzF3mdWlBmrte1tvIC-THoKXm2_B5N9Xtlt2qnfEhcmYqWVvHsMSJyRw318iv4TV4s-H1sbGToPfF6rRQdUQ8miiHsW0h6DWVrL6sYAXOtLAgO6t9w=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
-  var marker = new mapboxgl.Marker(el)
-  .setLngLat([ -83.46001, 39.87898])
-    .setPopup(popup)
+  var marker = new mapboxgl.Marker(el);
+  .setLngLat([ -83.46001, 39.87898]);
+    .setPopup(popup);
   .addTo(map);
   
   
@@ -1337,15 +1333,15 @@ https://www.theclevelandhostel.com
 </p>` 
         
 );
-el = document.createElement('div')
-  el.classname = "signs"
+el = document.createElement('div');
+  el.className = 'hotels';
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/zdKhmoVOVo9mXhO-aAvmKWU3tfxbAGHKUsUnud42O0SrwScMGoAIGWKbhyUrn9gOS6-IEsNVNoaXGv_zFMZoqoS-sWZBg5X-xUSiODOvT1PQOuQE0XZs7Dor_6qndDzDXk2jockmpQ=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
-  var marker = new mapboxgl.Marker(el)
-  .setLngLat([ -81.70271, 41.48302])
-    .setPopup(popup)
+  var marker = new mapboxgl.Marker(el);
+  .setLngLat([ -81.70271, 41.48302]);
+    .setPopup(popup);
   .addTo(map);
   
  /*Massillon AirBnB*/
@@ -1357,15 +1353,15 @@ http://bit.ly/2M4TmJC
 </p>` 
         
 );
-el = document.createElement('div')
-  el.classname = "signs"
+el = document.createElement('div');
+  el.className = 'camping';
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/zdKhmoVOVo9mXhO-aAvmKWU3tfxbAGHKUsUnud42O0SrwScMGoAIGWKbhyUrn9gOS6-IEsNVNoaXGv_zFMZoqoS-sWZBg5X-xUSiODOvT1PQOuQE0XZs7Dor_6qndDzDXk2jockmpQ=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
-  var marker = new mapboxgl.Marker(el)
-  .setLngLat([ -81.54443, 40.78417])
-    .setPopup(popup)
+  var marker = new mapboxgl.Marker(el);
+  .setLngLat([ -81.54443, 40.78417]);
+    .setPopup(popup);
   .addTo(map);
   
   /*Berrodin Bed & Breakfast*/
@@ -1379,15 +1375,15 @@ https://berrodinbb.com
 </p>` 
         
 );
-el = document.createElement('div')
-  el.classname = "signs"
+el = document.createElement('div');
+  el.className = 'camping';
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/zdKhmoVOVo9mXhO-aAvmKWU3tfxbAGHKUsUnud42O0SrwScMGoAIGWKbhyUrn9gOS6-IEsNVNoaXGv_zFMZoqoS-sWZBg5X-xUSiODOvT1PQOuQE0XZs7Dor_6qndDzDXk2jockmpQ=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
-  var marker = new mapboxgl.Marker(el)
-  .setLngLat([ -81.54545, 41.09366])
-    .setPopup(popup)
+  var marker = new mapboxgl.Marker(el);
+  .setLngLat([ -81.54545, 41.09366]);
+    .setPopup(popup);
   .addTo(map);
   
  /*Hotel Millersburg*/
@@ -1402,7 +1398,7 @@ https://hotelmillersburg.com
         
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = 'camping'
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/zdKhmoVOVo9mXhO-aAvmKWU3tfxbAGHKUsUnud42O0SrwScMGoAIGWKbhyUrn9gOS6-IEsNVNoaXGv_zFMZoqoS-sWZBg5X-xUSiODOvT1PQOuQE0XZs7Dor_6qndDzDXk2jockmpQ=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
@@ -1425,7 +1421,7 @@ https://www.hearthstoneinn.com/
         
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = 'camping'
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/zdKhmoVOVo9mXhO-aAvmKWU3tfxbAGHKUsUnud42O0SrwScMGoAIGWKbhyUrn9gOS6-IEsNVNoaXGv_zFMZoqoS-sWZBg5X-xUSiODOvT1PQOuQE0XZs7Dor_6qndDzDXk2jockmpQ=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
@@ -1448,7 +1444,7 @@ https://www.hilton.com/en/book/reservation/deeplink/?ctyhocn=CLEDTHX&corporateCo
         
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = 'camping'
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/zdKhmoVOVo9mXhO-aAvmKWU3tfxbAGHKUsUnud42O0SrwScMGoAIGWKbhyUrn9gOS6-IEsNVNoaXGv_zFMZoqoS-sWZBg5X-xUSiODOvT1PQOuQE0XZs7Dor_6qndDzDXk2jockmpQ=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
@@ -1471,7 +1467,7 @@ Mention that you
         
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = 'camping'
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/zdKhmoVOVo9mXhO-aAvmKWU3tfxbAGHKUsUnud42O0SrwScMGoAIGWKbhyUrn9gOS6-IEsNVNoaXGv_zFMZoqoS-sWZBg5X-xUSiODOvT1PQOuQE0XZs7Dor_6qndDzDXk2jockmpQ=w2400)';
   el.style.width = '50px';
   el.style.height = '40px';
@@ -1496,7 +1492,7 @@ https://www.everlastingcup.com/
         
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = 'camping'
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/ce-P1gGXKq8oVV0B0BE66NSyY6jJ-KLA2o4pG8RJEYJ_IG_Y0BgMS85ZdNw7q5rnXu41mPg4ly2E-p9vMjG-jQK09rbd3Blc0SlfmWQm2HMIa_BzepS86HnUxuoVfUerky3oz1qpOg=s200-p-k)';
   el.style.width = '50px';
   el.style.height = '40px';
@@ -1519,7 +1515,7 @@ http://www.lemspizza.com/
         
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = 'camping'
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/ce-P1gGXKq8oVV0B0BE66NSyY6jJ-KLA2o4pG8RJEYJ_IG_Y0BgMS85ZdNw7q5rnXu41mPg4ly2E-p9vMjG-jQK09rbd3Blc0SlfmWQm2HMIa_BzepS86HnUxuoVfUerky3oz1qpOg=s200-p-k)';
   el.style.width = '50px';
   el.style.height = '40px';
@@ -1541,7 +1537,7 @@ Killbuck, OH 44637
         
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = 'camping'
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/ce-P1gGXKq8oVV0B0BE66NSyY6jJ-KLA2o4pG8RJEYJ_IG_Y0BgMS85ZdNw7q5rnXu41mPg4ly2E-p9vMjG-jQK09rbd3Blc0SlfmWQm2HMIa_BzepS86HnUxuoVfUerky3oz1qpOg=s200-p-k)';
   el.style.width = '50px';
   el.style.height = '40px';
@@ -1564,7 +1560,7 @@ https://www.thirdwaycafe.org
         
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = 'camping'
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/ce-P1gGXKq8oVV0B0BE66NSyY6jJ-KLA2o4pG8RJEYJ_IG_Y0BgMS85ZdNw7q5rnXu41mPg4ly2E-p9vMjG-jQK09rbd3Blc0SlfmWQm2HMIa_BzepS86HnUxuoVfUerky3oz1qpOg=s200-p-k)';
   el.style.width = '50px';
   el.style.height = '40px';
@@ -1587,7 +1583,7 @@ https://phatdaddyslondon.com
         
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = 'camping'
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/ce-P1gGXKq8oVV0B0BE66NSyY6jJ-KLA2o4pG8RJEYJ_IG_Y0BgMS85ZdNw7q5rnXu41mPg4ly2E-p9vMjG-jQK09rbd3Blc0SlfmWQm2HMIa_BzepS86HnUxuoVfUerky3oz1qpOg=s200-p-k)';
   el.style.width = '50px';
   el.style.height = '40px';
@@ -1608,7 +1604,7 @@ http://www.whitscustard.com/</p>`
         
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = 'camping'
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/ce-P1gGXKq8oVV0B0BE66NSyY6jJ-KLA2o4pG8RJEYJ_IG_Y0BgMS85ZdNw7q5rnXu41mPg4ly2E-p9vMjG-jQK09rbd3Blc0SlfmWQm2HMIa_BzepS86HnUxuoVfUerky3oz1qpOg=s200-p-k)';
   el.style.width = '50px';
   el.style.height = '40px';
@@ -1629,7 +1625,7 @@ https://www.facebook.com/Mikescoffeebikes/</p>`
         
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = 'camping'
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/ce-P1gGXKq8oVV0B0BE66NSyY6jJ-KLA2o4pG8RJEYJ_IG_Y0BgMS85ZdNw7q5rnXu41mPg4ly2E-p9vMjG-jQK09rbd3Blc0SlfmWQm2HMIa_BzepS86HnUxuoVfUerky3oz1qpOg=s200-p-k)';
   el.style.width = '50px';
   el.style.height = '40px';
@@ -1650,7 +1646,7 @@ https://www.villagecupsc.com/</p>`
         
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = 'camping'
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/ce-P1gGXKq8oVV0B0BE66NSyY6jJ-KLA2o4pG8RJEYJ_IG_Y0BgMS85ZdNw7q5rnXu41mPg4ly2E-p9vMjG-jQK09rbd3Blc0SlfmWQm2HMIa_BzepS86HnUxuoVfUerky3oz1qpOg=s200-p-k)';
   el.style.width = '50px';
   el.style.height = '40px';
@@ -1671,7 +1667,7 @@ www.roeblingpointbooks.com</p>`
         
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = "signs"
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/ce-P1gGXKq8oVV0B0BE66NSyY6jJ-KLA2o4pG8RJEYJ_IG_Y0BgMS85ZdNw7q5rnXu41mPg4ly2E-p9vMjG-jQK09rbd3Blc0SlfmWQm2HMIa_BzepS86HnUxuoVfUerky3oz1qpOg=s200-p-k)';
   el.style.width = '50px';
   el.style.height = '40px';
@@ -1696,7 +1692,7 @@ http://www.devilwindbrewing.com/</p>`
         
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = "signs"
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/zJz41kF-MRlU4nIKY25cpGNvyz_x3rhM4HzOYBNMw6s512kZc34532BzbmuPfeQn0e8eQL5mBT3CicKfYGptrqvgYTP11mNc7VJuG-VTPq-5hW4u_L88I5PwJBoFwsqgaKMHRty_pQ=w2400)';
   el.style.width = '60px';
   el.style.height = '50px';
@@ -1717,7 +1713,7 @@ https://fiftywestbrew.com/</p>`
         
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = "signs"
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/zJz41kF-MRlU4nIKY25cpGNvyz_x3rhM4HzOYBNMw6s512kZc34532BzbmuPfeQn0e8eQL5mBT3CicKfYGptrqvgYTP11mNc7VJuG-VTPq-5hW4u_L88I5PwJBoFwsqgaKMHRty_pQ=w2400)';
   el.style.width = '60px';
   el.style.height = '50px';
@@ -1737,7 +1733,7 @@ http://www.narrowpathbrewing.com/</p>`
         
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = "signs"
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/zJz41kF-MRlU4nIKY25cpGNvyz_x3rhM4HzOYBNMw6s512kZc34532BzbmuPfeQn0e8eQL5mBT3CicKfYGptrqvgYTP11mNc7VJuG-VTPq-5hW4u_L88I5PwJBoFwsqgaKMHRty_pQ=w2400)';
   el.style.width = '60px';
   el.style.height = '50px';
@@ -1757,7 +1753,7 @@ https://www.littlemiamibrewing.com/</p>`
         
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = "signs"
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/zJz41kF-MRlU4nIKY25cpGNvyz_x3rhM4HzOYBNMw6s512kZc34532BzbmuPfeQn0e8eQL5mBT3CicKfYGptrqvgYTP11mNc7VJuG-VTPq-5hW4u_L88I5PwJBoFwsqgaKMHRty_pQ=w2400)';
   el.style.width = '60px';
   el.style.height = '50px';
@@ -1777,7 +1773,7 @@ el = document.createElement('div')
         
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = "signs"
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/zJz41kF-MRlU4nIKY25cpGNvyz_x3rhM4HzOYBNMw6s512kZc34532BzbmuPfeQn0e8eQL5mBT3CicKfYGptrqvgYTP11mNc7VJuG-VTPq-5hW4u_L88I5PwJBoFwsqgaKMHRty_pQ=w2400)';
   el.style.width = '60px';
   el.style.height = '50px';
@@ -1805,7 +1801,7 @@ Nearby Accommodations: The Courtyard by Marriott Akron Downtown is 2.1 miles awa
         
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = "signs"
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/zJz41kF-MRlU4nIKY25cpGNvyz_x3rhM4HzOYBNMw6s512kZc34532BzbmuPfeQn0e8eQL5mBT3CicKfYGptrqvgYTP11mNc7VJuG-VTPq-5hW4u_L88I5PwJBoFwsqgaKMHRty_pQ=w2400)';
   el.style.width = '60px';
   el.style.height = '50px';
@@ -1829,7 +1825,7 @@ Nearby Accommodations: none.</p>`
         
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = "signs"
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/zJz41kF-MRlU4nIKY25cpGNvyz_x3rhM4HzOYBNMw6s512kZc34532BzbmuPfeQn0e8eQL5mBT3CicKfYGptrqvgYTP11mNc7VJuG-VTPq-5hW4u_L88I5PwJBoFwsqgaKMHRty_pQ=w2400)';
   el.style.width = '60px';
   el.style.height = '50px';
@@ -1853,7 +1849,7 @@ Nearby Accommodations: The Courtyard by Marriott Akron Downtown is a few blocks 
         
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = "signs"
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/zJz41kF-MRlU4nIKY25cpGNvyz_x3rhM4HzOYBNMw6s512kZc34532BzbmuPfeQn0e8eQL5mBT3CicKfYGptrqvgYTP11mNc7VJuG-VTPq-5hW4u_L88I5PwJBoFwsqgaKMHRty_pQ=w2400)';
   el.style.width = '60px';
   el.style.height = '50px';
@@ -1877,7 +1873,7 @@ Nearby Accommodations: The Courtyard by Marriott Akron Downtown is 2.1 miles awa
         
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = "signs"
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/zJz41kF-MRlU4nIKY25cpGNvyz_x3rhM4HzOYBNMw6s512kZc34532BzbmuPfeQn0e8eQL5mBT3CicKfYGptrqvgYTP11mNc7VJuG-VTPq-5hW4u_L88I5PwJBoFwsqgaKMHRty_pQ=w2400)';
   el.style.width = '60px';
   el.style.height = '50px';
@@ -1902,7 +1898,7 @@ Nearby Accommodations: none.</p>`
         
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = "signs"
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/zJz41kF-MRlU4nIKY25cpGNvyz_x3rhM4HzOYBNMw6s512kZc34532BzbmuPfeQn0e8eQL5mBT3CicKfYGptrqvgYTP11mNc7VJuG-VTPq-5hW4u_L88I5PwJBoFwsqgaKMHRty_pQ=w2400)';
   el.style.width = '60px';
   el.style.height = '50px';
@@ -1927,7 +1923,7 @@ Nearby Accommodations: Hampton Inn Massillon, about 0.4 miles from Brewery.</p>`
         
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = "signs"
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/zJz41kF-MRlU4nIKY25cpGNvyz_x3rhM4HzOYBNMw6s512kZc34532BzbmuPfeQn0e8eQL5mBT3CicKfYGptrqvgYTP11mNc7VJuG-VTPq-5hW4u_L88I5PwJBoFwsqgaKMHRty_pQ=w2400)';
   el.style.width = '60px';
   el.style.height = '50px';
@@ -1952,7 +1948,7 @@ Nearby Accommodations: Sleep Inn (on Rt.212, 0.2 miles from the brewery, back to
         
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = "signs"
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/zJz41kF-MRlU4nIKY25cpGNvyz_x3rhM4HzOYBNMw6s512kZc34532BzbmuPfeQn0e8eQL5mBT3CicKfYGptrqvgYTP11mNc7VJuG-VTPq-5hW4u_L88I5PwJBoFwsqgaKMHRty_pQ=w2400)';
   el.style.width = '60px';
   el.style.height = '50px';
@@ -1978,7 +1974,7 @@ el = document.createElement('div')
         
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = "signs"
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/zJz41kF-MRlU4nIKY25cpGNvyz_x3rhM4HzOYBNMw6s512kZc34532BzbmuPfeQn0e8eQL5mBT3CicKfYGptrqvgYTP11mNc7VJuG-VTPq-5hW4u_L88I5PwJBoFwsqgaKMHRty_pQ=w2400)';
   el.style.width = '60px';
   el.style.height = '50px';
@@ -2003,7 +1999,7 @@ el = document.createElement('div')
         
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = "signs"
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/zJz41kF-MRlU4nIKY25cpGNvyz_x3rhM4HzOYBNMw6s512kZc34532BzbmuPfeQn0e8eQL5mBT3CicKfYGptrqvgYTP11mNc7VJuG-VTPq-5hW4u_L88I5PwJBoFwsqgaKMHRty_pQ=w2400)';
   el.style.width = '60px';
   el.style.height = '50px';
@@ -2031,7 +2027,7 @@ https://erniesbikeshop.com
         
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = "signs"
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/VRs_RNYOrXe64tHbRvT97ie_c2tJsRS2aI1gCiyJRqK-1o6WrxIfP50z4xCaTJoeGEICpbR00wSris6fHSgN_YjU25wUiS4wCuDYvu55pd5bp7KhC7TevcOdEXX2__lSkZh09BFtNg=w2400)';
   el.style.width = '60px';
   el.style.height = '50px';
@@ -2055,7 +2051,7 @@ https://www.trekbikes.com/us/en_US/retail/westerville_northgate/
         
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = "signs"
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/VRs_RNYOrXe64tHbRvT97ie_c2tJsRS2aI1gCiyJRqK-1o6WrxIfP50z4xCaTJoeGEICpbR00wSris6fHSgN_YjU25wUiS4wCuDYvu55pd5bp7KhC7TevcOdEXX2__lSkZh09BFtNg=w2400)';
   el.style.width = '60px';
   el.style.height = '50px';
@@ -2078,7 +2074,7 @@ https://www.bishopsbicycles.net/
         
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = "signs"
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/VRs_RNYOrXe64tHbRvT97ie_c2tJsRS2aI1gCiyJRqK-1o6WrxIfP50z4xCaTJoeGEICpbR00wSris6fHSgN_YjU25wUiS4wCuDYvu55pd5bp7KhC7TevcOdEXX2__lSkZh09BFtNg=w2400)';
   el.style.width = '60px';
   el.style.height = '50px';
@@ -2102,7 +2098,7 @@ https://roadsriversandtrails.com/
         
 );
 el = document.createElement('div')
-  el.classname = "signs"
+  el.className = "signs"
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/VRs_RNYOrXe64tHbRvT97ie_c2tJsRS2aI1gCiyJRqK-1o6WrxIfP50z4xCaTJoeGEICpbR00wSris6fHSgN_YjU25wUiS4wCuDYvu55pd5bp7KhC7TevcOdEXX2__lSkZh09BFtNg=w2400)';
   el.style.width = '60px';
   el.style.height = '50px';
@@ -2140,7 +2136,9 @@ map.addControl(new mapboxgl.NavigationControl());
 </script>
 
 
+</body>
 
+</html>
 
 
  
