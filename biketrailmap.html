@@ -26,8 +26,8 @@
   
   <a class="active" href="#"><i class="fa fa-map"></i></a> 
   <a href="#" onclick="toggle('signs')"><i class="fa fa-map-signs"></i></a>  <!--Trailheads-->
-  <a href="#"  onclick="toggle('miles')"><i class="fa fa-bicycle"></i></a> <!--Mile Markers-->
-  <a href="#"  onclick="toggle('repairs')"><i class="fa fa-road"></i></a> <!--Bike SHop/Repair-->
+  <a href="#"  onclick="toggle('repairs')"><i class="fa fa-bicycle"></i></a> <!--Mile Markers-->
+  <a href="#"  onclick="toggle('miles')"><i class="fa fa-road"></i></a> <!--Bike SHop/Repair-->
   <a href="#" onclick="toggle('closures')"><i class="fa fa-exclamation-triangle"></i></a> <!--Route Closures/Alerts-->
   <a href="#"  onclick="toggle('camping')"><i class="fa fa-fire"></i></a> <!--Camping-->
   <a href="#"  onclick="toggle('hotels')"><i class="fa fa-bed"></i></a> <!--Hotels-->
@@ -97,9 +97,7 @@ map.setFog({}); // Set the default atmosphere style
  el.style.width = '60px';
   el.style.height = '45px';
   el.style.backgroundSize = '100%';
-  
-
-
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([-84.50835, 39.09619])
     .setPopup(popup)
@@ -119,6 +117,7 @@ map.setFog({}); // Set the default atmosphere style
   el.style.width = '60px';
   el.style.height = '45px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([-83.93114, 39.68031])
     .setPopup(popup)
@@ -142,8 +141,8 @@ el = document.createElement('div')
  el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
-   
   .setLngLat([-84.00982, 39.60592])
     .setPopup(popup)
   .addTo(map);
@@ -159,6 +158,7 @@ el = document.createElement('div')
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([-84.07958, 39.52474])
     .setPopup(popup)
@@ -175,6 +175,7 @@ el = document.createElement('div')
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -84.09766, 39.452])
     .setPopup(popup)
@@ -191,6 +192,7 @@ el = document.createElement('div')
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -84.13464, 39.35472])
     .setPopup(popup)
@@ -207,6 +209,7 @@ el = document.createElement('div')
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -84.21723, 39.3662])
     .setPopup(popup)
@@ -223,6 +226,7 @@ el = document.createElement('div')
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -84.29953,39.17161])
     .setPopup(popup)
@@ -240,6 +244,7 @@ el = document.createElement('div')
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -84.34205, 39.13931])
     .setPopup(popup)
@@ -256,6 +261,7 @@ el = document.createElement('div')
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -84.4301, 39.10436])
     .setPopup(popup)
@@ -272,6 +278,7 @@ el = document.createElement('div')
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -83.63795, 39.82131])
     .setPopup(popup)
@@ -288,6 +295,7 @@ el = document.createElement('div')
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -83.46085, 39.879])
     .setPopup(popup)
@@ -304,6 +312,7 @@ el = document.createElement('div')
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -83.21356, 39.89386])
     .setPopup(popup)
@@ -320,6 +329,7 @@ el = document.createElement('div')
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -83.09675, 39.94902])
     .setPopup(popup)
@@ -336,6 +346,7 @@ el = document.createElement('div')
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -82.93956, 39.98721])
     .setPopup(popup)
@@ -352,6 +363,7 @@ el = document.createElement('div')
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -82.92686, 40.12307])
     .setPopup(popup)
@@ -368,6 +380,7 @@ el = document.createElement('div')
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -82.88149, 40.21977])
     .setPopup(popup)
@@ -384,6 +397,7 @@ el = document.createElement('div')
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -82.6922, 40.3099])
     .setPopup(popup)
@@ -401,6 +415,7 @@ el = document.createElement('div')
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -82.48695, 40.38856])
     .setPopup(popup)
@@ -418,6 +433,7 @@ el = document.createElement('div')
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -82.3908, 40.36917])
     .setPopup(popup)
@@ -435,6 +451,7 @@ el = document.createElement('div')
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -82.26615, 40.44365])
     .setPopup(popup)
@@ -452,6 +469,7 @@ el = document.createElement('div')
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([  -82.19279, 40.4654])
     .setPopup(popup)
@@ -469,6 +487,7 @@ el = document.createElement('div')
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([  -82.09778, 40.51816])
     .setPopup(popup)
@@ -486,6 +505,7 @@ el = document.createElement('div')
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([  -81.98139, 40.50406])
     .setPopup(popup)
@@ -503,6 +523,7 @@ el = document.createElement('div')
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([  -81.9212, 40.55368])
     .setPopup(popup)
@@ -520,6 +541,7 @@ el = document.createElement('div')
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([  -81.87244, 40.67532])
     .setPopup(popup)
@@ -537,6 +559,7 @@ el = document.createElement('div')
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([  -81.69024, 40.79793])
     .setPopup(popup)
@@ -554,6 +577,7 @@ el = document.createElement('div')
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([  -81.52842, 40.81154])
     .setPopup(popup)
@@ -571,6 +595,7 @@ el = document.createElement('div')
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([  -81.52842, 40.81154])
     .setPopup(popup)
@@ -588,6 +613,7 @@ el = document.createElement('div')
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([  -81.51565, 41.08951])
     .setPopup(popup)
@@ -605,6 +631,7 @@ el = document.createElement('div')
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([  -81.55032, 41.2432])
     .setPopup(popup)
@@ -623,6 +650,7 @@ el = document.createElement('div')
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([  -81.62887, 41.39333])
     .setPopup(popup)
@@ -640,6 +668,7 @@ el = document.createElement('div')
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([  -81.51857, 41.08788])
     .setPopup(popup)
@@ -657,6 +686,7 @@ el = document.createElement('div')
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([  -84.25778, 39.26813])
     .setPopup(popup)
@@ -674,6 +704,7 @@ el = document.createElement('div')
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([  -83.80511, 39.74015])
     .setPopup(popup)
@@ -691,6 +722,7 @@ el = document.createElement('div')
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([  -84.25122, 39.32232])
     .setPopup(popup)
@@ -708,6 +740,7 @@ el = document.createElement('div')
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([  -81.55706, 41.26302])
     .setPopup(popup)
@@ -725,6 +758,7 @@ el = document.createElement('div')
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([   -81.57367, 41.15818])
     .setPopup(popup)
@@ -742,6 +776,7 @@ el = document.createElement('div')
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -81.58762, 41.31843])
     .setPopup(popup)
@@ -759,6 +794,7 @@ el = document.createElement('div')
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -84.29311, 39.19016])
     .setPopup(popup)
@@ -776,6 +812,7 @@ el = document.createElement('div')
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -81.68221, 41.44714])
     .setPopup(popup)
@@ -793,6 +830,7 @@ el = document.createElement('div')
  el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -81.68631, 41.4705])
     .setPopup(popup)
@@ -810,6 +848,7 @@ el = document.createElement('div')
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -82.85956, 40.23891,])
     .setPopup(popup)
@@ -837,6 +876,7 @@ el = document.createElement('div');
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -81.55549, 41.24024,])
     .setPopup(popup)
@@ -859,6 +899,7 @@ el = document.createElement('div');
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([  -81.54, 41.1275,])
     .setPopup(popup)
@@ -880,6 +921,7 @@ el = document.createElement('div');
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([  -81.6195, 40.9435])
     .setPopup(popup)
@@ -903,6 +945,7 @@ el = document.createElement('div')
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([  -81.6195, 40.9264])
     .setPopup(popup)
@@ -925,6 +968,7 @@ el = document.createElement('div');
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([  -81.59959, 40.88839])
     .setPopup(popup)
@@ -947,6 +991,7 @@ el = document.createElement('div');
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([   -81.5939, 40.8579])
     .setPopup(popup)
@@ -969,6 +1014,7 @@ el = document.createElement('div');
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([   -81.52499, 40.8316])
     .setPopup(popup)
@@ -991,6 +1037,7 @@ el = document.createElement('div')
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([   -81.9066, 40.5146])
     .setPopup(popup)
@@ -1013,6 +1060,7 @@ el = document.createElement('div');
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([   -82.2835, 40.402])
     .setPopup(popup)
@@ -1040,6 +1088,7 @@ el = document.createElement('div');
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([-82.5594, 40.3676,])
     .setPopup(popup)
@@ -1063,6 +1112,7 @@ el = document.createElement('div');
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -83.44789, 39.8958])
     .setPopup(popup)
@@ -1085,6 +1135,7 @@ el = document.createElement('div');
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -83.4597, 39.879])
     .setPopup(popup)
@@ -1107,6 +1158,7 @@ el = document.createElement('div');
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -83.9354, 39.7226])
     .setPopup(popup)
@@ -1129,6 +1181,7 @@ el = document.createElement('div');
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -83.9421, 39.7002])
     .setPopup(popup)
@@ -1152,6 +1205,7 @@ el = document.createElement('div');
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -84.0132, 39.60629])
     .setPopup(popup)
@@ -1175,6 +1229,7 @@ el = document.createElement('div');
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -84.1285, 39.3527])
     .setPopup(popup)
@@ -1198,6 +1253,7 @@ el = document.createElement('div');
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -84.0933, 39.37939])
     .setPopup(popup)
@@ -1220,6 +1276,7 @@ el = document.createElement('div')
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -84.3031, 39.23769])
     .setPopup(popup)
@@ -1243,6 +1300,7 @@ el = document.createElement('div');
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -84.2988, 39.1702])
     .setPopup(popup)
@@ -1265,6 +1323,7 @@ el = document.createElement('div');
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -84.2955, 39.1763])
     .setPopup(popup)
@@ -1284,6 +1343,7 @@ el = document.createElement('div');
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -82.19348, 40.46545])
     .setPopup(popup)
@@ -1307,6 +1367,7 @@ el = document.createElement('div');
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -83.46001, 39.87898])
     .setPopup(popup)
@@ -1338,6 +1399,7 @@ el = document.createElement('div');
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -81.70271, 41.48302])
     .setPopup(popup)
@@ -1358,6 +1420,7 @@ el = document.createElement('div');
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -81.54443, 40.78417])
     .setPopup(popup)
@@ -1380,6 +1443,7 @@ el = document.createElement('div');
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -81.54545, 41.09366])
     .setPopup(popup)
@@ -1402,6 +1466,7 @@ el = document.createElement('div')
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -81.91786, 40.55411])
     .setPopup(popup)
@@ -1425,6 +1490,7 @@ el = document.createElement('div')
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -83.80512, 39.73936])
     .setPopup(popup)
@@ -1448,6 +1514,7 @@ el = document.createElement('div')
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -81.68906, 41.50255])
     .setPopup(popup)
@@ -1471,6 +1538,7 @@ el = document.createElement('div')
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -81.60223, 40.88941])
     .setPopup(popup)
@@ -1496,6 +1564,7 @@ el = document.createElement('div')
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([  -82.48555, 40.38755])
     .setPopup(popup)
@@ -1519,6 +1588,7 @@ el = document.createElement('div')
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([  -81.87064, 40.67664])
     .setPopup(popup)
@@ -1541,6 +1611,7 @@ el = document.createElement('div')
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([  -81.98457, 40.49522])
     .setPopup(popup)
@@ -1564,6 +1635,7 @@ el = document.createElement('div')
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([  -83.08204, 39.95472])
     .setPopup(popup)
@@ -1587,6 +1659,7 @@ el = document.createElement('div')
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([  -83.4464, 39.88535])
     .setPopup(popup)
@@ -1608,6 +1681,7 @@ el = document.createElement('div')
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -82.48567, 40.38823])
     .setPopup(popup)
@@ -1629,6 +1703,7 @@ el = document.createElement('div')
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -83.44603, 39.88377])
     .setPopup(popup)
@@ -1650,6 +1725,7 @@ el = document.createElement('div')
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -83.63504, 39.82499])
     .setPopup(popup)
@@ -1671,8 +1747,53 @@ el = document.createElement('div')
   el.style.width = '50px';
   el.style.height = '40px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -84.50793, 39.08869])
+    .setPopup(popup)
+  .addTo(map);
+
+
+  /*Winking Lizard*/
+  
+  var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Winking Lizard Peninsula</h3><p>Details from Google Maps
+1615 Main St, Peninsula, OH 44264
+www.winkinglizard.com
++1 330-467-1002</p>` 
+        
+);
+el = document.createElement('div')
+  el.className = 'food'
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/ce-P1gGXKq8oVV0B0BE66NSyY6jJ-KLA2o4pG8RJEYJ_IG_Y0BgMS85ZdNw7q5rnXu41mPg4ly2E-p9vMjG-jQK09rbd3Blc0SlfmWQm2HMIa_BzepS86HnUxuoVfUerky3oz1qpOg=s200-p-k)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  el.style.display = 'none';
+  var marker = new mapboxgl.Marker(el)
+  .setLngLat([ -81.54906, 41.24149])
+    .setPopup(popup)
+  .addTo(map);
+
+
+  /*Mile 42 Coffee*/
+  
+  var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Winking Lizard Peninsula</h3><p>Details from Google Maps
+1615 Main St, Peninsula, OH 44264
+www.winkinglizard.com
++1 330-467-1002</p>` 
+        
+);
+el = document.createElement('div')
+  el.className = 'food'
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/ce-P1gGXKq8oVV0B0BE66NSyY6jJ-KLA2o4pG8RJEYJ_IG_Y0BgMS85ZdNw7q5rnXu41mPg4ly2E-p9vMjG-jQK09rbd3Blc0SlfmWQm2HMIa_BzepS86HnUxuoVfUerky3oz1qpOg=s200-p-k)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  el.style.display = 'none';
+  var marker = new mapboxgl.Marker(el)
+  .setLngLat([ -81.54906, 41.24149])
     .setPopup(popup)
   .addTo(map);
   
@@ -1696,6 +1817,7 @@ el = document.createElement('div')
   el.style.width = '60px';
   el.style.height = '50px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -83.92962, 39.68279])
     .setPopup(popup)
@@ -1717,6 +1839,7 @@ el = document.createElement('div')
   el.style.width = '60px';
   el.style.height = '50px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -84.35287, 39.13823])
     .setPopup(popup)
@@ -1737,6 +1860,7 @@ el = document.createElement('div')
   el.style.width = '60px';
   el.style.height = '50px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -84.25883, 39.26858])
     .setPopup(popup)
@@ -1757,6 +1881,7 @@ el = document.createElement('div')
   el.style.width = '60px';
   el.style.height = '50px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -84.29729, 39.17207])
     .setPopup(popup)
@@ -1777,6 +1902,7 @@ el = document.createElement('div')
   el.style.width = '60px';
   el.style.height = '50px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -84.24131, 39.35101])
     .setPopup(popup)
@@ -1805,6 +1931,7 @@ el = document.createElement('div')
   el.style.width = '60px';
   el.style.height = '50px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -81.52931, 41.07414])
     .setPopup(popup)
@@ -1829,6 +1956,7 @@ el = document.createElement('div')
   el.style.width = '60px';
   el.style.height = '50px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -81.55094, 41.13907])
     .setPopup(popup)
@@ -1853,6 +1981,7 @@ el = document.createElement('div')
   el.style.width = '60px';
   el.style.height = '50px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -81.51721, 41.09158])
     .setPopup(popup)
@@ -1877,6 +2006,7 @@ el = document.createElement('div')
   el.style.width = '60px';
   el.style.height = '50px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -81.52680, 41.07072])
     .setPopup(popup)
@@ -1902,6 +2032,7 @@ el = document.createElement('div')
   el.style.width = '60px';
   el.style.height = '50px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -81.54854, 41.02480])
     .setPopup(popup)
@@ -1927,6 +2058,7 @@ el = document.createElement('div')
   el.style.width = '60px';
   el.style.height = '50px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -81.52197, 40.79904])
     .setPopup(popup)
@@ -1952,6 +2084,7 @@ el = document.createElement('div')
   el.style.width = '60px';
   el.style.height = '50px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -81.44405, 40.63871])
     .setPopup(popup)
@@ -1978,6 +2111,7 @@ el = document.createElement('div')
   el.style.width = '60px';
   el.style.height = '50px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -83.01142, 39.95784])
     .setPopup(popup)
@@ -2003,6 +2137,7 @@ el = document.createElement('div')
   el.style.width = '60px';
   el.style.height = '50px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -83.06927, 39.96758])
     .setPopup(popup)
@@ -2026,11 +2161,12 @@ https://erniesbikeshop.com
         
 );
 el = document.createElement('div')
-  el.className = 'miles'
+  el.className = 'repairs'
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/VRs_RNYOrXe64tHbRvT97ie_c2tJsRS2aI1gCiyJRqK-1o6WrxIfP50z4xCaTJoeGEICpbR00wSris6fHSgN_YjU25wUiS4wCuDYvu55pd5bp7KhC7TevcOdEXX2__lSkZh09BFtNg=w2400)';
   el.style.width = '60px';
   el.style.height = '50px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -81.52903, 40.81179])
     .setPopup(popup)
@@ -2050,11 +2186,12 @@ https://www.trekbikes.com/us/en_US/retail/westerville_northgate/
         
 );
 el = document.createElement('div')
-  el.className = 'miles'
+  el.className = 'repairs'
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/VRs_RNYOrXe64tHbRvT97ie_c2tJsRS2aI1gCiyJRqK-1o6WrxIfP50z4xCaTJoeGEICpbR00wSris6fHSgN_YjU25wUiS4wCuDYvu55pd5bp7KhC7TevcOdEXX2__lSkZh09BFtNg=w2400)';
   el.style.width = '60px';
   el.style.height = '50px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -82.91895, 40.14879])
     .setPopup(popup)
@@ -2073,11 +2210,12 @@ https://www.bishopsbicycles.net/
         
 );
 el = document.createElement('div')
-  el.className = 'miles'
+  el.className = 'repairs'
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/VRs_RNYOrXe64tHbRvT97ie_c2tJsRS2aI1gCiyJRqK-1o6WrxIfP50z4xCaTJoeGEICpbR00wSris6fHSgN_YjU25wUiS4wCuDYvu55pd5bp7KhC7TevcOdEXX2__lSkZh09BFtNg=w2400)';
   el.style.width = '60px';
   el.style.height = '50px';
   el.style.backgroundSize = '100%';
+  el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
   .setLngLat([ -84.29516, 39.1755])
     .setPopup(popup)
@@ -2097,7 +2235,7 @@ https://roadsriversandtrails.com/
         
 );
 el = document.createElement('div')
-  el.className = 'miles'
+  el.className = 'repairs'
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/VRs_RNYOrXe64tHbRvT97ie_c2tJsRS2aI1gCiyJRqK-1o6WrxIfP50z4xCaTJoeGEICpbR00wSris6fHSgN_YjU25wUiS4wCuDYvu55pd5bp7KhC7TevcOdEXX2__lSkZh09BFtNg=w2400)';
   el.style.width = '60px';
   el.style.height = '50px';
@@ -2107,11 +2245,369 @@ el = document.createElement('div')
   .setLngLat([ -84.29588, 39.17362])
     .setPopup(popup)
   .addTo(map);
+
+
+  /*Paradise Garage */
+  
+  var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Paradise Garage</h3><p>
+    921 N High St, Columbus, OH 43201
+www.paradisegarage.com
++1 614-299-0899
+  </p>` 
+        
+);
+el = document.createElement('div')
+  el.className = 'repairs'
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/VRs_RNYOrXe64tHbRvT97ie_c2tJsRS2aI1gCiyJRqK-1o6WrxIfP50z4xCaTJoeGEICpbR00wSris6fHSgN_YjU25wUiS4wCuDYvu55pd5bp7KhC7TevcOdEXX2__lSkZh09BFtNg=w2400)';
+  el.style.width = '60px';
+  el.style.height = '50px';
+  el.style.backgroundSize = '100%';
+  el.style.display = 'none';
+  var marker = new mapboxgl.Marker(el)
+  .setLngLat([ -83.00463, 39.98117])
+    .setPopup(popup)
+  .addTo(map);
   
   
-  /* Sights*/
+  /* Sights/Nature/Historical*/
+
+/*Squire Rich Historical Museum*/
+
+var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Squire Rich Historical Museum</h3><p>
+    Details from Google Maps
+9367 Brecksville Rd, Brecksville, OH 44141
+www.brecksvillehistoricalassociation.org
+  </p>` 
+        
+);
+el = document.createElement('div')
+  el.className = 'sights'
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/JoW7j626BuoJlnFW6EIrNyk8js9baBzkMqZpUc-sqPUb4RQJsCC39B5EkoDks3LufKjfWXMK-eGhhmeKTy6zcJ0nRaFJKiZGIHI5E5HIADp2PJBWQRvDgXpNaIVelx93FvQgDTDYkQ=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  el.style.display = 'none';
+  var marker = new mapboxgl.Marker(el)
+  .setLngLat([ -81.6266, 41.3072])
+    .setPopup(popup)
+  .addTo(map);
+
+
+/*Loveland Castle */
+
+var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Loveland Castle </h3><p>Details from Google Maps
+12025 Shore Dr, Loveland, OH 45140
+lovelandcastle.com
++1 513-683-4686
+  </p>` 
+        
+);
+el = document.createElement('div')
+  el.className = 'sights'
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/JoW7j626BuoJlnFW6EIrNyk8js9baBzkMqZpUc-sqPUb4RQJsCC39B5EkoDks3LufKjfWXMK-eGhhmeKTy6zcJ0nRaFJKiZGIHI5E5HIADp2PJBWQRvDgXpNaIVelx93FvQgDTDYkQ=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  el.style.display = 'none';
+  var marker = new mapboxgl.Marker(el)
+  .setLngLat([ -84.26597, 39.28353])
+    .setPopup(popup)
+  .addTo(map);
+
+
+/*Caesar Creek Gorge State Nature Preserve */
+
+var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Caesar Creek Gorge State Nature Preserve</h3><p>Details from Google Maps
+4080 Corwin Rd, Oregonia, OH 45054
+naturepreserves.ohiodnr.gov
++1 614-265-6561
+  </p>` 
+        
+);
+el = document.createElement('div')
+  el.className = 'sights'
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/JoW7j626BuoJlnFW6EIrNyk8js9baBzkMqZpUc-sqPUb4RQJsCC39B5EkoDks3LufKjfWXMK-eGhhmeKTy6zcJ0nRaFJKiZGIHI5E5HIADp2PJBWQRvDgXpNaIVelx93FvQgDTDYkQ=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  el.style.display = 'none';
+  var marker = new mapboxgl.Marker(el)
+  .setLngLat([ -84.10171, 39.49165])
+    .setPopup(popup)
+  .addTo(map);
+
+  /*Cleveland Script Sign - Edgewater Park */
+
+var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Cleveland Script Sign - Edgewater Park</h3><p>Details from Google Maps
+Cleveland Memorial Shoreway, Cleveland, OH 44102
+www.thisiscleveland.com
++1 800-321-1001
+  </p>` 
+        
+);
+el = document.createElement('div')
+  el.className = 'sights'
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/RUeS1nflwsbmrKldIFDz6eGhP6d-v5iCNQs8Ye_eTpAzaYQ6zer0PC9THhR97kkiTx5zN_37TQGshu20nc87PBOkt7TIM9OM8kN9CgpJQVI6AUpFp7xp7y5MK1F2ek00wsWdmQrsww=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  el.style.display = 'none';
+  var marker = new mapboxgl.Marker(el)
+  .setLngLat([ -81.74927, 41.48757])
+    .setPopup(popup)
+  .addTo(map);
+
+
+
+  /*Cascade Valley Metro Park-Chuckery Area*/
+
+var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Cascade Valley Metro Park-Chuckery Area</h3><p>837 Cuyahoga St, Akron, OH 44313
+www.summitmetroparks.org
++1 330-867-5511
+  </p>` 
+        
+);
+el = document.createElement('div')
+  el.className = 'sights'
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/JoW7j626BuoJlnFW6EIrNyk8js9baBzkMqZpUc-sqPUb4RQJsCC39B5EkoDks3LufKjfWXMK-eGhhmeKTy6zcJ0nRaFJKiZGIHI5E5HIADp2PJBWQRvDgXpNaIVelx93FvQgDTDYkQ=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  el.style.display = 'none';
+  var marker = new mapboxgl.Marker(el)
+  .setLngLat([ -81.52497, 41.11201])
+    .setPopup(popup)
+  .addTo(map);
+
+
+/*Cuyahoga Valley National Park*/
+
+var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Cuyahoga Valley National Park</h3><p>Ohio
+www.nps.gov
++1 330-657-2752
+  </p>` 
+        
+);
+el = document.createElement('div')
+  el.className = 'sights'
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/JoW7j626BuoJlnFW6EIrNyk8js9baBzkMqZpUc-sqPUb4RQJsCC39B5EkoDks3LufKjfWXMK-eGhhmeKTy6zcJ0nRaFJKiZGIHI5E5HIADp2PJBWQRvDgXpNaIVelx93FvQgDTDYkQ=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  el.style.display = 'none';
+  var marker = new mapboxgl.Marker(el)
+  .setLngLat([ -81.56781, 41.28082])
+    .setPopup(popup)
+  .addTo(map);
+
+
+
+/*Sing the Queen City Sign*/
+
+var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Sing the Queen City Sign</h3><p>25 E Freedom Way, Cincinnati, OH 45202
+www.artworkscincinnati.org
++1 513-333-0388
+  </p>` 
+        
+);
+el = document.createElement('div')
+  el.className = 'sights'
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/Ftk6pRrx67YfZnCh33NJuh_E6aNuXwKrH32BEmhgNx-9B7p9yKm4XFS8oc3izaiQJIplPJoKyRQ-ht9oIVJYC7eMrpwwhw1MIyvuShPmYLw3MTIGjEJyDomSyNi3zA-WWQEQfN8HgQ=w2400)';
+  el.style.width = '60px';
+  el.style.height = '50px';
+  el.style.backgroundSize = '100%';
+  el.style.display = 'none';
+  var marker = new mapboxgl.Marker(el)
+  .setLngLat([ -84.51108, 39.0967])
+    .setPopup(popup)
+  .addTo(map);
+
+
+/*Buttermilk Falls*/
+
+var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Buttermilk Falls</h3><p>Buttermilk Falls, Brecksville, OH 44141
+  </p>` 
+        
+);
+el = document.createElement('div')
+  el.className = 'sights'
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/JoW7j626BuoJlnFW6EIrNyk8js9baBzkMqZpUc-sqPUb4RQJsCC39B5EkoDks3LufKjfWXMK-eGhhmeKTy6zcJ0nRaFJKiZGIHI5E5HIADp2PJBWQRvDgXpNaIVelx93FvQgDTDYkQ=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  el.style.display = 'none';
+  var marker = new mapboxgl.Marker(el)
+  .setLngLat([ -81.56734, 41.26283])
+    .setPopup(popup)
+  .addTo(map);
+
+
+/*Brandywine Falls*/
+
+var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Brandywine Falls</h3><p>8176 Brandywine Rd, Northfield, OH 44067
+www.nps.gov
++1 440-717-3890
+  </p>` 
+        
+);
+el = document.createElement('div')
+  el.className = 'sights'
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/JoW7j626BuoJlnFW6EIrNyk8js9baBzkMqZpUc-sqPUb4RQJsCC39B5EkoDks3LufKjfWXMK-eGhhmeKTy6zcJ0nRaFJKiZGIHI5E5HIADp2PJBWQRvDgXpNaIVelx93FvQgDTDYkQ=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  el.style.display = 'none';
+  var marker = new mapboxgl.Marker(el)
+  .setLngLat([ -81.53854, 41.27685])
+    .setPopup(popup)
+  .addTo(map);
+
+
+
+/*Boston Mill Visitor Center*/
+
+var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Boston Mill Visitor Center</h3><p>6947 Riverview Rd, Peninsula, OH 44264
+www.nps.gov
++1 440-717-3890
+  </p>` 
+        
+);
+el = document.createElement('div')
+  el.className = 'sights'
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/JoW7j626BuoJlnFW6EIrNyk8js9baBzkMqZpUc-sqPUb4RQJsCC39B5EkoDks3LufKjfWXMK-eGhhmeKTy6zcJ0nRaFJKiZGIHI5E5HIADp2PJBWQRvDgXpNaIVelx93FvQgDTDYkQ=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  el.style.display = 'none';
+  var marker = new mapboxgl.Marker(el)
+  .setLngLat([ -81.56031, 41.26259])
+    .setPopup(popup)
+  .addTo(map);
+
+
+/*Beaver Marsh*/
+
+var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Boston Mill Visitor Center</h3><p>Beaver Marsh, Cuyahoga Falls, OH 44264
+  </p>` 
+        
+);
+el = document.createElement('div')
+  el.className = 'sights'
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/JoW7j626BuoJlnFW6EIrNyk8js9baBzkMqZpUc-sqPUb4RQJsCC39B5EkoDks3LufKjfWXMK-eGhhmeKTy6zcJ0nRaFJKiZGIHI5E5HIADp2PJBWQRvDgXpNaIVelx93FvQgDTDYkQ=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  el.style.display = 'none';
+  var marker = new mapboxgl.Marker(el)
+  .setLngLat([ -81.5808, 41.18827])
+    .setPopup(popup)
+  .addTo(map);
+
+
+
 
   /*closures*/
+
+
+
+  /*Route Detour-Trail Closure Begin Grandin Road Construction Zone */
+  
+  var popup = new mapboxgl.Popup().setHTML( 
+  `<h3> Route Detour-Trail Closure Begin Grandin Road Construction Zone</h3><p>
+    Update on trail closure: Starting May 9th approximately 1,000 ft. in each direction of the Grandin Rd intersection will be closed for construction for the duration of 2022. We understand this is disappointing, but this is not an ODNR project and we have no control of construction timing. We are doing our best to keep trail users updated. Please follow link below for up to date project information. There will be no posted detour because there is no complete off road alternative.
+                     
+                     Little Miami State Park. —  29 April 2022
+  </p>` 
+        
+);
+el = document.createElement('div')
+  el.className = 'closures'
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/NnBpeNMEerAUXj7tcj2XsA6Ouv3FZtX4p6ygkV7v_s4Fe3uj1s_75NoPNWq9iAJF0GLTqPhCtSdAZ9eXoWOeEcIYSBlP46RQ0lSc4Dp5vk0RWMaFPtS8EORMvhcmGHuBt6vvezg8yg=w2400)';
+  el.style.width = '50px';
+  el.style.height = '53px';
+  el.style.backgroundSize = '100%';
+  el.style.display = 'none';
+  var marker = new mapboxgl.Marker(el)
+  .setLngLat([ -84.25143, 39.32204])
+    .setPopup(popup)
+  .addTo(map);
+
+
+   /*Route Detour-Trail Closure End Grandin Road Construction Zone*/
+  
+   var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Trail Closure End Construction</h3><p>
+    Update on trail closure: Starting May 9th approximately 1,000 ft. in each direction of the Grandin Rd intersection will be closed for construction for the duration of 2022. We understand this is disappointing, but this is not an ODNR project and we have no control of construction timing. We are doing our best to keep trail users updated. Please follow link below for up to date project information. There will be no posted detour because there is no complete off road alternative.
+                     
+                     Little Miami State Park. —  29 April 2022
+  </p>` 
+        
+);
+el = document.createElement('div')
+  el.className = 'closures'
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/NnBpeNMEerAUXj7tcj2XsA6Ouv3FZtX4p6ygkV7v_s4Fe3uj1s_75NoPNWq9iAJF0GLTqPhCtSdAZ9eXoWOeEcIYSBlP46RQ0lSc4Dp5vk0RWMaFPtS8EORMvhcmGHuBt6vvezg8yg=w2400)';
+  el.style.width = '50px';
+  el.style.height = '53px';
+  el.style.backgroundSize = '100%';
+  el.style.display = 'none';
+  var marker = new mapboxgl.Marker(el)
+  .setLngLat([ -84.21827, 39.3663])
+    .setPopup(popup)
+  .addTo(map);
+
+
+/*Massillon Optional Street Route Begin*/
+  var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Massillon Optional Street Route Begin</h3><p>
+    Optional street route to avoid the Massillon levee construction zone
+  </p>` 
+        
+);
+el = document.createElement('div')
+  el.className = 'closures'
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/NnBpeNMEerAUXj7tcj2XsA6Ouv3FZtX4p6ygkV7v_s4Fe3uj1s_75NoPNWq9iAJF0GLTqPhCtSdAZ9eXoWOeEcIYSBlP46RQ0lSc4Dp5vk0RWMaFPtS8EORMvhcmGHuBt6vvezg8yg=w2400)';
+  el.style.width = '50px';
+  el.style.height = '53px';
+  el.style.backgroundSize = '100%';
+  el.style.display = 'none';
+  var marker = new mapboxgl.Marker(el)
+  .setLngLat([ -81.52655, 40.7935])
+    .setPopup(popup)
+  .addTo(map);
+
+
+
+  /*Massillon Optional Street Route End*/
+  var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Massillon Optional Street Route End</h3><p>
+    Optional street route to avoid the Massillon levee construction zone
+  </p>` 
+        
+);
+el = document.createElement('div')
+  el.className = 'closures'
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/NnBpeNMEerAUXj7tcj2XsA6Ouv3FZtX4p6ygkV7v_s4Fe3uj1s_75NoPNWq9iAJF0GLTqPhCtSdAZ9eXoWOeEcIYSBlP46RQ0lSc4Dp5vk0RWMaFPtS8EORMvhcmGHuBt6vvezg8yg=w2400)';
+  el.style.width = '50px';
+  el.style.height = '53px';
+  el.style.backgroundSize = '100%';
+  el.style.display = 'none';
+  var marker = new mapboxgl.Marker(el)
+  .setLngLat([ -81.52916, 40.81156])
+    .setPopup(popup)
+  .addTo(map);
+
 
   /*mile markers*/
   
