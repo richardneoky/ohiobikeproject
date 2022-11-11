@@ -1,7 +1,7 @@
 
 
 
-<!DOCTYPE html>
+<!DOCTYPE html><!DOCTYPE html>
 <html>
 <head>
 <div id="map"></div>
@@ -13,7 +13,175 @@
 <script src="./biketrailmap.js"></script>
 <script src="https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js"></script>
   
+    <!--Weather-->
+  
+ <link
+ href="https://api.mapbox.com/mapbox-gl-js/v2.3.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
+  
+  
+   <link
+      rel="stylesheet"
+      href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css"
+      type="text/css"
+    /> 
+    
  
+   
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js"></script>
+  
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      
+      }
+      #weather {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        z-index: 10;
+        font-family: Helvetica, Arial, sans-serif;
+        background-color: #fff;
+        opacity: 0.75;
+        padding: 10px;
+        visibility: hidden;
+      }
+      #city-name,
+      #temp,
+      #conditions {
+        margin: 0;
+      }
+    </style>
+  
+  </head>
+  
+  <body>
+    
+    <div id="weather">
+      <h4 id="city-name"></h4>
+      <h1 id="temp"></h1>
+      <h5 id="conditions"></h5>
+    </div>
+  
+    <script>
+      // set up API credentials
+      mapboxgl.accessToken = "pk.eyJ1IjoicmlubWFuODciLCJhIjoiY2s5ZDRrOXNmMDN6djNmcDd0eHVhcXNnMSJ9.lSA6fQZIptHf4g5lmD6SMA";
+      const twcApiKey = "8042786b38064cbb82786b3806fcbbf9";
+
+      // set up a promise for The Weather Company product metadata
+      const timeSlices = fetch(
+        "https://api.weather.com/v3/TileServer/series/productSet/PPAcore?apiKey=" +
+          twcApiKey
+      );
+
+      // set DOM elements for the current conditions info
+      const weatherWidget = document.getElementById("weather");
+      const cityName = document.getElementById("city-name");
+      const temp = document.getElementById("temp");
+      const conditions = document.getElementById("conditions");
+
+      // set up map and geocoder control
+      const map = new mapboxgl.Map({
+        container: "map", // container id
+        style: 'mapbox://styles/rinman87/cl6gyhfmn001j15oergm1k37x', // style URL
+        center: [-83.09675, 39.94902], // starting position [lng, lat]
+        zoom: 7, // starting zoom
+      });
+        
+        
+     
+
+      const geocoder = new MapboxGeocoder({
+        accessToken: mapboxgl.accessToken,
+        mapboxgl: mapboxgl,
+      });
+
+      map.addControl(geocoder);
+
+      // this function resolves the metadata promise,
+      // extracts the most recent publish time for radar data,
+      // and adds the radar layer to the map
+      const addRadarLayer = () => {
+        timeSlices
+          .then((res) => res.json())
+          .then((res) => {
+            const radarTimeSlices = res.seriesInfo.radar.series;
+            const latestTimeSlice = radarTimeSlices[0].ts;
+
+            // insert the latest time for radar into the source data URL
+            map.addSource("twcRadar", {
+              type: "raster",
+              tiles: [
+                "https://api.weather.com/v3/TileServer/tile/radar?ts=" +
+                  latestTimeSlice +
+                  "&xyz={x}:{y}:{z}&apiKey=" +
+                  twcApiKey,
+              ],
+              tileSize: 256,
+            });
+
+            // place the layer before the "aeroway-line" layer
+            map.addLayer(
+              {
+                id: "radar",
+                type: "raster",
+                source: "twcRadar",
+                paint: {
+                  "raster-opacity": 0.5,
+                },
+              },
+              "aeroway-line"
+            );
+          });
+      };
+      
+      // this function gets the current conditions
+      // and displays data from the respons in the
+      // DOM elements extracted above
+      const getCurrentConditions = (e) => {
+        // saving data from the Mapbox Search response
+        const cityNameText = e.result.text;
+        const longitude = e.result.geometry.coordinates[0];
+        const latitude = e.result.geometry.coordinates[1];
+
+        // set up the observations endpoint request URL
+        // with the Search result coordinates
+        const currentConditionsURL =
+          "https://api.weather.com/v1/geocode/" +
+          latitude +
+          "/" +
+          longitude +
+          "/observations.json?language=en-US&units=e&apiKey=" +
+          twcApiKey;
+
+        fetch(currentConditionsURL)
+          .then((res) => res.json())
+          .then((res) => {
+            const tempText = res.observation.temp;
+            const conditionsText = res.observation.wx_phrase;
+
+            weatherWidget.style.visibility = "visible";
+            cityName.innerText = cityNameText;
+            temp.innerText = tempText;
+            conditions.innerText = conditionsText;
+          });
+      };
+
+      map.on("load", () => {
+        addRadarLayer();
+      });
+
+     // geocoder.on("result", (e) => {
+        //getCurrentConditions(e);
+      });
+    </script>
+    
+    <!--Weather End-->
+  
+
   
   <!--Turn Markers On And Off/Design Custom Buttons-->
   
@@ -46,21 +214,13 @@
 <img class="logo" src="https://lh3.googleusercontent.com/salaALZAlUz5VN9mj585IgJ3SVtuR0sca6LZuGhw4blPLAVaG1KmSg9lvOs1MD9m7Wa5erlYWsILYj6OH7zYgdzWHP56GIVJ6pPkK8O6Wfm7DszWYshzWnSTpRMJPICZbRz0Zz0P-Q=w2400"/>
   
 
-  
-  
-   
-    
-
-
-
- 
  
 <script>
 mapboxgl.accessToken = 'pk.eyJ1IjoicmlubWFuODciLCJhIjoiY2s5ZDRrOXNmMDN6djNmcDd0eHVhcXNnMSJ9.lSA6fQZIptHf4g5lmD6SMA';
   
 const map = new mapboxgl.Map({
 container: 'map', // container ID
-style: 'mapbox://styles/rinman87/cl6gyhfmn001j15oergm1k37x', // style URL
+style: 'mapbox://styles/rinman87/cl6gyhfmn001j15oergm1k37x',  //style URL
 center: [-83.09675, 39.94902], // starting position [lng, lat]
 zoom: 7, // starting zoom
 projection: 'globe' // display the map as a 3D globe
@@ -76,8 +236,6 @@ map.addSource('tileset_data',{
 map.setFog({}); // Set the default atmosphere style
 });
 
-
-  
 
 
 //mapbox marker
@@ -1374,8 +1532,30 @@ el = document.createElement('div');
   .addTo(map);
   
   
+   /*Camp Friedlander*/
   
+   var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Camp Friedlander</h3><p>581 Ibold Rd, Loveland, OH 45140
+danbeard.org
++1 513-831-8311
+</p>` 
+        
+);
+el = document.createElement('div');
+  el.className = 'camping';
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/nIYIrzdXmh2oTna4J8Tk1NGhxzF3mdWlBmrte1tvIC-THoKXm2_B5N9Xtlt2qnfEhcmYqWVvHsMSJyRw318iv4TV4s-H1sbGToPfF6rRQdUQ8miiHsW0h6DWVrL6sYAXOtLAgO6t9w=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  el.style.display = 'none';
+  var marker = new mapboxgl.Marker(el)
+  .setLngLat([ -84.27718, 39.21767])
+    .setPopup(popup)
+  .addTo(map);
   
+
+
+
   
   
 /*Campsite MArker End*/
@@ -1543,6 +1723,96 @@ el = document.createElement('div')
   .setLngLat([ -81.60223, 40.88941])
     .setPopup(popup)
   .addTo(map);
+
+
+
+ /*Kickstand Lodging*/
+ var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Kickstand Lodging</h3><p>17 Main St, Spring Valley, OH 45370
++1 937-657-2941
+</p>` 
+        
+);
+el = document.createElement('div')
+  el.className = 'hotels'
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/zdKhmoVOVo9mXhO-aAvmKWU3tfxbAGHKUsUnud42O0SrwScMGoAIGWKbhyUrn9gOS6-IEsNVNoaXGv_zFMZoqoS-sWZBg5X-xUSiODOvT1PQOuQE0XZs7Dor_6qndDzDXk2jockmpQ=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  el.style.display = 'none';
+  var marker = new mapboxgl.Marker(el)
+  .setLngLat([ -84.00903, 39.60825])
+    .setPopup(popup)
+  .addTo(map);
+
+
+/*Inn At Brandywine Falls*/
+var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Inn At Brandywine Falls</h3><p>8230 Brandywine Rd, Northfield, OH 44067
+www.innatbrandywinefalls.com
++1 330-467-1812
+</p>` 
+        
+);
+el = document.createElement('div')
+  el.className = 'hotels'
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/zdKhmoVOVo9mXhO-aAvmKWU3tfxbAGHKUsUnud42O0SrwScMGoAIGWKbhyUrn9gOS6-IEsNVNoaXGv_zFMZoqoS-sWZBg5X-xUSiODOvT1PQOuQE0XZs7Dor_6qndDzDXk2jockmpQ=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  el.style.display = 'none';
+  var marker = new mapboxgl.Marker(el)
+  .setLngLat([ -81.53864, 41.27798])
+    .setPopup(popup)
+  .addTo(map);
+
+
+/*Hearthstone Inn & Suites*/
+var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>IHearthstone Inn & Suites</h3><p>10 S Main St, Cedarville, OH 45314
+hearthstoneinn.com
++1 937-766-3000
+</p>` 
+        
+);
+el = document.createElement('div')
+  el.className = 'hotels'
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/zdKhmoVOVo9mXhO-aAvmKWU3tfxbAGHKUsUnud42O0SrwScMGoAIGWKbhyUrn9gOS6-IEsNVNoaXGv_zFMZoqoS-sWZBg5X-xUSiODOvT1PQOuQE0XZs7Dor_6qndDzDXk2jockmpQ=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  el.style.display = 'none';
+  var marker = new mapboxgl.Marker(el)
+  .setLngLat([ -83.80541, 39.73967])
+    .setPopup(popup)
+  .addTo(map);
+
+
+
+/*Stanford Houses*/
+var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Stanford House</h3><p>6093 Stanford Rd, Peninsula, OH 44264
+www.conservancyforcvnp.org
++1 330-657-2909 ext. 130
+</p>` 
+        
+);
+el = document.createElement('div')
+  el.className = 'hotels'
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/zdKhmoVOVo9mXhO-aAvmKWU3tfxbAGHKUsUnud42O0SrwScMGoAIGWKbhyUrn9gOS6-IEsNVNoaXGv_zFMZoqoS-sWZBg5X-xUSiODOvT1PQOuQE0XZs7Dor_6qndDzDXk2jockmpQ=w2400)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  el.style.display = 'none';
+  var marker = new mapboxgl.Marker(el)
+  .setLngLat([ -81.55685, 41.27114])
+    .setPopup(popup)
+  .addTo(map);
+
+
+
+
+
   
  /*Hotel End*/
   
@@ -1606,7 +1876,7 @@ Killbuck, OH 44637
         
 );
 el = document.createElement('div')
-  el.className = 'hotels'
+  el.className = 'food'
   el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/ce-P1gGXKq8oVV0B0BE66NSyY6jJ-KLA2o4pG8RJEYJ_IG_Y0BgMS85ZdNw7q5rnXu41mPg4ly2E-p9vMjG-jQK09rbd3Blc0SlfmWQm2HMIa_BzepS86HnUxuoVfUerky3oz1qpOg=s200-p-k)';
   el.style.width = '50px';
   el.style.height = '40px';
@@ -1779,10 +2049,9 @@ el = document.createElement('div')
   /*Mile 42 Coffee*/
   
   var popup = new mapboxgl.Popup().setHTML( 
-  `<h3>Winking Lizard Peninsula</h3><p>Details from Google Maps
-1615 Main St, Peninsula, OH 44264
-www.winkinglizard.com
-+1 330-467-1002</p>` 
+  `<h3>Mile 42 Coffee</h3><p>133 Broadway St, Loveland, OH 45140
+mile42coffee.com
++1 513-900-9480</p>` 
         
 );
 el = document.createElement('div')
@@ -1793,9 +2062,102 @@ el = document.createElement('div')
   el.style.backgroundSize = '100%';
   el.style.display = 'none';
   var marker = new mapboxgl.Marker(el)
-  .setLngLat([ -81.54906, 41.24149])
+  .setLngLat([ -84.25891, 39.26617])
     .setPopup(popup)
   .addTo(map);
+
+
+
+ /*The Miamiville Trailyard*/
+  
+ var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>The Miamiville Trailyard</h3><p>368 Center St, Loveland, OH 45140
+miamivilletrailyard.com
++1 513-248-9200</p>` 
+        
+);
+el = document.createElement('div')
+  el.className = 'food'
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/ce-P1gGXKq8oVV0B0BE66NSyY6jJ-KLA2o4pG8RJEYJ_IG_Y0BgMS85ZdNw7q5rnXu41mPg4ly2E-p9vMjG-jQK09rbd3Blc0SlfmWQm2HMIa_BzepS86HnUxuoVfUerky3oz1qpOg=s200-p-k)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  el.style.display = 'none';
+  var marker = new mapboxgl.Marker(el)
+  .setLngLat([ -84.29804, 39.2131])
+    .setPopup(popup)
+  .addTo(map);
+
+
+/*Schoolhouse Restaurant*/
+  
+var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Schoolhouse Restaurant</h3><p>8031 Glendale Milford Rd, Camp Dennison, OH 45111
+www.theschoolhousecincinnati.com
++1 513-831-5753</p>` 
+        
+);
+el = document.createElement('div')
+  el.className = 'food'
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/ce-P1gGXKq8oVV0B0BE66NSyY6jJ-KLA2o4pG8RJEYJ_IG_Y0BgMS85ZdNw7q5rnXu41mPg4ly2E-p9vMjG-jQK09rbd3Blc0SlfmWQm2HMIa_BzepS86HnUxuoVfUerky3oz1qpOg=s200-p-k)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  el.style.display = 'none';
+  var marker = new mapboxgl.Marker(el)
+  .setLngLat([ -84.2899, 39.19918])
+    .setPopup(popup)
+  .addTo(map);
+
+
+/*Little River Bar and Grill*/
+  
+var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Little River Bar and Grill</h3><p>Details from Google Maps
+5527 Oregonia Rd, Oregonia, OH 45054
+www.littleriverbarandgrill.com
++1 513-932-4000</p>` 
+        
+);
+el = document.createElement('div')
+  el.className = 'food'
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/ce-P1gGXKq8oVV0B0BE66NSyY6jJ-KLA2o4pG8RJEYJ_IG_Y0BgMS85ZdNw7q5rnXu41mPg4ly2E-p9vMjG-jQK09rbd3Blc0SlfmWQm2HMIa_BzepS86HnUxuoVfUerky3oz1qpOg=s200-p-k)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  el.style.display = 'none';
+  var marker = new mapboxgl.Marker(el)
+  .setLngLat([ -84.09673, 39.45218])
+    .setPopup(popup)
+  .addTo(map);
+
+
+
+/*Delaney's Diner*/
+  
+var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Delaney's Diner</h3><p>6150 E Main St, Columbus, OH 43213
+www.delaneysdiner.com
++1 614-626-2006</p>` 
+        
+);
+el = document.createElement('div')
+  el.className = 'food'
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/ce-P1gGXKq8oVV0B0BE66NSyY6jJ-KLA2o4pG8RJEYJ_IG_Y0BgMS85ZdNw7q5rnXu41mPg4ly2E-p9vMjG-jQK09rbd3Blc0SlfmWQm2HMIa_BzepS86HnUxuoVfUerky3oz1qpOg=s200-p-k)';
+  el.style.width = '50px';
+  el.style.height = '40px';
+  el.style.backgroundSize = '100%';
+  el.style.display = 'none';
+  var marker = new mapboxgl.Marker(el)
+  .setLngLat([ -82.83227, 39.95548])
+    .setPopup(popup)
+  .addTo(map);
+
+
+
+
+
+
   
   /*Fodd and Coffee End*/
   
@@ -2142,6 +2504,59 @@ el = document.createElement('div')
   .setLngLat([ -83.06927, 39.96758])
     .setPopup(popup)
   .addTo(map); 
+
+
+/*Cappy's Wine and Spirits */
+  
+var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>Cappy's Wine and Spirits</h3><p>
+    309 W Loveland Ave, Loveland, OH 45140
+www.lovelandcappys.com
++1 513-677-2599
+  </p>` 
+        
+);
+el = document.createElement('div')
+  el.className = 'beer'
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/zJz41kF-MRlU4nIKY25cpGNvyz_x3rhM4HzOYBNMw6s512kZc34532BzbmuPfeQn0e8eQL5mBT3CicKfYGptrqvgYTP11mNc7VJuG-VTPq-5hW4u_L88I5PwJBoFwsqgaKMHRty_pQ=w2400)';
+  el.style.width = '60px';
+  el.style.height = '50px';
+  el.style.backgroundSize = '100%';
+  el.style.display = 'none';
+  var marker = new mapboxgl.Marker(el)
+  .setLngLat([ -84.26007, 39.26809])
+    .setPopup(popup)
+  .addTo(map); 
+
+
+
+/*The Monkey Bar & Grille */
+  
+var popup = new mapboxgl.Popup().setHTML( 
+  `<h3>The Monkey Bar & Grille</h3><p>7837 Old 3C Hwy, Maineville, OH 45039
+themonkeybarandgrille.com
++1 513-781-4246
+  </p>` 
+        
+);
+el = document.createElement('div')
+  el.className = 'beer'
+  el.style.backgroundImage = 'url(https://lh3.googleusercontent.com/zJz41kF-MRlU4nIKY25cpGNvyz_x3rhM4HzOYBNMw6s512kZc34532BzbmuPfeQn0e8eQL5mBT3CicKfYGptrqvgYTP11mNc7VJuG-VTPq-5hW4u_L88I5PwJBoFwsqgaKMHRty_pQ=w2400)';
+  el.style.width = '60px';
+  el.style.height = '50px';
+  el.style.backgroundSize = '100%';
+  el.style.display = 'none';
+  var marker = new mapboxgl.Marker(el)
+  .setLngLat([ -84.25195, 39.32201])
+    .setPopup(popup)
+  .addTo(map); 
+
+
+
+
+
+
+
   
   /*Brewery End*/
   
@@ -2630,8 +3045,7 @@ el = document.createElement('div')
 // Add zoom and rotation controls to the map.
 map.addControl(new mapboxgl.NavigationControl());
 </script>
-
-
+  
 </body>
 
 </html>

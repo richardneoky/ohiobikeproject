@@ -1,145 +1,196 @@
 .logo{
-    position: absolute;
-          right: 0px;
-          top:-50px;
-          width: 200px;
-          max-width: 50%;
-          height: auto;
-          opacity: 100%;
-  }
-  
-  /*buttons begin*/
-  
-  .button {
-    width: 60%;
-    background-color: #D6D58E;
-    overflow: auto;
-    z-index: -1;
-  
-  }
-  
-  .button a{
-    float: left;
-    width: 20%;
-    text-align: center;
-    padding: 12px 0;
-    transition: all 0.3s ease;
-    color: white;
-    font-size: 25px;
-    position: relative;
-     background-color: #005C53;
-  }
-  
-  .button a:hover {
-    background-color: #000;
-    
-  }
-  
-  .active {
-    background-color: #D6D58E;
-  }
-    @media only screen and (max-width: 600px) {
-    .button {
-    width: 20%;
-    background-color: #D6D58E;
-    overflow: auto;
-    z-index: -1;
-  
-  }
-  
-  .button a{
-    float: left;
-    width: 20%;
-    text-align: center;
-    padding: 12px 0;
-    transition: all 0.3s ease;
-    color: white;
-    font-size: 25px;
-    position: relative;
-     background-color: #005C53;
-  }
-  
-  .button a:hover {
-    background-color: #000;
-    
-  }
-  
-  .active {
-    background-color: #D6D58E;
-  }
-    }
-    @media only screen and (min-width: 601px) {
-    .button {
-    width: 20%;
-    background-color: #D6D58E;
-    overflow: auto;
-    z-index: -1;
-  
-  }
-  
-  .button a{
-    float: left;
-    width: 20%;
-    text-align: center;
-    padding: 12px 0;
-    transition: all 0.3s ease;
-    color: white;
-    font-size: 25px;
-    position: relative;
-     background-color: #005C53;
-  }
-  
-  .button a:hover {
-    background-color: #000;
-    
-  }
-  
-  .active {
-    background-color: #D6D58E;
-  }
-    }
-    
-    @media only screen and (max-width: 375px) {
-    .button {
-    width: 20%;
-    background-color: #D6D58E;
-    overflow: auto;
-    z-index: -1;
-  
-  }
-  
-  .button a{
-    float: left;
-    width: 20%;
-    text-align: center;
-    padding: 12px 0;
-    transition: all 0.3s ease;
-    color: white;
-    font-size: 25px;
-    position: relative;
-     background-color: #005C53;
-  }
-  
-  .button a:hover {
-    background-color: #000;
-    
-  }
-  
-  .active {
-    background-color: #D6D58E;
-  }
-    }
-  /*buttons end*/
-  
-  /*map css*/
-  body { margin: 0; padding: 0; }
-  #map { position: absolute; top: 0; bottom: 0; width: 100%; }
-  /*map css end*/
+  position: absolute;
+  right: 200px;
+  top: -50px;
+        width: 200px;
+        max-width: 50%;
+        height: auto;
+        opacity: 100%;
+}
 
-  /*.mapboxgl-marker {
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    border:1px solid gray;
-    background-color:lightblue;
+/*buttons begin*/
+/**/
+.button {
+  width: 60%;
+  /*background-color: #D6D58E;*/
+  overflow: auto;
+  z-index: -1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.button a{
+  float: left;
+  width: 20%;
+  text-align: center;
+  padding: 12px 0;
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 25px;
+  position: relative;
+   background-color: #005C53;
+   display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.button a:hover {
+  background-color: #D6D58E;
+  
+}
+
+.active {
+  background-color: #D6D58E;
+}
+
+
+
+
+
+
+  @media only screen and (max-width: 600px) {
+  .button {
+  width: 20%;
+  /*background-color: #D6D58E;*/
+  overflow: auto;
+  z-index: -1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.button a{
+  float: left;
+  width: 20%;
+  text-align: center;
+  padding: 12px 0;
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 25px;
+  position: relative;
+   background-color: #005C53;
+   display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.button a:hover {
+  background-color: #D6D58E;
+  
+}
+
+.active {
+  background-color: #D6D58E;
+}
+
+
+
+
+
+
+
+
+
+
+  }
+  @media only screen and (min-width: 601px) {
+  .button {
+  width: 20%;
+  /*background-color: #D6D58E;*/
+  overflow: auto;
+  z-index: -1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+}
+
+.button a{
+  float: left;
+  width: 20%;
+  text-align: center;
+  padding: 12px 0;
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 25px;
+  position: relative;
+   background-color: #005C53;
+   display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.button a:hover {
+  background-color: #D6D58E;
+  
+}
+
+.active {
+  background-color: #D6D58E;
+}
+  }
+
+
+
+
+
+
+
+  
+  @media only screen and (min-width: 300px) {
+  .button {
+  width: 20%;
+  /*background-color: #D6D58E;*/
+  overflow: auto;
+  z-index: -1;
+
+}
+
+.button a{
+  float: left;
+  width: 20%;
+  text-align: center;
+  padding: 12px 0;
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 25px;
+  position: relative;
+   background-color: #005C53;
+}
+
+.button a:hover {
+  background-color: #D6D58E;
+  
+}
+
+.active {
+  background-color: #D6D58E;
+}
+  }
+
+/*buttons end*/
+
+
+
+
+
+
+
+/*map css*/
+body { margin: 0; padding: 0; }
+#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+/*map css end*/
+
+/*.mapboxgl-marker {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border:1px solid gray;
+  background-color:lightblue;
 }*/
+
+
+
+/*Weather*/
+
