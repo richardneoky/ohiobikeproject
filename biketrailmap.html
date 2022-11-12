@@ -1,47 +1,64 @@
 
 
 
-<!DOCTYPE html><!DOCTYPE html>
-<html>
-<head>
-<div id="map"></div>
-<meta charset="utf-8">
-<title>Display a map on a webpage</title>
-<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
-<link href="https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css" rel="stylesheet">
-<link href="./biketrailmap.css" rel="stylesheet">
-<script src="./biketrailmap.js"></script>
-<script src="https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js"></script>
-  
-    <!--Weather-->
-  
- <link
- href="https://api.mapbox.com/mapbox-gl-js/v2.3.0/mapbox-gl.css"
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+     
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TWC + Mapbox</title>
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v2.3.0/mapbox-gl.css"
       rel="stylesheet"
     />
-  
-  
-   <link
+    <link
       rel="stylesheet"
       href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css"
       type="text/css"
-    /> 
-    
- 
-   
+    />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.3.0/mapbox-gl.js"></script>
     <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js"></script>
+    
+    
+      
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css" rel="stylesheet">
+
+<link href="./biketrailmap.css" rel="stylesheet">
+
+<script src="./biketrailmap.js"></script>
+
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js"></script>
   
+
+
+    
+    
+    
+    
     <style>
       body {
         margin: 0;
         padding: 0;
       }
-      
+      #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
       }
       #weather {
         position: absolute;
         top: 20px;
-        left: 20px;
+        left: 50px;
         z-index: 10;
         font-family: Helvetica, Arial, sans-serif;
         background-color: #fff;
@@ -55,17 +72,14 @@
         margin: 0;
       }
     </style>
-  
   </head>
-  
   <body>
-    
     <div id="weather">
       <h4 id="city-name"></h4>
       <h1 id="temp"></h1>
       <h5 id="conditions"></h5>
     </div>
-  
+    <div id="map"></div>
     <script>
       // set up API credentials
       mapboxgl.accessToken = "pk.eyJ1IjoicmlubWFuODciLCJhIjoiY2s5ZDRrOXNmMDN6djNmcDd0eHVhcXNnMSJ9.lSA6fQZIptHf4g5lmD6SMA";
@@ -86,13 +100,22 @@
       // set up map and geocoder control
       const map = new mapboxgl.Map({
         container: "map", // container id
-        style: 'mapbox://styles/rinman87/cl6gyhfmn001j15oergm1k37x', // style URL
+        style: 'mapbox://styles/rinman87/cl6gyhfmn001j15oergm1k37x',  // style URL
         center: [-83.09675, 39.94902], // starting position [lng, lat]
-        zoom: 7, // starting zoom
+        zoom: 6, // starting zoom
       });
-        
-        
-     
+      
+      map.on('style.load', () => {
+map.addSource('tileset_data',{
+  "url": "rinman87.8z8wdd05",
+  "type": "vector"
+});
+map.setFog({}); // Set the default atmosphere style
+});
+      
+      
+      
+      
 
       const geocoder = new MapboxGeocoder({
         accessToken: mapboxgl.accessToken,
@@ -137,7 +160,7 @@
             );
           });
       };
-      
+
       // this function gets the current conditions
       // and displays data from the respons in the
       // DOM elements extracted above
@@ -174,18 +197,13 @@
         addRadarLayer();
       });
 
-     // geocoder.on("result", (e) => {
-        //getCurrentConditions(e);
+      geocoder.on("result", (e) => {
+        getCurrentConditions(e);
       });
     </script>
     
-    <!--Weather End-->
-  
-
-  
-  <!--Turn Markers On And Off/Design Custom Buttons-->
-  
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 
@@ -212,36 +230,13 @@
   
 <!--logo-->
 <img class="logo" src="https://lh3.googleusercontent.com/salaALZAlUz5VN9mj585IgJ3SVtuR0sca6LZuGhw4blPLAVaG1KmSg9lvOs1MD9m7Wa5erlYWsILYj6OH7zYgdzWHP56GIVJ6pPkK8O6Wfm7DszWYshzWnSTpRMJPICZbRz0Zz0P-Q=w2400"/>
-  
-
- 
-<script>
-mapboxgl.accessToken = 'pk.eyJ1IjoicmlubWFuODciLCJhIjoiY2s5ZDRrOXNmMDN6djNmcDd0eHVhcXNnMSJ9.lSA6fQZIptHf4g5lmD6SMA';
-  
-const map = new mapboxgl.Map({
-container: 'map', // container ID
-style: 'mapbox://styles/rinman87/cl6gyhfmn001j15oergm1k37x',  //style URL
-center: [-83.09675, 39.94902], // starting position [lng, lat]
-zoom: 7, // starting zoom
-projection: 'globe' // display the map as a 3D globe
-});
- 
-  
-
-map.on('style.load', () => {
-map.addSource('tileset_data',{
-  "url": "rinman87.8z8wdd05",
-  "type": "vector"
-});
-map.setFog({}); // Set the default atmosphere style
-});
 
 
 
-//mapbox marker
 
-
- let el
+<!--markers-->
+  <script>
+let el
  
    /*Trailheads*/
 
@@ -3028,16 +3023,6 @@ el = document.createElement('div')
   
   
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
 </script>
 
 <!--Zoom Controls-->
@@ -3046,9 +3031,7 @@ el = document.createElement('div')
 map.addControl(new mapboxgl.NavigationControl());
 </script>
   
-</body>
 
+
+  </body>
 </html>
-
-
- 
