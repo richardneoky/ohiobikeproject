@@ -3,3 +3,5 @@ This project is meant to be a planning aid for a bike trip I will be embarking o
 
 
 Start with the landing page, where you can interact with several JS functions. When you are ready to move on, click the map button and explore the map and its different markers. Click on each marker for an informational pop-up. 
+
+One main function I wanted and something crucial for planning a bike trip of this nature, is weather. I have a feature where you can type in a location and it will give you a three part, simple, clean weahter report. There is also live cloud cover indicating the types of clouds with a traditional weather radar look. 
